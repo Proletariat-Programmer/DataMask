@@ -31,6 +31,8 @@
 
 激活程序 conda activate pyclone
 
+检查安装 PyClone --help
+
 测试1 直接生成结果 PyClone build_mutations_file --in_flies xxx.tsv --out_file yyy.yaml
 
 测试2 PyClone run_analysis_pipeline --in_files xxx.tsv --working_dir test_dir
@@ -56,29 +58,57 @@
 
 ##### 数据分析
 
+###### cli入口
+
 cli处理逻辑
 
 读取餐素
 
 加载各个模块(解析参数->进行分析->分析管道流->建立突变文件->绘制clusters->绘制loci->建表)
 
-最终args.func(args)运行功能
-
----
-
-
-
 _setup_run_analysis_parser分析函数：加载参数,设随机种子，最后运行parser.set_defaults(func=run.run_analysis)函数处理
 
+_setup_analysis_pipeline_parser分析管道流：加载参数，增加_process参数，设随机种子，读取输出格式(默认pdf，还可以svg)，设最大clusters，mesh大小，最小clusters。最后运行parser.set_defaults(func=run.run_analysis_pipeline)
 
-
-_setup_analysis_pipeline_parser分析管道流：加载参数，增加_process参数，设随机种子，读取输出格式(默认pdf，还可以svg)，设最大clusters，mesh大小，最小clusters。
-
-最后运行parser.set_defaults(func=run.run_analysis_pipeline)
+_setup_build_table_parser建表：加载outfile，table_type
 
 ---
 
+###### run承接
 
+**run_analysis** 
+
+加载随机种子，加载配置文件，若配置中'concentration浓度'.'先验'存在则加载，加载num_iters，加载density密度
+
+判断浓度是否为二项式或贝塔二项式，是则加载对应函数，否则raise Exception报错
+
+**run_analysis_pipeline**
+
+加载配置，调用_setup_analysis，加载tables路径且创建文件，对于['cluster', 'loci']进行绘图，
+
+绘图明细
+
+```python
+    plots = [
+        ('cluster', 'density'),
+        ('cluster', 'parallel_coordinates'),
+        ('cluster', 'scatter'),
+        ('loci', 'density'),
+        ('loci', 'parallel_coordinates'),
+        ('loci', 'scatter'),
+        ('loci', 'similarity_matrix'),
+        ('loci', 'vaf_parallel_coordinates'),
+        ('loci', 'vaf_scatter')
+    ]
+```
+
+-----
+
+###### 建表
+
+
+
+###### 文件一览
 
 | cli                     | 程序入口                           |
 | ----------------------- | ---------------------------------- |
@@ -99,4 +129,53 @@ _setup_analysis_pipeline_parser分析管道流：加载参数，增加_process�
 分为polt文件夹 clusters集群 loci基因
 
 后两者会被polt文件夹中的代码调用，最终生成图像
+
+#### 数据集样例解读
+
+125行9列无缺省字段
+
+ref_counts variant_freq PEARSON相关有0.95
+
+minor_cn major_cn 相关系数-1
+
+
+
+#### 调研机器学习算法实现
+
+#### 代码逻辑结构图
+
+
+
+## 基础操作指引
+
+#### 数据聚类
+
+**SciPy 聚类包**。  from scipy.cluster.vq import *
+
+```python
+from scipy.cluster.vq import *
+from numpy.random import randn
+from numpy import array
+from numpy import vstack
+
+class1 = 1.5 * randn(100,2)
+class2 = randn(100,2) + array([5,5])
+
+features = vstack((class1,class2))
+# 上面的代码生成两类二维正态分布数据。用 k=2 对这些数据进行聚类：
+centroids,variance = kmeans(features,2)
+'''
+由于 SciPy 中实现的 K-means 会计算若干次（默认为 20 次），并为我们选择方差最 小的结果，所以这里返回的方差并不是我们真正需要的。现在，你可以用 SciPy 包 中的矢量量化函数对每个数据点进行归类：
+'''
+code,distance = vq(features,centroids)
+# 通过上面得到的 code，我们可以检查是否有归类错误。为了将其可视化，我们可以 画出这些数据点及最终的聚类中心
+
+figure() ndx = where(code==0)[0]
+
+plot(features[ndx,0],features[ndx,1],'*') ndx = where(code==1)[0] plot(features[ndx,0],features[ndx,1],'r.')
+
+plot(centroids[:,0],centroids[:,1],'go') axis('off')
+
+show()
+```
 

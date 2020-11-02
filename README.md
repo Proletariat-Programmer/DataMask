@@ -41,14 +41,14 @@
 
 #### 输入格式
 
-大多数用户将通过创建一组制表符分隔（tsv）输入文件来使用PyClone，每个文件来自癌症的每个样本。此文件的必填列如下。
+使用制表符分隔（tsv）输入文件来使用PyClone，每个文件来自癌症的每个样本。此文件的必填列如下
 
 - variant_id：突变的唯一标识符。跨数据集应该是相同的。
 - ref_counts：与参考等位基因匹配的基因座重叠的读段数。
-- var_counts：与匹配变异等位基因的基因座重叠的读段数。
-- normal_cn：非恶性细胞中基因座的拷贝数。除男性的性染色体外，通常应为2。
-- minor_cn：恶性细胞中次要等位基因的拷贝数。该值必须小于major_cn列中的值。
-- major_cn：恶性细胞中主要等位基因的拷贝数。该值应大于等于minor_cn列中的值且大于0。
+- var_counts：支持突变型（variant allele）的reads数量
+- normal_cn：非肿瘤细胞中位点的拷贝数，除Y染色体外，通常为2.
+- minor_cn：肿瘤细胞中次等位突变（the minor allele）位点的拷贝数。该列数值需小于major_cn列
+- major_cn：肿瘤细胞中主要等位突变（the major allele）位点的拷贝数。 该列数值大于minor_cn列，且大于0
 
 任何其他列都将被忽略。示例文件被发现[这里](https://github.com/Roth-Lab/pyclone/tree/master/examples/mixing/tsv)从原来的PyClone本文所采用的混合数据集。
 
@@ -165,6 +165,69 @@ pass 待完成
 #### 主体代码逻辑结构图
 
 ![s](picture/s.png)
+
+#### 数学模型
+
+二项式分析
+
+从run_pyclone_binomial_analysis开始
+
+```python
+sample_atom_samplers = OrderedDict()
+sample_base_measures = OrderedDict()
+sample_cluster_densities = OrderedDict()
+# 首先建立3个有序字典
+
+base_measure_params = config.load_base_measure_params(config_file) # 加载参数
+init_method = config.load_init_method(config_file) # 确定起始方法
+
+for sample_id in sample_ids:
+    sample_base_measures[sample_id] = BetaBaseMeasure(base_measure_params['alpha'], base_measure_params['beta'])
+    sample_cluster_densities[sample_id] = PyCloneBinomialDensity()
+# PyCloneBinomialDensity 在底层有较多log运算
+    sample_atom_samplers[sample_id] = BaseMeasureAtomSampler(sample_base_measures[sample_id],                                                        sample_cluster_densities[sample_id])
+# 针对每个提取器数据进行提取
+
+base_measure = MultiSampleBaseMeasure(sample_base_measures)
+cluster_density = MultiSampleDensity(sample_cluster_densities)
+atom_sampler = MultiSampleAtomSampler(base_measure, cluster_density, sample_atom_samplers)
+partition_sampler = AuxillaryParameterPartitionSampler(base_measure, cluster_density)
+sampler = DirichletProcessSampler(atom_sampler, partition_sampler, alpha, alpha_priors)
+trace = DiskTrace(config_file, data.keys(), {'cellular_frequencies': 'x'}) # 可以 open close update
+trace.open()
+sampler.initialise_partition(data.values(), init_method)
+# 初始化各个组件,做运算前最后准备
+
+
+for i in range(num_iters): # 进行指定次数的迭代
+    state = sampler.state
+    if i % 100 == 0: # 每100次提醒一次
+        print 'Iteration: {}'.format(i)
+        print 'Number of clusters: {}'.format(len(np.unique(state['labels'])))
+        print 'DP concentration: {}'.format(state['alpha'])
+        print
+    sampler.interactive_sample(data.values())
+'''
+来自pydp-samplers-dp 
+    def interactive_sample(self, data):
+        if self.update_alpha:如果存在阿法则更新
+            self.alpha = self.concentration_sampler.sample(self.alpha,
+                                                           self.partition.number_of_cells,
+                                                           self.partition.number_of_items)
+通过
+        self.partition_sampler.sample(data, self.partition, self.alpha)
+
+        self.atom_sampler.sample(data, self.partition)
+
+        if self.update_global_params:
+            self.global_params_sampler.sample(data, self.partition)
+'''
+    trace.update(state) # 更新当前状态
+
+trace.close()
+```
+
+
 
 ## 其他操作指引
 

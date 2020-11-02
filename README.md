@@ -52,7 +52,7 @@
 
 任何其他列都将被忽略。示例文件被发现[这里](https://github.com/Roth-Lab/pyclone/tree/master/examples/mixing/tsv)从原来的PyClone本文所采用的混合数据集。
 
-#### 数据分析方法&结果展示
+#### 数据分析方法&结果展示
 
 在一开始加载输入文件名和输出路径名
 
@@ -60,21 +60,25 @@
 
 ###### cli入口
 
-cli处理逻辑
-
-读取餐素
-
 加载各个模块(解析参数->进行分析->分析管道流->建立突变文件->绘制clusters->绘制loci->建表)
+
+_setup_setup_analysis_parser设置分析：首先确定输入文件，工作路径，肿瘤列表，样本数据，临时配置文件，浓度，迭代次数内容，最后运行parser.set_defaults(func=run.setup_analysis)函数进行文件设置
 
 _setup_run_analysis_parser分析函数：加载参数,设随机种子，最后运行parser.set_defaults(func=run.run_analysis)函数处理
 
 _setup_analysis_pipeline_parser分析管道流：加载参数，增加_process参数，设随机种子，读取输出格式(默认pdf，还可以svg)，设最大clusters，mesh大小，最小clusters。最后运行parser.set_defaults(func=run.run_analysis_pipeline)
 
-_setup_build_table_parser建表：加载outfile，table_type
+_setup_build_prior_parser建立突变文件：确定输入输出文件，先验参数parser.set_defaults(func=run.build_mutations_file)
+
+_setup_build_table_parser建表：加载outfile，table_type，cluster最大值，mesh大小，post处理流程，parser.set_defaults(func=run.build_table)
 
 ---
 
-###### run承接
+###### run函数解析
+
+**_setup_analysis**
+
+创建工作路径，yaml文件，对infile的每种参数进行拼接，创建突变文件。最后将参数都写入到config.yaml文件中
 
 **run_analysis** 
 
@@ -102,13 +106,27 @@ _setup_build_table_parser建表：加载outfile，table_type
     ]
 ```
 
+**build_table**
+
+判断表类型['cluster','loci','lod_style']执行格式转化，变为tsv
+
+df.to_csv(out_file, index=False, sep='\t')
+
+**build_mutations_file**
+
+读取csv文件reader = csv.DictReader(open(in_file), delimiter='\t')
+
+将读取到的ref_counts...major_cn这些参数都提取出来
+
+创建对应路径并打开输出文件文件
+
+yaml.dump(config, fh, Dumper=Dumper)打印文件
+
+最后关闭文件
+
 -----
 
-###### 建表
-
-
-
-###### 文件一览
+###### 文件作用一览
 
 | cli                     | 程序入口                           |
 | ----------------------- | ---------------------------------- |
@@ -132,21 +150,23 @@ _setup_build_table_parser建表：加载outfile，table_type
 
 #### 数据集样例解读
 
+数据集有标签(AB,BB)
+
 125行9列无缺省字段
 
 ref_counts variant_freq PEARSON相关有0.95
 
 minor_cn major_cn 相关系数-1
 
-
-
 #### 调研机器学习算法实现
 
-#### 代码逻辑结构图
+pass 待完成
 
+#### 主体代码逻辑结构图
 
+![s](picture/s.png)
 
-## 基础操作指引
+## 其他操作指引
 
 #### 数据聚类
 

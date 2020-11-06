@@ -62,15 +62,14 @@
 
 加载各个模块(解析参数->进行分析->分析管道流->建立突变文件->绘制clusters->绘制loci->建表)
 
-_setup_setup_analysis_parser设置分析：首先确定输入文件，工作路径，肿瘤列表，样本数据，临时配置文件，浓度，迭代次数内容，最后运行parser.set_defaults(func=run.setup_analysis)函数进行文件设置
-
-_setup_run_analysis_parser分析函数：加载参数,设随机种子，最后运行parser.set_defaults(func=run.run_analysis)函数处理
-
-_setup_analysis_pipeline_parser分析管道流：加载参数，增加_process参数，设随机种子，读取输出格式(默认pdf，还可以svg)，设最大clusters，mesh大小，最小clusters。最后运行parser.set_defaults(func=run.run_analysis_pipeline)
-
-_setup_build_prior_parser建立突变文件：确定输入输出文件，先验参数parser.set_defaults(func=run.build_mutations_file)
-
-_setup_build_table_parser建表：加载outfile，table_type，cluster最大值，mesh大小，post处理流程，parser.set_defaults(func=run.build_table)
+| 名字                                                    | 作用                     | 流程                                                         |
+| ------------------------------------------------------- | ------------------------ | ------------------------------------------------------------ |
+| _setup_setup_analysis_parser                            | 设置参数                 | 首先确定输入文件，工作路径，肿瘤列表，样本数据，临时配置文件，密度，迭代次数内容，最后运行 |
+| _setup_run_analysis_parser                              | 运行分析                 | 加载参数,设随机种子，最后运行parser.set_defaults(func=run.run_analysis)函数处理 |
+| _setup_analysis_pipeline_parser                         | 分析管道流               | 加载参数，增加_process参数，设随机种子，读取输出格式(默认pdf，还可以svg)，设最大clusters，mesh大小，最小clusters。最后运行parser.set_defaults(func=run.run_analysis_pipeline) |
+| _setup_build_prior_parser                               | yaml格式突变数据用于分析 | 确定输入输出文件，先验参数parser.set_defaults(func=run.build_mutations_file) |
+| _setup_cluster_plot_parser </br>_setup_loci_plot_parser | 绘图                     | 加载参数，确定输出参数，run.cluster_plot和run.loci_plot      |
+| _setup_build_table_parser                               | 创建表格                 | 加载outfile，table_type，cluster最大值，mesh大小，post处理流程，parser.set_defaults(func=run.build_table) |
 
 ---
 
@@ -126,19 +125,23 @@ yaml.dump(config, fh, Dumper=Dumper)打印文件
 
 -----
 
-###### 文件作用一览
+###### 文件用途
 
-| cli                     | 程序入口                           |
-| ----------------------- | ---------------------------------- |
-| sampler取样             | 对详细数据,密度分别取样            |
-| binomial二项式          | 提供二项式分析                     |
-| beta_binmmial贝塔二项式 | 提供贝塔二项式分析                 |
-| math_uils               | 为二项式提供方法支持               |
-| multi_sample            | 允许在PyDP框架中分析多个样本的功能 |
-| run                     | 承接cli具体功能实现                |
-| ...还有一些功能性模块   |                                    |
+| cli                     | 程序入口                                       |
+| ----------------------- | ---------------------------------------------- |
+| run                     | 承接cli功能实现                                |
+| binomial二项式          | 二项式分析                                     |
+| beta_binmmial贝塔二项式 | 贝塔二项式分析                                 |
+| math_uils               | 为二项式提供支持                               |
+| multi_sample            | 取样(多样本)允许在PyDP框架中分析多个样本的功能 |
+| sampler                 | 取样，对详细数据,密度分别取样                  |
+| post_process            | 输出流程，绘图和建标都包含于此                 |
+| utils                   | 创建路径                                       |
+| config                  | 各种加载文件，获取数据功能                     |
+| trace                   | 建立数据追踪功能，同读写文件                   |
+| paths                   | 获取各种数据，路径拼接                         |
 
-##### 输出部分
+##### 输出
 
 ###### 图像
 
@@ -148,19 +151,30 @@ yaml.dump(config, fh, Dumper=Dumper)打印文件
 
 后两者会被polt文件夹中的代码调用，最终生成图像
 
+###### 表格
+
+主要通过run.build_table实现
+
+根据['cluster', 'loci', 'lod_style']进行建立表格 
+
+df = post_process.loci.load_table
+
+df.to_csv(out_file, index=False, sep='\t')
+
 #### 数据集样例解读
 
 数据集有标签(AB,BB)
 
 125行9列无缺省字段
 
-ref_counts variant_freq PEARSON相关有0.95
-
-minor_cn major_cn 相关系数-1
+| 参数1      | 参数2        | PEARSON相关 |
+| ---------- | ------------ | ----------- |
+| ref_counts | variant_freq | 0.95        |
+| minor_cn   | major_cn     | -1          |
 
 #### 调研机器学习算法实现
 
-pass 待完成
+待完成
 
 #### 主体代码逻辑结构图
 
@@ -168,10 +182,16 @@ pass 待完成
 
 #### 数学模型
 
-二项式分析
+二项式分析解读 - run_pyclone_binomial_analysis
 
-从run_pyclone_binomial_analysis开始
+在run调用
 
+        run_pyclone_binomial_analysis(
+            config_file,
+            num_iters,
+            alpha,
+            alpha_priors
+        )
 ```python
 sample_atom_samplers = OrderedDict()
 sample_base_measures = OrderedDict()
@@ -207,8 +227,10 @@ for i in range(num_iters): # 进行指定次数的迭代
         print 'DP concentration: {}'.format(state['alpha'])
         print
     sampler.interactive_sample(data.values())
+
 '''
-来自pydp-samplers-dp 
+pydp-samplers-dp 迭代源码
+
     def interactive_sample(self, data):
         if self.update_alpha:如果存在阿法则更新
             self.alpha = self.concentration_sampler.sample(self.alpha,
@@ -231,9 +253,11 @@ trace.close()
 
 ## 其他操作指引
 
-#### 数据聚类
+#### 数据聚类 
 
-**SciPy 聚类包**。  from scipy.cluster.vq import *
+暂未分析
+
+**K_means - SciPy 聚类包**。  from scipy.cluster.vq import *
 
 ```python
 from scipy.cluster.vq import *
@@ -262,3 +286,14 @@ plot(centroids[:,0],centroids[:,1],'go') axis('off')
 show()
 ```
 
+## Pydp算法流程
+
+(论文+算法每一步的实现(名字+实际干了什么))
+
+二项式分析 + pydp
+
+Pydp主要用于实现Dirichlet过程混合模型（DPMM）
+
+为DPMM提供各种算法的纯Python实现	
+
+源码阅读ing 待等新

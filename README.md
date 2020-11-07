@@ -21,9 +21,11 @@
 
 ## PyCLone
 
+### Pyclone本体
+
 #### 代码运行
 
-安装conda
+安装conda adaconda和miniconda都可以
 
 安装bioconda。 http://bioconda.github.io/user/install.html
 
@@ -127,19 +129,19 @@ yaml.dump(config, fh, Dumper=Dumper)打印文件
 
 ###### 文件用途
 
-| cli                     | 程序入口                                       |
-| ----------------------- | ---------------------------------------------- |
-| run                     | 承接cli功能实现                                |
-| binomial二项式          | 二项式分析                                     |
-| beta_binmmial贝塔二项式 | 贝塔二项式分析                                 |
-| math_uils               | 为二项式提供支持                               |
-| multi_sample            | 取样(多样本)允许在PyDP框架中分析多个样本的功能 |
-| sampler                 | 取样，对详细数据,密度分别取样                  |
-| post_process            | 输出流程，绘图和建标都包含于此                 |
-| utils                   | 创建路径                                       |
-| config                  | 各种加载文件，获取数据功能                     |
-| trace                   | 建立数据追踪功能，同读写文件                   |
-| paths                   | 获取各种数据，路径拼接                         |
+| cli           | 程序入口                                        |
+| ------------- | ----------------------------------------------- |
+| run           | 承接cli功能实现                                 |
+| binomial      | 二项式分析                                      |
+| beta_binmmial | 贝塔二项式分析                                  |
+| math_uils     | 为二项式提供支持                                |
+| multi_sample  | 取样(多样本),允许在PyDP框架中分析多个样本的功能 |
+| sampler       | 取样,对详细数据,密度分别取样                    |
+| post_process  | 输出流程，绘图和建标都包含于此                  |
+| utils         | 创建路径                                        |
+| config        | 各种加载文件，获取数据功能                      |
+| trace         | 建立数据追踪功能，同读写文件                    |
+| paths         | 获取各种数据，路径拼接                          |
 
 ##### 输出
 
@@ -249,6 +251,34 @@ pydp-samplers-dp 迭代源码
 trace.close()
 ```
 
+### 组件 - Pydp
+
+主要用于实现Dirichlet过程混合模型（DPMM），为其提供各种算法纯Python实现	
+
+Roth实验室Pyclone实现主要依赖组件,提供原生安装和conda安装两种方式
+
+#### DPMM介绍
+
+Dirichlet 过程混合模型  狄利克雷过程混合模型（Dirichlet Process Mixture Model) 
+
+一种非参数贝叶斯模型，可以理解为一种聚类方法，但无需指定类别数量，可以从数据中推断簇数量。
+
+此外想系统学习前要理解DP过程及其三中构造方式
+
+（1）Stick-breaking 构造 （2）Polya urn scheme 构造 （3）Chinese restaurant process
+
+###### 通俗理解
+
+假设有一个巨大空间，整个空间包含无数混合组成部分，每次选择其中几个成分，利用这几个成分生成一组数据。我们把多组数据放在一起，就可以得到现在拥有全部数据
+
+DPMM有良好聚类性质，可以实现一组 数据的聚类和分析。但多组数据聚类时，利用Dirichlet过程混合模型无法实现建模分析
+
+下述链接
+
+https://www.datalearner.com/blog/1051471599181249
+
+
+
 
 
 ## 其他操作指引
@@ -286,14 +316,3 @@ plot(centroids[:,0],centroids[:,1],'go') axis('off')
 show()
 ```
 
-## Pydp算法流程
-
-(论文+算法每一步的实现(名字+实际干了什么))
-
-二项式分析 + pydp
-
-Pydp主要用于实现Dirichlet过程混合模型（DPMM）
-
-为DPMM提供各种算法的纯Python实现	
-
-源码阅读ing 待等新

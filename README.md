@@ -12,16 +12,19 @@
 
 ## 资料
 
-| 名称           | 地址                                                         |
-| -------------- | ------------------------------------------------------------ |
-| PyClone-paper  | https://www.nature.com/articles/nmeth.2883                   |
-| PyClone-代码   | https://github.com/Roth-Lab/pyclone                          |
-| SciClone-paper | https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003665 |
-| SciClone-代码  | https://github.com/genome/sciclone                           |
+| 名称               | 地址                                                         |
+| ------------------ | ------------------------------------------------------------ |
+| PyClone-paper      | https://www.nature.com/articles/nmeth.2883                   |
+| PyClone-代码       | https://github.com/Roth-Lab/pyclone                          |
+| Pyclone依赖 - pydp | https://github.com/Roth-Lab/pydp                             |
+| SciClone-paper     | https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003665 |
+| SciClone-代码      | https://github.com/genome/sciclone                           |
 
 ## PyCLone
 
 ### Pyclone本体
+
+利用模型算法 ( Dirichlet Process, beta-binomial ) /MCMC 依据突变频率和突变位点的拷贝数信息->估计突变的细胞频率，并进行克隆结构分析，聚类分析和绘图
 
 #### 代码运行
 
@@ -52,7 +55,17 @@
 - minor_cn：肿瘤细胞中次等位突变（the minor allele）位点的拷贝数。该列数值需小于major_cn列
 - major_cn：肿瘤细胞中主要等位突变（the major allele）位点的拷贝数。 该列数值大于minor_cn列，且大于0
 
-任何其他列都将被忽略。示例文件被发现[这里](https://github.com/Roth-Lab/pyclone/tree/master/examples/mixing/tsv)从原来的PyClone本文所采用的混合数据集。
+示例数据中其他列为非必须信息,可不提供
+
+- variant_case：样本名
+
+- variant_greq：突变频率
+
+- genotype：基因类型
+
+- mutation_id：突变标识
+
+  
 
 #### 数据分析方法&结果展示
 
@@ -176,7 +189,7 @@ df.to_csv(out_file, index=False, sep='\t')
 
 #### 调研机器学习算法实现
 
-待完成
+TODO
 
 #### 主体代码逻辑结构图
 
@@ -184,7 +197,7 @@ df.to_csv(out_file, index=False, sep='\t')
 
 #### 数学模型
 
-二项式分析解读 - run_pyclone_binomial_analysis
+二项式分析 - run_pyclone_binomial_analysis
 
 在run调用
 
@@ -251,6 +264,39 @@ pydp-samplers-dp 迭代源码
 trace.close()
 ```
 
+#### 数据流
+
+数据流以最基础全面的参数指令 run_analysis_pipeline 为例进行数据流分析
+
+首先进行参数分析，run_analysis_pipeline进行子命令读取
+
+parser.add_subparsers().add_parser() 加载参数
+
+_setup_analysis_pipeline_parser 分为如下几个指令顺序
+
+| 项目                                                         | 操作                                   |
+| ------------------------------------------------------------ | -------------------------------------- |
+| _setup_setup_analysis_parser                                 | 加载各个分析参数                       |
+| _add_post_process_args                                       | 配置绘图、建表参数                     |
+| _add_post_process_args                                       | 设置随机种子                           |
+| parser.add_argument( default='pdf',choices=['pdf', 'svg'] )  | 读取输出格式参数                       |
+| _add_max_clusters_args ｜ _add_max_clusters_args ｜ </br>_add_min_cluster_size_args | 最大最小值                             |
+| parser.set_defaults(func=run.run_analysis_pipeline)          | 执行run文件中run_analysis_pipeline功能 |
+
+##### 流程中关键函数解释
+
+###### set_defaults
+
+使得子解析器知道应执行哪个Python函数
+
+#### 原项目未满足功能
+
+![clone_up](picture/clone_up.png)
+
+肿瘤细胞结构进化图，利用pyclone结果进行mculst进行聚类，最后利用fishplot包进行绘图，
+
+(适用条件: 样本数据间存在演化关系，原发->复发->二次复发,该分析需要添加肿瘤纯度信息(默认100%纯度))
+
 ### 组件 - Pydp
 
 主要用于实现Dirichlet过程混合模型（DPMM），为其提供各种算法纯Python实现	
@@ -276,8 +322,6 @@ DPMM有良好聚类性质，可以实现一组 数据的聚类和分析。但多
 下述链接
 
 https://www.datalearner.com/blog/1051471599181249
-
-
 
 
 

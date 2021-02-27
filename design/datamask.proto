@@ -1,0 +1,70 @@
+
+syntax = "proto3";
+package main;
+option go_package = "path;name";
+
+
+// 数据隐匿项目总服务
+service DataMaskService {
+    // 用户注册
+    rpc UserInit (UserInitReq) returns (NormalResp);
+    // 用户登陆
+    rpc UserLogin (UserLogReq) returns (NormalResp);
+    // 文件上传
+    rpc FileUp (FileUpReq) returns (NormalResp);
+    // 历史记录
+    rpc History (NormalReq) returns (HistoryResp);
+}
+
+
+// 注册请求
+message UserInitReq {
+    // 用户名
+    string name = 1;
+    // 手机号
+    int64 mobile = 2;
+    // 密码
+    string password = 3;
+}
+
+// 用户登陆请求
+message UserLogReq {
+    // 用户名
+    string name = 1;
+    // 手机号
+    int64 mobile = 2;
+    // 密码
+    string password = 3;
+}
+
+// 文件上传请求
+message FileUpReq {
+    // 用户名
+    string name = 1;
+    // 手机号
+    int64 mobile = 2;
+    // 密码
+    string password = 3;
+}
+
+// 通用响应
+message NormalResp {
+    // 状态码  (0正常 其余均为异常状态)
+    bool status_code = 1;
+    // 其余信息
+    string other_message = 2;
+}
+
+// 通用请求
+message NormalReq {
+}
+
+
+
+// 历史记录响应
+message HistoryResp {
+    // 历史记录数量
+    int64 history_number = 1;
+    // 其余信息
+    string other_message = 2;
+}

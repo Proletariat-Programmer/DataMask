@@ -36,8 +36,6 @@ GET user_init
 | https://github.com/shekhargulati/flask-login-example | 纯登陆，调用flask-Login |
 | https://github.com/tolgahanuzun/Flask-Login-Example  | 用来登陆ins的           |
 
-
-
 安装依赖
 
 ```shell
@@ -48,8 +46,6 @@ pip3 install flask-login
 问题解决
 
 https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
-
-
 
 ```python
 from flask.ext.login import LoginManager

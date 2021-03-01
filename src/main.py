@@ -38,7 +38,6 @@ users = [User(id) for id in range(1, 21)]
 def home():
     return Response("Hello World!")
 
- 
 # somewhere to login
 @app.route("/login", methods=["GET", "POST"])
 def login():

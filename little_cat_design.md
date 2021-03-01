@@ -20,3 +20,31 @@ GET user_init
 
 
 （登陆 - 姓名\手机号 + 密码）
+
+
+
+## 开发计划
+
+后端 选 Python -  flask
+
+原因：门槛低，都能看懂。
+
+带来的结果是=。=我自己的毕设处于代码复用的崇高懒惰目的估计也用python=。=
+
+| URL                                                  | 调研结果                |
+| ---------------------------------------------------- | ----------------------- |
+| https://github.com/shekhargulati/flask-login-example | 纯登陆，调用flask-Login |
+| https://github.com/tolgahanuzun/Flask-Login-Example  | 用来登陆ins的           |
+
+
+
+安装依赖
+
+```shell
+pip3 install flask
+pip3 install flask-login
+```
+
+问题解决
+
+https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login

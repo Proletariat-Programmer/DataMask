@@ -7,13 +7,23 @@ option go_package = "path;name";
 // 数据隐匿项目总服务
 service DataMaskService {
     // 用户注册
-    rpc UserInit (UserInitReq) returns (NormalResp);
+    rpc UserInit (UserInitReq) returns (NormalResp){
+      option (google.api.http) = {
+          get:"/datamask/user-interface/http/UserInit"
+      };
+    };
     // 用户登陆
     rpc UserLogin (UserLogReq) returns (NormalResp);
     // 文件上传
     rpc FileUp (FileUpReq) returns (NormalResp);
     // 历史记录
     rpc History (NormalReq) returns (HistoryResp);
+    // 获取报名赛道接口
+    // rpc getSignUpTeam (GetSignUpTeamReq) returns (live.xactivity.v1.GetSignUpTeamResp){
+    //     option (google.api.http) = {
+    //         get:"/datamask/user-interface/http/getSignUpTeam"
+    //     };
+    // };
 }
 
 

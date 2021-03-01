@@ -48,3 +48,21 @@ pip3 install flask-login
 问题解决
 
 https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
+
+
+
+```python
+from flask.ext.login import LoginManager
+from flask_login import LoginManager
+```
+
+| 页面名称    | 介绍 |
+| ----------- | ---- |
+| 登陆页      |      |
+| 主页面index |      |
+| 注册页      |      |
+|             |      |
+|             |      |
+|             |      |
+|             |      |
+

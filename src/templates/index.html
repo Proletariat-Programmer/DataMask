@@ -1,23 +1,18 @@
-{% extends "base.html" %}
-{% block content %}
-{% if session['logged_in'] %}
-   
-	{% if data %}
-	<h3>{{data}}</h3>
-	{% else %}
+<!DOCTYPE html>
+<html lang="en">
 
-	<a href="/logout">Logout</a> <br> <br>
-	<form action="" method="POST">
-	  <input type="username" name="username" placeholder="Instagram Username">
-	  <input type="submit" value="Finds">
-	</form>
-	{% endif %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+</head>
 
-{% else %}
-<p>Not login!</p>
+<body>
+    <a href="/login">登录</a>
+    <a href="/register">注册</a>
+<br>
+<h1>欢迎，游客</h1>
+</body>
 
-<a href="/login">Login</a> 
-<a href="/register">Register</a>
-
-{% endif %}
-{% endblock %}
+</html>

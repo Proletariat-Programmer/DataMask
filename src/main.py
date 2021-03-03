@@ -1,6 +1,8 @@
+import os
 from flask import Flask,render_template, Response, redirect, url_for, request, session, abort
 from flask_login import LoginManager, UserMixin, \
                                 login_required, login_user, logout_user
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -22,8 +24,8 @@ class User(UserMixin):
         self.id = id
         self.name = "user" + str(id)
         self.password = self.name + "pw"
+        self.phone = "11112222333"
         # self.password = self.name + "_secret"
-        
     def __repr__(self):
         return "%d/%s/%s" % (self.id, self.name, self.password)
 
@@ -40,13 +42,17 @@ def home():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        login_info = request.form.to_dict()
+       # username = request.form['username']
+       # phone = request.form['phone']
+       # password = request.form['password']
         for item in users:
-            if username == item.name and password == item.password:
+            # if (username == item.name or phone == item.phone) and password == item.password:
+            if (login_info.get("username") == item.name or login_info.get("phone") == item.phone) and login_info.get("password") == item.password:
                 id = item.id
                 user = User(id)
                 login_user(user)
+                print(f'用户登陆 id : {id}')
                 # return redirect(request.args.get("next"))
                 return redirect("/")
         return abort(401)
@@ -68,8 +74,10 @@ def register():
         length_id = len(users) + 1
         users.append(User(length_id))
         f_length = len(users) - 1
-        users[f_length].name = request.form["username"]
-        users[f_length].password = request.form["password"]
+        login_info = request.form.to_dict()
+        users[f_length].name = login_info.get("username")
+        users[f_length].phone = login_info.get("phone")
+        users[f_length].password =login_info.get("password")
 
         return redirect("/login")
         # return redirect(request.args.get("next"))
@@ -81,16 +89,30 @@ def register():
 def dashboard():
     return render_template("dashboard.html")
 
+# upload file
+@app.route("/upload", methods=["POST", "GET"])
+@login_required
+def upload():
+    if request.method == "POST":
+        f = request.files['file']
+        basepath = os.path.dirname(__file__)  # 当前文件所在路径
+        print(basepath)
+        upload_path = os.path.join(basepath, '/uploads',secure_filename(f.filename))  #注意:没有的文件夹一定要先创建,不然会提示没有该路径
+        f.save(upload_path)
+        return redirect(url_for('upload'))
+
+    return render_template("upload.html")
+
 # handle login failed
 @app.errorhandler(401)
 def page_not_found(e):
     return Response('<p>Login failed</p>')
-    
-    
+
+
 # callback to reload the user object
 @login_manager.user_loader
 def load_user(userid):
-    return User(userd)
+    return User(userid)
 
 if __name__ == "__main__":
     app.debug = True # 开启快乐幼儿源模式

@@ -1,8 +1,44 @@
-<form action="" method="post">
-    <p><input type=text name=username>
-    <p><input type=text name=phone>
-    <p><input type=password name=password>
-    <p><input type=submit value=Login>
-</form>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <!-- <link rel="stylesheet" type="text/css" href="login.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/login.css')}}">
+</head>
+<body>
 
-<a href="/register">Register</a>
+<div id="content">
+    <div class="login-header">
+        医疗数据安全处理系统
+    </div>
+    <form action="" method="post">
+        <div class="login-input-box">
+            <span class="icon icon-user"></span>
+            <input type="text" placeholder="Please enter your email/phone" name=username>
+        </div>
+
+        <div class="login-input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" placeholder="Please enter your password" name=password>
+        </div>
+        <input type=submit value=Login>
+    </form>
+    <div class="remember-box">
+        <label>
+            <input type="checkbox"> Remember Me
+        </label>
+    </div>
+    <div class="login-button-box">
+        <a href="index.html">
+            <!-- <input type=submit value=Login> -->
+            <button>login</button>
+        </a>
+    <div class="logon-box">
+        <a href="register.html">Sign up</a>
+    </div>
+</div>
+
+</body>
+</html>

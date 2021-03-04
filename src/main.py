@@ -1,10 +1,13 @@
 import os
-from flask import Flask,render_template, Response, redirect, url_for, request, session, abort
-from flask_login import LoginManager, UserMixin, \
+from pathlib import Path
+
+from flask import Flask,render_template, Response, redirect, url_for,\
+                         request, session, abort
+from flask_login import LoginManager, UserMixin, current_user, \
                                 login_required, login_user, logout_user
 from werkzeug.utils import secure_filename
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="static")
 
 # config
 app.config.update(
@@ -69,7 +72,6 @@ def logout():
 # creater new user
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    global user
     if request.method == "POST":
         length_id = len(users) + 1
         users.append(User(length_id))
@@ -86,6 +88,7 @@ def register():
 
 # dashboard of system
 @app.route("/dashboard")
+@login_required
 def dashboard():
     return render_template("dashboard.html")
 
@@ -96,12 +99,40 @@ def upload():
     if request.method == "POST":
         f = request.files['file']
         basepath = os.path.dirname(__file__)  # 当前文件所在路径
-        print(basepath)
-        upload_path = os.path.join(basepath, '/uploads',secure_filename(f.filename))  #注意:没有的文件夹一定要先创建,不然会提示没有该路径
-        f.save(upload_path)
-        return redirect(url_for('upload'))
+        user_id = current_user.id
+        print(f'当前登陆用户id {user_id}')
+        # 检测是否存在对应路径
+        my_file = Path(f'{basepath}/uploads/{str(user_id)}')
+        if my_file.is_dir():
+            # 存在
+            print(f'路径存在 {my_file}')
+        else:
+            # 不存在
+            os.mkdir(my_file) # 只能创建单级目录
+            print(f'路径存在 {my_file}')
+
+
+        # upload_path = os.path.join(basepath,"/uploads",secure_filename(f.filename))  #注意:没有的文件夹一定要先创建,不然会提示没有该路径
+        f.save(f'{basepath}/uploads/{str(user_id)}/{secure_filename(f.filename)}')
+        # return redirect(url_for('upload'))
+        return redirect("upload_success.html")
 
     return render_template("upload.html")
+
+# upload success
+@app.route("/upload_success")
+@login_required
+def upload_success():
+    # 上传成功
+    return render_template("upload_success.html")
+
+# history list
+@app.route("/history_list")
+@login_required
+def history_list():
+    # 查看历史记录
+    user_id = current_user.id
+    return render_template("history_list.html")
 
 # handle login failed
 @app.errorhandler(401)

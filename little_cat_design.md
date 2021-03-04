@@ -17,8 +17,6 @@
 
 GET user_init
 
-
-
 （登陆 - 姓名\手机号 + 密码）
 
 
@@ -27,14 +25,16 @@ GET user_init
 
 后端 选 Python -  flask
 
-原因：门槛低，都能看懂。
-
-带来的结果是=。=我自己的毕设处于代码复用的崇高懒惰目的估计也用python=。=
+原因：门槛低，大家能看懂。带来的结果是=。=我自己的毕设处于代码复用的崇高懒惰目的估计也用python=。=
 
 | URL                                                  | 调研结果                |
 | ---------------------------------------------------- | ----------------------- |
 | https://github.com/shekhargulati/flask-login-example | 纯登陆，调用flask-Login |
 | https://github.com/tolgahanuzun/Flask-Login-Example  | 用来登陆ins的           |
+
+问题解决
+
+https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
 
 安装依赖
 
@@ -43,14 +43,7 @@ pip3 install flask
 pip3 install flask-login
 ```
 
-问题解决
-
-https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
-
-```python
-from flask.ext.login import LoginManager
-from flask_login import LoginManager
-```
+简单规划=。=抓紧写
 
 ### 登陆
 
@@ -74,6 +67,10 @@ from flask_login import LoginManager
 | ------------ | -------------------------------------------------------- |
 | /historylist | 可以查看历史上传的文件(在这里可以看到历史文件的处理进度) |
 
+历史记录
+
+遍历upload/X/...下
+
 ### 数据处理流程
 
 输入文件通过文件上传功能上传至服务器。
@@ -87,6 +84,30 @@ from flask_login import LoginManager
 | 已完成 | 已经分析完成，可以进行结果展示                       |
 | 处理中 | 当前分析文件，正在流程处理中 (考虑展示百分比进度条?) |
 | 等待中 | 等待处理文件队列...                                  |
+
+
+
+
+
+List
+
+```
+
+{
+	[{
+		"timestamp":..,
+    "name":...
+    
+	}, 
+	]
+}
+投机取巧：每个文件处理时间
+
+```
+
+
+
+
 
 ## 操作流程
 
@@ -118,8 +139,61 @@ from flask_login import LoginManager
 
 ### 技术实现调研
 
-python上传文件
+#### python上传文件
 
 官方推荐  http://docs.jinkan.org/docs/flask/patterns/fileuploads.html
 
 一个简单例子=。= https://www.cnblogs.com/wongbingming/p/6802660.html
+
+#### flask_login 获取当前登陆用户
+
+Flask-login 一个比较全的小文 http://www.ityouknow.com/python/2019/11/13/python-web-flask-login-057.html
+
+```python
+from flask import render_template, url_for
+from flask_login import current_user, login_required
+# ...
+
+# 获取
+@app.route('/')  # 首页
+@login_required  # 需要登录才能访问
+def index():
+    return render_template('index.html', username=current_user.username)
+
+```
+
+#### 按照用户分割上传空间
+
+设用户id为X,用户上传路径为 uploads/X/...具体文件 
+
+#### 检测路径存在|创建新文件夹
+
+检测 https://www.runoob.com/w3cnote/python-check-whether-a-file-exists.html
+
+检测创建 https://blog.51cto.com/tenderrain/1590191
+
+也是检测创建 http://www.chenxm.cc/article/1116.html
+
+
+
+
+
+### TODO
+
+register路径适配
+
+几个url
+
+从前端直接访问图片资源
+
+
+
+因为实时分析不会立刻出结果，所以先把用户送到主界面
+
+主界面可以选择       上传文件 ｜ 历史记录  
+
+
+
+pb。json 
+
+

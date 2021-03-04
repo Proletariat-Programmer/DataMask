@@ -1,8 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/login.css')}}">
+</head>
+<body>
 
-<h2>Register</h2>
-<form action="" method="POST">
-  <input type="username" name="username" placeholder="Username">
-  <input type="phone" name="phone" placeholder="Phone">
-  <input type="password" name="password" placeholder="Password">
-  <input type="submit" value="Log in">
-</form>
+<div id="content">
+    <div class="login-header">
+        医疗数据安全处理系统
+    </div>
+    <form action="" method="POST">
+        <div class="login-input-box">
+            <span class="icon icon-user"></span>
+            <input type="text" placeholder="Please enter your email/phone">
+        </div>
+        <div class="login-input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" placeholder="Please enter your password">
+        </div>
+        <input type="submit" value="Register">
+    </form>
+	<div class="remember-box">
+        <label>
+            <input type="checkbox"> Remember Me
+        </label>
+    </div>
+    <div class="login-button-box">
+        <a href="index.html">
+            <button>sign up</button>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

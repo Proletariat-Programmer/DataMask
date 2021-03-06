@@ -57,7 +57,7 @@ def current_operate(current_file):
 
     # 检测是否存在对应路径
     basepath = os.path.dirname(__file__)  # 当前文件所在路径
-    my_file = Path(f'{basepath}/analysis_result/{str(user_id)}')
+    my_file = Path(f'{basepath}/analysis_result/{str(current_file.user_id)}')
     if my_file.is_dir():
         pass
     else:
@@ -65,7 +65,7 @@ def current_operate(current_file):
         os.mkdir(my_file) # 只能创建单级目录
         print(f'路径不存在 {my_file} 创建路径')
     # TODO 创建一个空文件先占位, 后续修改之
-    fd = open(f'{basepath}/analysis_result/{str(user_id)}/test.txt')
+    fd = open(f'{basepath}/analysis_result/{str(current_file.user_id)}/test.txt')
     fd.close()
 
     # TODO 在这里调用conda gene 部分代码

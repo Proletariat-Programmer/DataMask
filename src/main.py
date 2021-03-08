@@ -1,3 +1,6 @@
+import pymysql
+pymysql.install_as_MySQLdb()
+
 import os
 import time
 import collections
@@ -8,6 +11,7 @@ from flask import Flask,render_template, Response, redirect, url_for,\
                          request, session, abort
 from flask_login import LoginManager, UserMixin, current_user, \
                                 login_required, login_user, logout_user
+from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_folder="static")
@@ -18,22 +22,42 @@ app.config.update(
     SECRET_KEY = 'secret_xxx'
 )
 
+# 这里登陆的是root用户，要填上自己的密码，MySQL的默认端口是3306，填上之前创建的数据库名jianshu,连接方式参考 \
+# http://docs.sqlalchemy.org/en/latest/dialects/mysql.html
+# mysql+pymysql://<username>:<password>@<host>/<dbname>[?<options>]
+app.config['SQLALCHEMY_DATABASE_URI']='mysql://root:123456@127.0.0.1:3306/test'
+# 设置sqlalchemy自动更跟踪数据库
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+# 查询时会显示原始SQL语句
+app.config['SQLALCHEMY_ECHO'] = True
+# 禁止自动提交数据处理
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = False
+# 创建SQLAlichemy实例
+db = SQLAlchemy(app)
+
+# silly user model
+class User(UserMixin, db.Model):
+    # 定义表名
+    __tablename__ = 'users'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
+    name = db.Column(db.String(64), unique=True, index=True)
+    phone = db.Column(db.String(64),unique=True)
+    # email = db.Column(db.String(64),unique=True)
+    password = db.Column(db.String(64))
+    # role_id = db.Column(db.Integer, db.ForeignKey('roles.id')) # 设置外键
+    def __init__(self, name, phone, password):
+        # self.id = id
+        self.name = name
+        self.phone = phone
+        self.password = password
+    def __repr__(self):
+        return "%d/%s/%s/%s" % (self.id, self.name, self.phone, self.password)
+
 # flask-login
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
-
-# silly user model
-class User(UserMixin):
-
-    def __init__(self, id):
-        self.id = id
-        self.name = "user" + str(id)
-        self.password = self.name + "pw"
-        self.phone = "11112222333"
-        # self.password = self.name + "_secret"
-    def __repr__(self):
-        return "%d/%s/%s" % (self.id, self.name, self.password)
 
 # upload file system model
 class UploadFile():
@@ -42,16 +66,8 @@ class UploadFile():
         self.user_id = user_id
         self.filename = filename
 
-class UpStatus():
-
-    def __init__(self):
-        self.current_status = 0 # [0-已完成 1-处理中 2-等待中]
-        self.upstime = "" # 上传时间
-        self.needtime = "" # 预计还要多久
-        self.upoload_name = ""
-
 # create some users with ids 1 to 20
-users = [User(id) for id in range(1, 21)]
+# users = [User(id) for id in range(1, 21)]
 
 # 上传的任务队列
 upload_task_list = collections.deque()
@@ -77,7 +93,6 @@ def current_operate(current_file):
     fd.close()
 
     # TODO 在这里调用conda gene 部分代码
-
     print("任务完成===================")
 
 # 多线程处理任务队列
@@ -97,35 +112,34 @@ def operator_task():
 
         time.sleep(60)
 
+# operator add register
+def register_add_user(username, phone, password):
+    name = "user" + str(id)
+    phone = id
+    password = name + "pw"
+    # init_user = User(id, name, phone, password)
+    db.session.add(User(name, phone, password))
+    db.session.commit()
+
 # some protected url
 @app.route('/')
 @login_required
 def home():
     return render_template("hello.html")
 
-# some protected url
-@app.route('/index')
-@login_required
-def index():
-    return render_template("index.html")
-
-
 # somewhere to login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
         login_info = request.form.to_dict()
-       # username = request.form['username']
-       # phone = request.form['phone']
-       # password = request.form['password']
-        for item in users:
-            # if (username == item.name or phone == item.phone) and password == item.password:
-            if (login_info.get("username") == item.name or login_info.get("phone") == item.phone) and login_info.get("password") == item.password:
-                user = User(item.id)
+        user = User.query.filter_by(name = login_info.get("username")).first()
+
+        if user :        # 用户存在 且 密码相同
+            if user.password == login_info.get("password"):
                 login_user(user)
-                print(f'用户登陆 id : {id}')
-                # return redirect(request.args.get("next"))
+                print(f'用户登陆 {user.id} : {user.name}')
                 return redirect("/")
+
         return abort(401)
     else:
         return render_template("login.html")
@@ -141,13 +155,22 @@ def logout():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        length_id = len(users) + 1
-        users.append(User(length_id))
-        f_length = len(users) - 1
         login_info = request.form.to_dict()
-        users[f_length].name = login_info.get("username")
-        users[f_length].phone = login_info.get("phone")
-        users[f_length].password =login_info.get("password")
+        # TODO 重名检测未添加
+        # 查询是否有重名 & 是否有
+        # user_name = User.query.filter_by(name = login_info.get("username")).first()
+        # user_phone = User.query.filter_by(name = login_info.get("phone")).first()
+        
+        # TODO register 里面 携带status_code 以及 source
+        # if not user_name :
+        #     return render_template("register.html") 
+        # elif not user_phone:
+        #     return render_template("register.html")
+        # else:
+        print(f'新增用户 {login_info.get("username")} {login_info.get("phone")} {login_info.get("password")}')
+
+        # 新增用户
+        register_add_user(login_info.get("username"), login_info.get("phone"), login_info.get("password"))
 
         return redirect("/login")
         # return redirect(request.args.get("next"))
@@ -219,7 +242,8 @@ def page_not_found(e):
 # callback to reload the user object
 @login_manager.user_loader
 def load_user(userid):
-    return User(userid)
+    user = User.query.get(userid) # get为主键查询
+    return user
 
 if __name__ == "__main__":
     # TODO 测试operator_task

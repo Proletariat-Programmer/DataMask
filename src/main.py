@@ -42,6 +42,14 @@ class UploadFile():
         self.user_id = user_id
         self.filename = filename
 
+class UpStatus():
+
+    def __init__(self):
+        self.current_status = 0 # [0-已完成 1-处理中 2-等待中]
+        self.upstime = "" # 上传时间
+        self.needtime = "" # 预计还要多久
+        self.upoload_name = ""
+
 # create some users with ids 1 to 20
 users = [User(id) for id in range(1, 21)]
 
@@ -94,6 +102,13 @@ def operator_task():
 @login_required
 def home():
     return render_template("hello.html")
+
+# some protected url
+@app.route('/index')
+@login_required
+def index():
+    return render_template("index.html")
+
 
 # somewhere to login
 @app.route("/login", methods=["GET", "POST"])

@@ -46,6 +46,7 @@ https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-e
 pip3 install flask
 pip3 install flask-login
 pip3 install flask-sqlalchemy
+pip3 install PyMySQL
 ```
 
 ### 数据库设计
@@ -273,8 +274,6 @@ https://docs.python.org/3/library/asyncio.html
 | 发送邮件            | 发现flask_mail框架可以实现            |
 | todo                |                                       |
 
-
-
 ### 唧唧歪歪
 
 可以考虑上传文件后，有一个开始分析的按钮..?然后再开始分析
@@ -283,6 +282,14 @@ https://docs.python.org/3/library/asyncio.html
 | ------ | -------------------------------- |
 | 未分析 | 上传后，尚未点击 "开始分析"      |
 | 准备中 | 建立分析然后开始排队等待分析处理 |
+
+
+
+#### 难点解决
+
+###### pymysql报错：cryptography is required for sha256_password or caching_sha2_password
+
+pip3 install cryptography
 
 ### TODO
 

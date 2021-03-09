@@ -12,7 +12,7 @@
     <div class="login-header">
         医疗数据安全处理系统
     </div>
-    <form action="" method="POST">
+    <form action="" method="POST" id="nameform">
         <div class="login-input-box">
             <span class="icon icon-user"></span>
             <input type="text" placeholder="Please enter your email/phone">
@@ -21,7 +21,6 @@
             <span class="icon icon-password"></span>
             <input type="password" placeholder="Please enter your password">
         </div>
-        <input type="submit" value="Register">
     </form>
 	<div class="remember-box">
         <label>
@@ -29,6 +28,7 @@
         </label>
     </div>
     <div class="login-button-box">
+        <button type="submit" form="nameform">register</button>
         <a href="index.html">
             <button>sign up</button>
         </a>

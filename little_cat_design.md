@@ -413,6 +413,19 @@ network模式 https://blog.csdn.net/beeworkshop/article/details/106017711
 
 Docker容器互访三种方式     https://www.cnblogs.com/shenh/p/9714547.html
 
+测试结果可以ping通过
+
+```shell
+(base) root@077ff6879f06:/# ping mysql2
+PING mysql2 (192.168.176.2) 56(84) bytes of data.
+64 bytes from mysql2.bs-test (192.168.176.2): icmp_seq=1 ttl=64 time=0.180 ms
+64 bytes from mysql2.bs-test (192.168.176.2): icmp_seq=2 ttl=64 time=0.192 ms
+^C
+--- mysql2 ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 4ms
+rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
+```
+
 ### 二期规划 
 
 二期可拓展方向(现仅为脑洞)
@@ -447,7 +460,7 @@ pip3 install cryptography
 
 分析系统接入（完成，待测试）
 
-Docker不同容器间通信（已找到解决方案，待测试）
+Docker不同容器间通信（已找到解决方案，测试to）
 
 #### 普通
 

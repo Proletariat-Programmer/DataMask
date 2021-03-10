@@ -92,13 +92,14 @@ def current_operate(current_file):
 
     # TODO 创建一个空文件先占位, 后续修改之
     # TODO 调研分析在更新后是否还需要这一步
-    fd = open(f'{basepath}/analysis_result/{str(current_file.user_id)}/test.txt')
+    fd = open(
+        f'{basepath}/analysis_result/{str(current_file.user_id)}/{current_file.filename}/test.txt')
     fd.close()
 
     # 初始化 pyclone 参数
     analysis_result_code = 0
-    in_file_path = ""
-    working_dir_path = ""
+    in_file_path = f'{basepath}/upload/{str(current_file.user_id)}/{current_file.filename}'
+    working_dir_path = f'{basepath}/analysis_result/{str(current_file.user_id)}/{current_file.filename}'
 
     # 调用 pyclone
     try:

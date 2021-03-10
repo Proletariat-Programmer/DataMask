@@ -3,6 +3,7 @@ pymysql.install_as_MySQLdb()
 
 import os
 import time
+import subprocess
 import collections
 import threading
 from pathlib import Path
@@ -88,12 +89,31 @@ def current_operate(current_file):
         # 不存在
         os.mkdir(my_file) # 只能创建单级目录
         print(f'路径不存在 {my_file} 创建路径')
+
     # TODO 创建一个空文件先占位, 后续修改之
+    # TODO 调研分析在更新后是否还需要这一步
     fd = open(f'{basepath}/analysis_result/{str(current_file.user_id)}/test.txt')
     fd.close()
 
-    # TODO 在这里调用conda gene 部分代码
-    print("任务完成===================")
+    # 初始化 pyclone 参数
+    analysis_result_code = 0
+    in_file_path = ""
+    working_dir_path = ""
+
+    # 调用 pyclone
+    try:
+        analysis_result_code = subprocess.run(f'PyClone run_analysis_pipeline --in_files {in_file_path}  --working_dir {working_dir_path}').returncode
+    except:
+        # 吃错误大法...
+        analysis_result_code = 1
+
+    # 不为零代表出现异常情况
+    if analysis_result_code != 0 :
+        print("任务异常")
+        return
+
+    print("任务完成")
+    return
 
 # 多线程处理任务队列
 def operator_task():
@@ -160,10 +180,10 @@ def register():
         # 查询是否有重名 & 是否有
         # user_name = User.query.filter_by(name = login_info.get("username")).first()
         # user_phone = User.query.filter_by(name = login_info.get("phone")).first()
-        
+
         # TODO register 里面 携带status_code 以及 source
         # if not user_name :
-        #     return render_template("register.html") 
+        #     return render_template("register.html")
         # elif not user_phone:
         #     return render_template("register.html")
         # else:
@@ -192,6 +212,7 @@ def upload():
         basepath = os.path.dirname(__file__)  # 当前文件所在路径
         user_id = current_user.id
         print(f'当前登陆用户id {user_id}')
+
         # 检测是否存在对应路径
         my_file = Path(f'{basepath}/uploads/{str(user_id)}')
         if my_file.is_dir():

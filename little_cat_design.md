@@ -19,8 +19,6 @@ GET user_init
 
 （登陆 - 姓名\手机号 + 密码）
 
-
-
 ## 开发计划
 
 后端选用 flask
@@ -159,6 +157,81 @@ python3 database_init.py
 
 遍历upload/X/...下所有文件，然后将文件名返回
 
+### 接入分析系统
+
+如何接入pyclone
+
+方案1 subprocess直接开子进程调用，直接从后台调用pyclone，想想还是很美好的
+
+方案2 喝西北风
+
+所以分析系统接入使用
+
+首先pyclone环境构建。https://github.com/Roth-Lab/pyclone
+
+```shell
+# install PyClone using bioconda.
+conda install pyclone -c bioconda -c conda-forge
+# create a separate conda environment for PyClone
+conda create -n pyclone -c bioconda -c conda-forge pyclone
+# activated using the following command.
+conda activate pyclone
+# check that PyClone was installed
+PyClone --help
+```
+
+直接在服务中起指令调研 run 和 popen
+
+`subprocess.run`在 Python3.5添加，作为对`subprocess.Popen`的简化
+
+当只想执行一个命令并等待它完成，但不想同时执行任何其他操作时。对于其他情况，仍然需要使用subprocess.Popen
+
+主要的区别是subprocess.run执行一个命令并等待它完成，而使用subprocess.Popen您可以在进程完成时继续执行您的工作，然后只需重复调用subprocess.communicate就可以向进程传递和接收数据。
+
+注意，subprocess.run实际上所做的是为您调用Popen和communicate，因此您不需要进行循环来传递/接收数据，也不需要等待进程完成
+
+所以可以使用run方法来完成这次任务
+
+```python
+# 以前用法
+subprocess.Popen("aireplay-ng -0 15 -a " + BS +" wlan0mon", shell = True, stdout = subprocess.PIPE)
+# 用法1 直接生成结果
+subprocess.run(" PyClone build_mutations_file --in_flies xxx.tsv --out_file yyy.yaml")
+# 用法2 运行一个分析流程
+subprocess.run("PyClone run_analysis_pipeline --in_files xxx.tsv --working_dir test_dir")
+```
+
+暂定使用第二种方法，参数为
+
+- `--in_files`: A space delimited set of tsv files formatted as specified in the input format section.
+- `--working_dir`: A directory where the pipeline will run and output results.
+
+输入文件选用 up_loads/x/yy.tsv
+
+输出路径选择 analysis_result/x/yy/.*
+
+运行成功后修改数据库，可以合理测试
+
+调用方法大致为
+
+```python
+import subprocess
+A = 0
+try:
+	  A = subprocess.run(["ls", "-l"]).returncode
+except:
+    A = 1
+ if A != 0:
+    # 出现异常情况
+    print("出现异常情况")
+ 		return
+
+# 正常情况
+print("分析成功结束")
+```
+
+
+
 ### 数据处理流程
 
 输入文件通过文件上传功能上传至服务器。
@@ -202,7 +275,47 @@ upload上传后，检测后缀名&解析文件内容检测，进入upload_list�
 '''
 ```
 
-### 技术实现调研
+上传文件状态逻辑优化
+
+数据库新增状态相关操作
+
+以上两个判断逻辑思考
+
+当前逻辑
+
+1 文件上传后，文件存储到对应位置
+
+2 将此文件加到处理队列
+
+3 使用多线程监控处理队列
+
+4 将处理队列 leftpop 将新出来的这个目标放到处理函数位置
+
+优化逻辑
+
+1 上传并存储到对应位置后，在数据库中添加记录
+
+2 并将此文件的 file_id 推到任务队列中
+
+3 监控任务队列是否为空
+
+4 不为空时，leftpop出来下一个等待被处理的 file_id
+
+5 通过mysql查询对应信息，送入处理函数
+
+优化逻辑的优势
+
+可以通过数据库随时查询内容，第一版设计有一个问题是没有地方对所有数据进行集中化处理
+
+#### 文件状态变更相关解决方案
+
+解决
+
+
+
+
+
+## 技术实现调研
 
 #### python上传文件
 
@@ -252,18 +365,55 @@ https://www.cnblogs.com/huangxm/p/5215583.html
 ```python
 import asyncio
 
+
 async def main():
     print('Hello ...')
     await asyncio.sleep(1)
     print('... World!')
 
+    
 # Python 3.7+
 asyncio.run(main())
 ```
 
 https://docs.python.org/3/library/asyncio.html
 
-### TODO 
+#### Docker不同容器间通信
+
+粗略一看有三种方法
+
+1 虚拟ip互访
+
+2 link 在运行容器的时候加上参数link
+
+--link：参数中第一个centos-1是**容器名**，第二个centos-1是定义的**容器别名**（使用别名访问容器），为了方便使用，一般别名默认容器名。
+
+3 创建bridge网络
+
+（1） 安装好docker后，运行如下命令创建bridge网络：docker network create testnet
+
+使用 docker network ls 查询到新创建的bridge testnet。
+
+（2）运行容器连接到testnet网络。
+
+使用方法：docker run -it --name <容器名> ---network <bridge> --network-alias <网络别名> <镜像名>
+
+```shell
+[root@CentOS ~]# docker run -it --name centos-1 --network testnet --network-alias centos-1 docker.io/centos:latest
+[root@CentOS ~]# docker run -it --name centos-2 --network testnet --network-alias centos-2 docker.io/centos:latest
+```
+
+（3）从一个容器ping另外一个容器，测试之
+
+（4）若访问容器中服务，可以使用这用方式访问 <网络别名>：<服务端口号> 
+
+推荐使用这种方法，自定义网络，因为使用的是网络别名，可以不用顾虑ip是否变动，只要连接到docker内部bright网络即可互访。bridge也可以建立多个，隔离在不同的网段
+
+network模式 https://blog.csdn.net/beeworkshop/article/details/106017711
+
+Docker容器互访三种方式     https://www.cnblogs.com/shenh/p/9714547.html
+
+### 二期规划 
 
 二期可拓展方向(现仅为脑洞)
 
@@ -291,7 +441,31 @@ https://docs.python.org/3/library/asyncio.html
 
 pip3 install cryptography
 
-### TODO
+### TODOList
+
+#### 高
+
+分析系统接入（完成，待测试）
+
+Docker不同容器间通信（已找到解决方案，待测试）
+
+#### 普通
+
+上传文件状态逻辑优化
+
+数据库新增状态相关操作
+
+#### 低
+
+任务队列优化
+
+
+
+
+
+------
+
+
 
 register路径适配
 
@@ -308,5 +482,4 @@ register路径适配
 
 
 pb。json 
-
 

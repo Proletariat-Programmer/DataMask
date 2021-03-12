@@ -9,15 +9,33 @@
 | 历史记录 | 提供历史记录查询   |
 | 分析展示 | 分析后的结果界面   |
 
-## 模块接口与功能详细描述
+## 模块详情
 
-### 登陆模块
+### 登陆
 
-（注册 - 姓名 + 手机号 + 密码）
+| 功能 | 解释                 | URL      |
+| ---- | -------------------- | -------- |
+| 登陆 | 用户名/手机号 + 密码 | login    |
+| 登出 | nil                  | logout   |
+| 注册 | 用户名/手机号 + 密码 | register |
 
-GET user_init
+### 上传
 
-（登陆 - 姓名\手机号 + 密码）
+| 功能          | 解释            | URL    |
+| ------------- | --------------- | ------ |
+| 上传文件+填表 | file + 表单内容 | upload |
+
+### 历史记录 & 主界面
+
+| 功能     | 解释             | URL          |
+| -------- | ---------------- | ------------ |
+| 历史list | 返回历史上传list | history_list |
+
+### 分析展示
+
+| 功能               | 解释       | URL             |
+| ------------------ | ---------- | --------------- |
+| 单个上传的分析结果 | Up_load_id | Analysis_result |
 
 ## 开发计划
 
@@ -40,7 +58,7 @@ https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-e
 
 安装依赖
 
-```shell
+```
 pip3 install flask
 pip3 install flask-login
 pip3 install flask-sqlalchemy
@@ -55,7 +73,7 @@ pip3 install PyMySQL
 
 用户表
 
-~~~mysql
+```
 CREATE` `TABLE` ``user` (
  ```id` ``int``(11) unsigned ``NOT` `NULL` `AUTO_INCREMENT COMMENT ``'id'``,
  ```user_name` ``varchar``(30) ``NOT` `NULL` `DEFAULT` `''` `COMMENT ``'用户名称'``,
@@ -67,11 +85,11 @@ CREATE` `TABLE` ``user` (
  ``KEY` ``ix_ctime` (`ctime`) USING BTREE,
  ``KEY` ``ix_mtime` (`mtime`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 ``DEFAULT` `CHARSET = utf8 COMMENT = ``'用户配置表'``;
-~~~
+```
 
 分析结果表
 
-~~~mysql
+```
 CREATE` `TABLE` ``result` (
  ```id` ``int``(11) unsigned ``NOT` `NULL` `AUTO_INCREMENT COMMENT ``'id'``,
  ```user_name` ``varchar``(30) ``NOT` `NULL` `DEFAULT` `''` `COMMENT ``'用户名称'``,
@@ -83,7 +101,7 @@ CREATE` `TABLE` ``result` (
  ``KEY` ``ix_ctime` (`ctime`) USING BTREE,
  ``KEY` ``ix_mtime` (`mtime`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 ``DEFAULT` `CHARSET = utf8 COMMENT = ``'用户配置表'``;
-~~~
+```
 
 #### Mysql流程
 
@@ -121,12 +139,11 @@ exit;
 
 ##### flask-sqlalchemy调研
 
-在flask中使用SQLAlchemy数据库框架对数据库驱动进一步封装，进一步简化命令。
-因此SQLAlchemy不是数据库，而是对数据库进行操作的一种框架。
+在flask中使用SQLAlchemy数据库框架对数据库驱动进一步封装，进一步简化命令。 因此SQLAlchemy不是数据库，而是对数据库进行操作的一种框架。
 
 filter模糊查询，返回名字结尾字符为g的所有数据
 
-```shell
+```
 # 运行在部署完成mysql后，完成数据库部分全部部署
 python3 database_init.py
 ```
@@ -169,7 +186,7 @@ python3 database_init.py
 
 首先pyclone环境构建。https://github.com/Roth-Lab/pyclone
 
-```shell
+```
 # install PyClone using bioconda.
 conda install pyclone -c bioconda -c conda-forge
 # create a separate conda environment for PyClone
@@ -192,7 +209,7 @@ PyClone --help
 
 所以可以使用run方法来完成这次任务
 
-```python
+```
 # 以前用法
 subprocess.Popen("aireplay-ng -0 15 -a " + BS +" wlan0mon", shell = True, stdout = subprocess.PIPE)
 # 用法1 直接生成结果
@@ -214,23 +231,21 @@ subprocess.run("PyClone run_analysis_pipeline --in_files xxx.tsv --working_dir t
 
 调用方法大致为
 
-```python
+```
 import subprocess
 A = 0
 try:
-	  A = subprocess.run(["ls", "-l"]).returncode
+      A = subprocess.run(["ls", "-l"]).returncode
 except:
     A = 1
  if A != 0:
     # 出现异常情况
     print("出现异常情况")
- 		return
+         return
 
 # 正常情况
 print("分析成功结束")
 ```
-
-
 
 ### 数据处理流程
 
@@ -258,7 +273,7 @@ upload上传后，检测后缀名&解析文件内容检测，进入upload_list�
 
 ## 操作流程
 
-```python
+```
 '''
 # TODO 是否有优化的空间
 目前共十步
@@ -311,15 +326,11 @@ upload上传后，检测后缀名&解析文件内容检测，进入upload_list�
 
 解决
 
-
-
-
-
 ## 技术实现调研
 
 #### python上传文件
 
-官方推荐  http://docs.jinkan.org/docs/flask/patterns/fileuploads.html
+官方推荐 http://docs.jinkan.org/docs/flask/patterns/fileuploads.html
 
 一个简单例子=。= https://www.cnblogs.com/wongbingming/p/6802660.html
 
@@ -327,7 +338,7 @@ upload上传后，检测后缀名&解析文件内容检测，进入upload_list�
 
 Flask-login 一个比较全的小文 http://www.ityouknow.com/python/2019/11/13/python-web-flask-login-057.html
 
-```python
+```
 from flask import render_template, url_for
 from flask_login import current_user, login_required
 # ...
@@ -337,12 +348,11 @@ from flask_login import current_user, login_required
 @login_required  # 需要登录才能访问
 def index():
     return render_template('index.html', username=current_user.username)
-
 ```
 
 #### 按照用户分割上传空间
 
-设用户id为X,用户上传路径为 uploads/X/...具体文件 
+设用户id为X,用户上传路径为 uploads/X/...具体文件
 
 #### 检测路径存在|创建新文件夹
 
@@ -362,7 +372,7 @@ https://www.cnblogs.com/huangxm/p/5215583.html
 
 （为凸显重剑无锋快糙猛的方法论，转头投向多线程的怀抱）
 
-```python
+```
 import asyncio
 
 
@@ -396,26 +406,26 @@ https://docs.python.org/3/library/asyncio.html
 
 （2）运行容器连接到testnet网络。
 
-使用方法：docker run -it --name <容器名> ---network <bridge> --network-alias <网络别名> <镜像名>
+使用方法：docker run -it --name <容器名> ---network --network-alias <网络别名> <镜像名>
 
-```shell
+```
 [root@CentOS ~]# docker run -it --name centos-1 --network testnet --network-alias centos-1 docker.io/centos:latest
 [root@CentOS ~]# docker run -it --name centos-2 --network testnet --network-alias centos-2 docker.io/centos:latest
 ```
 
 （3）从一个容器ping另外一个容器，测试之
 
-（4）若访问容器中服务，可以使用这用方式访问 <网络别名>：<服务端口号> 
+（4）若访问容器中服务，可以使用这用方式访问 <网络别名>：<服务端口号>
 
 推荐使用这种方法，自定义网络，因为使用的是网络别名，可以不用顾虑ip是否变动，只要连接到docker内部bright网络即可互访。bridge也可以建立多个，隔离在不同的网段
 
 network模式 https://blog.csdn.net/beeworkshop/article/details/106017711
 
-Docker容器互访三种方式     https://www.cnblogs.com/shenh/p/9714547.html
+Docker容器互访三种方式 https://www.cnblogs.com/shenh/p/9714547.html
 
 测试结果可以ping通过
 
-```shell
+```
 (base) root@077ff6879f06:/# ping mysql2
 PING mysql2 (192.168.176.2) 56(84) bytes of data.
 64 bytes from mysql2.bs-test (192.168.176.2): icmp_seq=1 ttl=64 time=0.180 ms
@@ -426,7 +436,7 @@ PING mysql2 (192.168.176.2) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 ```
 
-### 二期规划 
+### 二期规划
 
 二期可拓展方向(现仅为脑洞)
 
@@ -445,8 +455,6 @@ rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 | ------ | -------------------------------- |
 | 未分析 | 上传后，尚未点击 "开始分析"      |
 | 准备中 | 建立分析然后开始排队等待分析处理 |
-
-
 
 #### 难点解决
 
@@ -472,13 +480,7 @@ Docker不同容器间通信（已找到解决方案，测试to）
 
 任务队列优化
 
-
-
-
-
 ------
-
-
 
 register路径适配
 
@@ -486,13 +488,8 @@ register路径适配
 
 从前端直接访问图片资源
 
-
-
 因为实时分析不会立刻出结果，所以先把用户送到主界面
 
-主界面可以选择       上传文件 ｜ 历史记录  
+主界面可以选择 上传文件 ｜ 历史记录
 
-
-
-pb。json 
-
+pb。json

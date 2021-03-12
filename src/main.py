@@ -16,6 +16,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_folder="static")
+open_file_name = "test.txt"
 
 # config
 app.config.update(
@@ -92,21 +93,22 @@ def current_operate(current_file):
 
     # TODO 创建一个空文件先占位, 后续修改之
     # TODO 调研分析在更新后是否还需要这一步
-    fd = open(
-        f'{basepath}/analysis_result/{str(current_file.user_id)}/{current_file.filename}/test.txt')
+    fd = open(f'{basepath}/analysis_result/{str(current_file.user_id)}/test.txt')
     fd.close()
 
     # 初始化 pyclone 参数
     analysis_result_code = 0
-    in_file_path = f'{basepath}/upload/{str(current_file.user_id)}/{current_file.filename}'
-    working_dir_path = f'{basepath}/analysis_result/{str(current_file.user_id)}/{current_file.filename}'
+    in_file_path = ""
+    working_dir_path = ""
 
-    # 调用 pyclone
-    try:
-        analysis_result_code = subprocess.run(f'PyClone run_analysis_pipeline --in_files {in_file_path}  --working_dir {working_dir_path}').returncode
-    except:
-        # 吃错误大法...
-        analysis_result_code = 1
+    # 打开一个文件作为收集途径
+    with open(open_file_name, "w+") as file:
+        # 调用 pyclone
+        try:
+            analysis_result_code = subprocess.run(f'PyClone run_analysis_pipeline --in_files {in_file_path}  --working_dir {working_dir_path}', stdout=file).returncode
+        except:
+            # 吃错误大法...
+            analysis_result_code = 1
 
     # 不为零代表出现异常情况
     if analysis_result_code != 0 :
@@ -135,11 +137,11 @@ def operator_task():
 
 # operator add register
 def register_add_user(username, phone, password):
-    name = "user" + str(id)
-    phone = id
-    password = name + "pw"
-    # init_user = User(id, name, phone, password)
-    db.session.add(User(name, phone, password))
+    # name = "user" + str(id)
+    # phone = id
+    # password = name + "pw"
+
+    db.session.add(User(username, phone, password))
     db.session.commit()
 
 # some protected url
@@ -254,6 +256,14 @@ def history_list():
     file_name_list = os.listdir(my_file) if my_file.is_dir() else []
 
     return render_template("history_list.html", history_list = file_name_list)
+
+
+# 用于分析结果的展示
+@app.route("/analysis_result")
+@login_required
+def analysis_result():
+    pass
+    return
 
 # handle login failed
 @app.errorhandler(401)

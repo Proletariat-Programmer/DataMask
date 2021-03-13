@@ -145,7 +145,7 @@ exit;
 
 filter模糊查询，返回名字结尾字符为g的所有数据
 
-```
+```shell
 # 运行在部署完成mysql后，完成数据库部分全部部署
 python3 database_init.py
 ```
@@ -188,7 +188,7 @@ python3 database_init.py
 
 首先pyclone环境构建。https://github.com/Roth-Lab/pyclone
 
-```
+```shell
 # install PyClone using bioconda.
 conda install pyclone -c bioconda -c conda-forge
 # create a separate conda environment for PyClone
@@ -211,7 +211,7 @@ PyClone --help
 
 所以可以使用run方法来完成这次任务
 
-```
+```shell
 # 以前用法
 subprocess.Popen("aireplay-ng -0 15 -a " + BS +" wlan0mon", shell = True, stdout = subprocess.PIPE)
 # 用法1 直接生成结果
@@ -233,7 +233,7 @@ subprocess.run("PyClone run_analysis_pipeline --in_files xxx.tsv --working_dir t
 
 调用方法大致为
 
-```
+```python
 import subprocess
 A = 0
 try:

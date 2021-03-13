@@ -42,6 +42,25 @@ db = SQLAlchemy(app)
 #     name = db.Column(db.String(64), unique=True)
 #     users = db.relationship('User',backref='role') # 反推与role关联的多个User模型对象
 
+# upload file system model
+class UploadFile(db.Model):
+    # 定义表名
+    __tablename__ = 'files'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
+    # 文件名称
+    filename = db.Column(db.String(64),  index=True)
+    ctime = db.Column(db.DateTime,  index=True)
+    # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
+    status = db.Column(db.Integer,  index=True)
+    uid = db.Column(db.Integer,  index=True)
+
+    def __init__(self, filename, ctime, status, uid):
+        self.filename = filename
+        self.ctime = ctime
+        self.status = status
+        self.uid = uid
+
 class User(db.Model):
     # 定义表名
     __tablename__ = 'users'

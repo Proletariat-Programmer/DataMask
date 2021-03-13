@@ -1,6 +1,6 @@
 # 项目设计
 
-## 项目模块拆分
+## 模块拆解
 
 | 模块名称 | 模块功能           |
 | -------- | ------------------ |
@@ -33,9 +33,9 @@
 
 ### 分析展示
 
-| 功能               | 解释       | URL             |
-| ------------------ | ---------- | --------------- |
-| 单个上传的分析结果 | Up_load_id | Analysis_result |
+| 功能               | 解释            | URL             |
+| ------------------ | --------------- | --------------- |
+| 单个上传的分析结果 | 通过load_id定位 | Analysis_result |
 
 ## 开发计划
 
@@ -45,18 +45,14 @@
 
 数据库交互认证采用 flask-sqlalchemy
 
-原因：门槛低，大家能看懂。带来的结果是=。=我自己的毕设处于代码复用的崇高懒惰目的估计也用python=。=
+门槛低，大家能看懂
 
 | URL                                                  | 调研结果                |
 | ---------------------------------------------------- | ----------------------- |
 | https://github.com/shekhargulati/flask-login-example | 纯登陆，调用flask-Login |
 | https://github.com/tolgahanuzun/Flask-Login-Example  | 用来登陆ins的           |
 
-问题解决
-
-https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
-
-配安装
+环境配置
 
 ```shell
 # 激活conda环境。 pip安装依赖包
@@ -111,7 +107,7 @@ CREATE` `TABLE` ``result` (
 
 Python 与 mysql连接 https://github.com/PyMySQL/PyMySQL
 
-##### Mysql开箱即用
+##### Mysql全配置流程
 
 ```shell
 # -------       docker安装后 快速部署本地mysql环境      ------- #
@@ -137,8 +133,6 @@ exit;
 # 直接运行flask-sqlalchemy调研处shell指令即可完成mysql全部环境部署
 ```
 
-##### ~~mysql登陆与flask-login配合~~
-
 ##### flask-sqlalchemy调研
 
 在flask中使用SQLAlchemy数据库框架对数据库驱动进一步封装，进一步简化命令。 因此SQLAlchemy不是数据库，而是对数据库进行操作的一种框架。
@@ -150,43 +144,13 @@ filter模糊查询，返回名字结尾字符为g的所有数据
 python3 database_init.py
 ```
 
-### 登陆
-
-| 路径       | 功能                           |
-| ---------- | ------------------------------ |
-| /          | hello.html用于测试服务功能开启 |
-| /login     | 登陆看板login.html             |
-| /register  | 注册界面                       |
-| /logout    | 登出logout.html                |
-| /dashboard | 登陆后主界面 (尚未测试)        |
-
-### 文件上传 + 表单填写
-
-| 路径    | 功能                                            |
-| ------- | ----------------------------------------------- |
-| /upload | 选择上传文件并填写表单，事后返回dashboard主界面 |
-
-### 历史记录
-
-| 路径         | 功能                                                     |
-| ------------ | -------------------------------------------------------- |
-| /historylist | 可以查看历史上传的文件(在这里可以看到历史文件的处理进度) |
-
-历史记录
-
-遍历upload/X/...下所有文件，然后将文件名返回
-
 ### 接入分析系统
 
-如何接入pyclone
-
-方案1 subprocess直接开子进程调用，直接从后台调用pyclone，想想还是很美好的
-
-方案2 喝西北风
+方案 : subprocess直接开子进程调用，直接从后台调用pyclone，想想还是很美好的
 
 所以分析系统接入使用
 
-首先pyclone环境构建。https://github.com/Roth-Lab/pyclone
+pyclone环境构建。https://github.com/Roth-Lab/pyclone
 
 ```shell
 # install PyClone using bioconda.
@@ -324,11 +288,11 @@ upload上传后，检测后缀名&解析文件内容检测，进入upload_list�
 
 可以通过数据库随时查询内容，第一版设计有一个问题是没有地方对所有数据进行集中化处理
 
-#### 文件状态变更相关解决方案
-
-解决
-
 ## 技术实现调研
+
+#### 旧版本flask.ext.login
+
+https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
 
 #### python上传文件
 
@@ -392,7 +356,7 @@ https://docs.python.org/3/library/asyncio.html
 
 #### Docker不同容器间通信
 
-粗略一看有三种方法
+三种方法(推荐第三种)
 
 1 虚拟ip互访
 
@@ -442,16 +406,16 @@ rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 
 二期可拓展方向(现仅为脑洞)
 
-| 标题                | 内容                                  |
-| ------------------- | ------------------------------------- |
-| history历史上传文件 | 基于日期强规则 与。name的模糊匹配技术 |
-| 实名验证            | 功能简单，后置                        |
-| 发送邮件            | 发现flask_mail框架可以实现            |
-| todo                |                                       |
+| 标题                | 内容                                |
+| ------------------- | ----------------------------------- |
+| history历史上传文件 | 基于日期强规则 与name的模糊匹配技术 |
+| 实名验证            | 功能简单，后置                      |
+| 发送邮件            | 发现flask_mail框架可以实现          |
+|                     |                                     |
 
 ### 唧唧歪歪
 
-可以考虑上传文件后，有一个开始分析的按钮..?然后再开始分析
+上传文件后，有一个开始分析的按钮..?然后再开始分析
 
 | 状态名 | 解释                             |
 | ------ | -------------------------------- |
@@ -462,31 +426,27 @@ rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 
 ###### pymysql报错：cryptography is required for sha256_password or caching_sha2_password
 
+缺少依赖
+
+```shell
 pip3 install cryptography
+```
 
 ### TODOList
 
 #### 高
 
-分析系统接入（完成，待测试）
 
-Docker不同容器间通信（已找到解决方案，测试to）
 
 #### 普通
 
-上传文件状态逻辑优化
 
-数据库新增状态相关操作
 
 #### 低
 
-任务队列优化
+
 
 ------
-
-register路径适配
-
-几个url
 
 从前端直接访问图片资源
 

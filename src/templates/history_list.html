@@ -5,10 +5,20 @@
    ----------------------------
    
 {% for item in history_list %}
+    {% if item.status == 0 %}
+        <div class="row">	
+            <div class="col-md-3"> {{ item.filename }} 已完成 {{ item.ctime }}</div>
+        </div>
+    {% elif item.status == 1 %}
+        <div class="row">
+            <div class="col-md-3"> {{ item.filename }} 处理中 {{ item.ctime }}</div>
+        </div>
+    {% elif item.status == 2 %}
+        <div class="row">
+            <div class="col-md-3"> {{ item.filename }} 等待中 {{ item.ctime }}</div>
+        </div>
+    {% endif %}
 
-<div class="row">	
-    <div class="col-md-3"> {{ item }} </div>
-</div>
 
 {% endfor %}
 

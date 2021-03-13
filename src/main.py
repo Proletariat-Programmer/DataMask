@@ -16,6 +16,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_folder="static")
+# pyclone处理记录
 open_file_name = "test.txt"
 
 # config
@@ -83,32 +84,49 @@ def current_operate(current_file):
 
     # 检测是否存在对应路径
     basepath = os.path.dirname(__file__)  # 当前文件所在路径
+
     my_file = Path(f'{basepath}/analysis_result/{str(current_file.user_id)}')
-    if my_file.is_dir():
-        pass
-    else:
-        # 不存在
-        os.mkdir(my_file) # 只能创建单级目录
+    if not my_file.exists():
+        # 检测是否存在id路径不存在
+        os.makedirs(my_file)  # 只能创建单级目录 =.=对这个用法表示怀疑
         print(f'路径不存在 {my_file} 创建路径')
 
     # TODO 创建一个空文件先占位, 后续修改之
     # TODO 调研分析在更新后是否还需要这一步
-    fd = open(f'{basepath}/analysis_result/{str(current_file.user_id)}/test.txt')
-    fd.close()
+    with open(f'{basepath}/analysis_result/{str(current_file.user_id)}/test.txt', "w+") as fd:
+        pass
 
     # 初始化 pyclone 参数
     analysis_result_code = 0
-    in_file_path = ""
-    working_dir_path = ""
+    in_file_path = f'{basepath}/uploads/{str(current_file.user_id)}/{current_file.filename}'
+    working_dir_path = f'{basepath}/analysis_result/{str(current_file.user_id)}/{current_file.filename}'
 
     # 打开一个文件作为收集途径
     with open(open_file_name, "w+") as file:
+        '''
         # 调用 pyclone
         try:
-            analysis_result_code = subprocess.run(f'PyClone run_analysis_pipeline --in_files {in_file_path}  --working_dir {working_dir_path}', stdout=file).returncode
+            print("!!!!!!!开始啦!!!!!!!!")
+            analysis_result_code = subprocess.run(
+                f'PyClone run_analysis_pipeline --in_files {in_file_path}  --working_dir {working_dir_path}', stdout=file).returncode
         except:
             # 吃错误大法...
             analysis_result_code = 1
+        '''
+
+        # 调用 pyclone
+        print("!!!!!!!开始啦!!!!!!!!")
+        analysis_result_code = subprocess.run(
+            ["PyClone", "run_analysis_pipeline", \
+             "--in_files", f'{in_file_path}', \
+             "--working_dir",f'{working_dir_path}'], stdout=file).returncode
+        '''
+        FileNotFoundError: [Errno 2] No such file or directory: '
+        PyClone run_analysis_pipeline 
+        --in_files /Users/mfz/Code/Proletariat-Programmer/DataMask/src/uploads/1/SRR385938.tsv  
+        --working_dir /Users/mfz/Code/Proletariat-Programmer/DataMask/src/analysis_result/1/SRR385938.tsv'
+        '''
+
 
     # 不为零代表出现异常情况
     if analysis_result_code != 0 :

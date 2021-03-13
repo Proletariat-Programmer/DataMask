@@ -56,9 +56,11 @@
 
 https://stackoverflow.com/questions/21701174/importerror-no-module-named-flask-ext-login
 
-安装依赖
+配安装
 
-```
+```shell
+# 激活conda环境。 pip安装依赖包
+conda activate pyclone
 pip3 install flask
 pip3 install flask-login
 pip3 install flask-sqlalchemy

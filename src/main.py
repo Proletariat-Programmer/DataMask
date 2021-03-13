@@ -78,7 +78,7 @@ class UploadFile(db.Model):
     # 文件名称
     filename = db.Column(db.String(64),  index=True)
     ctime = db.Column(db.DateTime,  default=datetime.datetime.utcnow)
-    # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
+    # 文件状态  0为已完成 1为进行中 2为等待中 其余为预料之外情况
     status = db.Column(db.Integer,  index=True)
     uid = db.Column(db.Integer,  index=True)
 
@@ -125,6 +125,7 @@ def current_operate(current_file):
         print("任务异常")
 
     print("任务完成")
+    # TODO 邮件通知功能
     turn_file_status_ready(current_file.id)     # 在这里把新的文件状态变更为已完成
 
 

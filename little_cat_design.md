@@ -184,8 +184,6 @@ subprocess.run(" PyClone build_mutations_file --in_flies xxx.tsv --out_file yyy.
 subprocess.run("PyClone run_analysis_pipeline --in_files xxx.tsv --working_dir test_dir")
 ```
 
-暂定使用第二种方法，参数为
-
 - `--in_files`: A space delimited set of tsv files formatted as specified in the input format section.
 - `--working_dir`: A directory where the pipeline will run and output results.
 
@@ -236,6 +234,16 @@ upload上传后，检测后缀名&解析文件内容检测，进入upload_list�
 然后在 ar/X/...创建对应文件夹并存入内容
 
 最后在history_list展示结果时，对每个文件，检测ar/X/...中是否存在对应文件夹，若存在则返回已完成，若不存在，但其位于upload_list首位，则返回处理中，否则其余情况返回等待中
+
+## 分析结果展示
+
+传入 upfile_id 返回 几个展示结果的url
+
+目前计划以html a标签来实现
+
+```html
+<a target='_black'  href='http://mczaiyun.top/ht/4.pdf'>预览PDF文件</a>
+```
 
 ## 操作流程
 
@@ -402,6 +410,32 @@ PING mysql2 (192.168.176.2) 56(84) bytes of data.
 rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 ```
 
+#### pymysql报错缺少依赖
+
+cryptography is required for sha256_password or caching_sha2_password
+
+```shell
+pip3 install cryptography
+```
+
+#### 脱敏
+
+脱敏 (姓名，年龄)
+
+#### 结果展示方法调研
+
+9个图片都展示，tables展示cluster
+
+loci提供下载
+
+#### redis缓存调用
+
+所有的行为-> 存储到缓存 -> 缓存再写入到数据库
+
+redis（Mysql）
+
+缓存 
+
 ### 二期规划
 
 二期可拓展方向(现仅为脑洞)
@@ -411,7 +445,6 @@ rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 | history历史上传文件 | 基于日期强规则 与name的模糊匹配技术 |
 | 实名验证            | 功能简单，后置                      |
 | 发送邮件            | 发现flask_mail框架可以实现          |
-|                     |                                     |
 
 ### 唧唧歪歪
 
@@ -422,29 +455,19 @@ rtt min/avg/max/mdev = 0.180/0.186/0.192/0.006 ms
 | 未分析 | 上传后，尚未点击 "开始分析"      |
 | 准备中 | 建立分析然后开始排队等待分析处理 |
 
-#### 难点解决
-
-###### pymysql报错：cryptography is required for sha256_password or caching_sha2_password
-
-缺少依赖
-
-```shell
-pip3 install cryptography
-```
-
-### TODOList
+###### TODOList
 
 #### 高
 
-
+结果展示
 
 #### 普通
 
-
+脱敏
 
 #### 低
 
-
+加redis缓存
 
 ------
 

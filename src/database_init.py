@@ -4,6 +4,7 @@
     可快速 删表 并 建表 同时 导入20个默认用户
 
 '''
+import datetime
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
@@ -50,14 +51,13 @@ class UploadFile(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     # 文件名称
     filename = db.Column(db.String(64),  index=True)
-    ctime = db.Column(db.DateTime,  index=True)
+    ctime = db.Column(db.DateTime,  default=datetime.datetime.utcnow)
     # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
     status = db.Column(db.Integer,  index=True)
     uid = db.Column(db.Integer,  index=True)
 
-    def __init__(self, filename, ctime, status, uid):
+    def __init__(self, filename, status, uid):
         self.filename = filename
-        self.ctime = ctime
         self.status = status
         self.uid = uid
 

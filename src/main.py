@@ -19,7 +19,7 @@ operating = 1
 waiting = 2
 
 app = Flask(__name__, static_folder="static")
-# pyclone处理记录文件
+# PyClone 处理记录文件
 open_file_name = "log_pyclone.txt"
 
 # config
@@ -299,10 +299,10 @@ def upload_success():
 def history_list():
     # history list
     # 历史上传记录
-    user_id = current_user.id
+    uid = current_user.id
     basepath = os.path.dirname(__file__)  # 当前文件所在路径
     # 检测是否存在对应路径,读取list
-    # my_file = Path(f'{basepath}/uploads/{str(user_id)}')
+    # my_file = Path(f'{basepath}/uploads/{str(uid)}')
     # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
 
     # TODO 重构将这里完全变成查询数据库的操作
@@ -312,21 +312,36 @@ def history_list():
 
     '''
 
-    file_list = UploadFile.query.filter_by(uid=current_user.id).all()
+    file_list = UploadFile.query.filter_by(uid=uid).all()
 
     # return render_template("history_list.html", history_list = file_name_list)
-    return render_template("history_list.html", history_list=file_list)
+    return render_template("history_list.html", history_list=file_list, uid = uid)
 
 
 # 用于分析结果的展示
-@app.route("/analysis_result")
+@app.route("/analysis_result/<uploadname>")
 @login_required
-def analysis_result():
+def analysis_result(uploadname):
     pass
     # TODO 通过file_id 直接展示对应的分析结果
 
     # TODO 对file_id 是否属于此用户 , 文件状态是否为ready 进行判断
-    return
+    
+    return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname)
+
+
+# @login_required
+@app.route("/download/<uid>/<uploadname>/<bigfiletype>/<smallfiletype>/<filename>", methods=['GET'])
+# 不查数据库,通uploadname过uid + type + filename直接拼出来目标文件位置
+def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
+
+    # object_file_path = f'analysis_result/{str(current_user.id)}/{uploadname}/{smallfiletype}/{filename}'
+    object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{smallfiletype}/{filename}'
+    if bigfiletype == "tables":
+        object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{filename}'
+
+    # filepath是文件的路径，但是文件必须存储在static文件夹下， 比如images\test.jp
+    return app.send_static_file(object_file_path)
 
 
 @app.errorhandler(401)

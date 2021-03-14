@@ -1,4 +1,4 @@
 .DS_store
 
-/src/analysis_result
+/src/static/analysis_result
 /src/log_pyclone.txt

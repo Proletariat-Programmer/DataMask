@@ -7,6 +7,7 @@
     {% if item.status == 0 %}
         <div class="row">	
             <div class="col-md-3"> {{ item.filename }} 已完成 {{ item.ctime }}</div>
+            <div class="col-md-3"> 可以访问查询分析结果 </div>
         </div>
     {% elif item.status == 1 %}
         <div class="row">
@@ -18,8 +19,8 @@
         </div>
     {% endif %}
 
-
 {% endfor %}
+
 
 <a href="/logout">注销</a>
 <a href="/dashboard">返回看板</a>

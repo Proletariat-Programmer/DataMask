@@ -1,4 +1,4 @@
-   ----------------------------
+   <!-- ----------------------------
    |   Here is History List~  |
    |    当前你的历史文件列表  |
    ----------------------------
@@ -23,4 +23,74 @@
 
 
 <a href="/logout">注销</a>
-<a href="/dashboard">返回看板</a>
+<a href="/dashboard">返回看板</a> -->
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>history</title>
+    <!-- <link rel="stylesheet" type="text/css" href="bootstrapt/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="history.css"/> -->
+
+    <link rel="stylesheet" type="text/css"
+        href="{{url_for('static', filename='css/bootstrapt/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/history.css')}}" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div id="home_button">
+                    <a href="index.html">
+                        <button>Home</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div id="tip">
+                    <img src="tip">
+                </div>
+                <!-- <div id="tipw" >
+						刷新网页<br>更新状态
+					</div> -->
+            </div>
+            <div class="col-md-9">
+                <h2 id="title">Here is History List~ </h2>
+                <div id="list">
+{% for item in history_list %}
+                    <a href="#" class="list-group-item">{{ item.filename }}
+                        {% if item.status == 0 %}
+                        <span class="label label-success">已完成</span>
+                        {% elif item.status == 1 %}
+                        <span class="label label-danger">处理中</span>
+                        {% elif item.status == 2 %}
+                        <span class="label label-warning">等待中</span>
+                        {% endif %}
+                        <span class="badge">{{ item.ctime }}</span>
+                    </a>
+{% endfor %}
+                    <a href="#" class="list-group-item">免费 Window 空间托管
+                        <span class="label label-success">已完成</span>
+                        <span class="badge">2021.3.16</span>
+                    </a>
+                    <a href="#" class="list-group-item">免费 Window 空间托管
+                        <span class="label label-warning">等待中</span>
+                        <span class="badge">2021.3.16</span>
+                    </a>
+                    <a href="#" class="list-group-item">图像的数量
+                        <span class="label label-danger">处理中</span>
+                        <span class="badge">2021.3.16</span>
+                    </a>
+                    <a href="#" class="list-group-item">每年更新成本</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

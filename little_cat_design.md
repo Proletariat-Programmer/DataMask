@@ -494,11 +494,9 @@ https://www.jianshu.com/p/dd225ba31be4
 
 #### 普通
 
-展示界面优化
+展示界面优化  - 包含(pdf->jpg)
 
 脱敏
-
-pdf转jpg
 
 各个界面连起来
 

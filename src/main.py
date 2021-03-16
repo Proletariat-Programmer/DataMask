@@ -344,6 +344,12 @@ def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
     return app.send_static_file(object_file_path)
 
 
+# 垃圾代码,仅展示一个图片
+@app.route("/tip")
+def tip():
+    return app.send_static_file("css/tip.png")
+
+
 @app.errorhandler(401)
 def page_not_found(e):
     # handle login failed

@@ -4,6 +4,7 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, \
     login_required, login_user, logout_user
+import pdftopng
 from pathlib import Path
 import threading
 import collections
@@ -105,7 +106,7 @@ def current_operate(current_file):
     # 初始化 pyclone 参数
     analysis_result_code = 0
     in_file_path = f'{basepath}/uploads/{str(current_file.uid)}/{current_file.filename}'
-    working_dir_path = f'{basepath}/analysis_result/{str(current_file.uid)}/{current_file.filename}'
+    working_dir_path = f'{basepath}/static/analysis_result/{str(current_file.uid)}/{current_file.filename}' # TODO 这里修改了待验证
 
     # 打开一个文件作为收集途径
     with open(open_file_name, "w+") as file:
@@ -124,10 +125,14 @@ def current_operate(current_file):
     if analysis_result_code != 0:
         print("任务异常")
 
-    print("任务完成")
+
+
+    # TODO 文件出炉
+    pdftopng.loadall_pdf2png(current_file.uid, current_file.filename)
+
     # TODO 邮件通知功能
     turn_file_status_ready(current_file.id)     # 在这里把新的文件状态变更为已完成
-
+    print("任务完成")
 
 def operator_task():
     # 多线程处理任务队列
@@ -141,6 +146,7 @@ def operator_task():
             print(f"当前任务 {current_task}")
             turn_file_status_operating(current_task.id)  # 在这里将 task 状态变更为 处理中
             current_operate(current_task)
+
         else:
             print("current task list is nil, retry after 1 minute")
         time.sleep(60)  # 一分钟检测一次

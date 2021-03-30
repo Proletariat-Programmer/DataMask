@@ -62,6 +62,7 @@ pip3 install flask
 pip3 install flask-login
 pip3 install flask-sqlalchemy
 pip3 install PyMySQL
+pip3 install cryptography
 ```
 
 ### 数据库设计

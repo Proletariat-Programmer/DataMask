@@ -1,4 +1,7 @@
 .DS_store
+__pycache__
+uploads
+test
 
 /src/static/analysis_result
 /src/log_pyclone.txt

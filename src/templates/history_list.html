@@ -44,7 +44,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div id="home_button">
-                    <a href="index.html">
+                    <!-- <a href="index.html"> -->
+                    <a href="/history_list">
                         <button>Home</button>
                     </a>
                 </div>
@@ -63,7 +64,23 @@
                 <h2 id="title">Here is History List~ </h2>
                 <div id="list">
 {% for item in history_list %}
+                    {% if item.status == 0 %}
+                    <a href="/analysis_result/{{ item.filename }}" class="list-group-item">{{ item.filename }}
+                        <span class="label label-success">已完成</span>
+                        <span class="badge">{{ item.ctime }}</span>
+                    </a>
+                    {% elif item.status == 1 %}
                     <a href="#" class="list-group-item">{{ item.filename }}
+                        <span class="label label-danger">处理中</span>
+                        <span class="badge">{{ item.ctime }}</span>
+                    </a>
+                    {% elif item.status == 2 %}
+                    <a href="#" class="list-group-item">{{ item.filename }}
+                        <span class="label label-warning">等待中</span>
+                        <span class="badge">{{ item.ctime }}</span>
+                    </a>                 
+                    {% endif %}
+                    <!-- <a href="/analysis_result/{{ item.filename }}" class="list-group-item">{{ item.filename }}
                         {% if item.status == 0 %}
                         <span class="label label-success">已完成</span>
                         {% elif item.status == 1 %}
@@ -72,7 +89,7 @@
                         <span class="label label-warning">等待中</span>
                         {% endif %}
                         <span class="badge">{{ item.ctime }}</span>
-                    </a>
+                    </a> -->
 {% endfor %}
                     <a href="#" class="list-group-item">免费 Window 空间托管
                         <span class="label label-success">已完成</span>
@@ -91,6 +108,10 @@
             </div>
         </div>
     </div>
+
+    <a href="/upload">上传界面</a>
+    <a href="/logout">注销</a>
+
 </body>
 
 </html>

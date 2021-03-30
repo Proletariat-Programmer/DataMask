@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, \
     login_required, login_user, logout_user
-import pdftopng
+import pdftopng # 内部引用
 from pathlib import Path
 import threading
 import collections
@@ -125,8 +125,6 @@ def current_operate(current_file):
     if analysis_result_code != 0:
         print("任务异常")
 
-
-
     # TODO 文件出炉
     pdftopng.loadall_pdf2png(current_file.uid, current_file.filename)
 
@@ -195,7 +193,7 @@ def login():
             if user.password == login_info.get("password"):
                 login_user(user)
                 print(f'用户登陆 {user.id} : {user.name}')
-                return redirect("/")
+                return redirect("/history_list")
 
         return abort(401)
     else:
@@ -287,7 +285,7 @@ def upload():
         print(f'当前队列长度 {len(upload_task_id_list)}')
         print(upload_task_id_list)
 
-        return redirect("upload_success.html")
+        return redirect("/history_list")
 
     return render_template("upload.html")
 

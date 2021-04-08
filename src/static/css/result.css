@@ -1,0 +1,46 @@
+	
+#info{
+	margin-top: 30px;
+}
+
+	
+#mes img{
+	width: 80px;
+	height: 80px;
+	display: block;
+	margin:  40px auto;
+	
+
+}
+	
+#age{
+	margin:30px auto; ;
+}
+
+#mes{
+	width: 1000px;
+	height: 200px;
+	margin: 0 auto;
+	background-color: #F5F5F5;
+	border:3px solid #F5F5F5 ;
+	border-radius: 15px;
+}
+	
+dt{
+  color:#4a4744;
+}
+dd{
+	color: gray;
+}
+
+	
+/* #pic img{
+	width: 30px;
+	height: 300px;
+	display: block;
+	margin:  0 auto;
+} */
+
+table{
+	margin: 20px auto;
+}

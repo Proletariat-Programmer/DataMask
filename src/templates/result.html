@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>result</title>
+		<!-- <link rel="stylesheet" type="text/css" href="bootstrapt/css/bootstrap.min.css"/> -->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrapt/css/bootstrap.min.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/result.css')}}">
+	</head>
+	<body>
+		<div class="container" id="info">
+			<div class="row" >
+					<div id="mes">
+						<div class="row">
+							<div class="col-md-3">
+								<!-- <img src="username.png" > -->
+								<img src="/pic/username.png">	
+							</div>
+							<div class="col-md-1" id="age">
+								<dl>
+									<dt>姓名：</dt>
+									<dd>张三</dd>
+									<dt>性别：</dt>
+									<dd>男</dd>
+									<dt>年龄：</dt>
+									<dd>50</dd>
+								</dl>
+							</div>
+							<div class="col-md-8">
+								<dl>
+								<dt>病例：</dt>
+								<dd>现病史及实施初期治疗方案的经过：
+								（主诉）患者因“间歇性发热伴乏力半年余，B超提示肝占位”，
+								于2005.10.19入住我院肝胆外科，（体格检查）入院查体：
+								一般情况可，双锁骨上淋巴结未触及肿大，两肺听诊无啰音，
+								心律齐，腹软未及包块，无压痛，肝脾肋下未触及，双下肢无水肿
+								。影像学检查：CT示：1、肝内多发低密度影，考虑转移性病变
+								；2、乙状结肠肠壁增厚。胃镜示：浅表性胃炎；肠镜示：
+								距肛门约25 - 30cm乙状结肠处见一局限性肿块生长。活检病理为腺癌。
+								血常规：WBC6.33 x109/L, HGB118.Og／L,PLT230×l09/L；肝功能：ALT28.11U/L, AST27.9IU/L, LDH176IU/L( 50-245), BI-T20.9umol/L(3.0- 25.0)；乙肝六项监测：除HBsAb阳性外，照他五项均为阴性；肿瘤标记物：CEA29.1 ng／ml（
+								参考值：<15．Ong／ml），AFP12.4ng/ml(0.0～20.0)。诊断：结肠癌Ⅳ期(TxNxMl)</dd>
+								</dl>
+							</div>
+						</div>
+						
+					</div>
+			</div>
+			<table class="table">
+				<tr>
+					<th >sample_id</th>
+					<th>cluster_id</th>
+					<th>size</th>
+					<th>mean</th>
+					<th>std</th>
+				</tr>
+				<tr>
+					<td >SRR385938</td>
+					<td>0</td>
+					<td>2</td>
+					<td>0.08098242127033796</td>
+					<td>0.002977631928636432</td>
+				</tr>
+				<tr>
+					<td>SRR385938</td>
+					<td>0</td>
+					<td>2</td>
+					<td>0.08098242127033796</td>
+					<td>0.002977631928636432</td>
+				</tr>
+				<tr>
+					<td>SRR385938</td>
+					<td>0</td>
+					<td>2</td>
+					<td>0.08098242127033796</td>
+					<td>0.002977631928636432</td>
+				</tr>
+				<tr>
+					<td>SRR385938</td>
+					<td>0</td>
+					<td>2</td>
+					<td>0.08098242127033796</td>
+					<td>0.002977631928636432</td>
+				</tr>
+				<tr>
+					<td>SRR385938</td>
+					<td>0</td>
+					<td>2</td>
+					<td>0.08098242127033796</td>
+					<td>0.002977631928636432</td>
+				</tr>
+			</table>
+			<div class="row" id="pic">
+				<div class="row">
+					<div class="col-md-12" >
+						<!-- <img src="plots/cluster/density.png" style="width: 800px; display: block; margin: 0 auto;" > -->
+						<!-- /download/{{ uid }}/{{ uploadname }}/plots/cluster/density.png -->
+						<img src="download/1/SRR385938.tsv/plots/cluster/density.png" style="width: 800px; display: block; margin: 0 auto;">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<!-- <img src="plots/cluster/parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;"> -->
+						<img src="download/1/SRR385938.tsv/plots/cluster/parallel_coordinates.png" style="width: 300px;height: 300px; display: block; margin: 0 auto;">
+
+					</div>
+					<div class="col-md-4">
+						<!-- <img src="plots/cluster/scatter.png" style="width: 300px; height: 300px;display: block; margin: 0 auto;"> -->
+						<img src="download/1/SRR385938.tsv/plots/cluster/scatter.png" style="width: 300px; height: 300px;display: block; margin: 0 auto;">
+
+					</div>
+					<div class="col-md-4">
+						<!-- <img src="plots/loci/vaf_parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;"> -->
+						<img src="download/1/SRR385938.tsv/plots/loci/vaf_parallel_coordinates.png" style="width: 300px;height: 300px; display: block; margin: 0 auto;">
+
+					</div>
+					</div>
+				<div class="row">
+				<!-- <img src="plots/loci/similarity_matrix.png" style="width: 1000px; display: block; margin: 0 auto;">> -->
+				<img src="download/1/SRR385938.tsv/plots/loci/similarity_matrix.png" style="width: 1000px; display: block; margin: 0 auto;">>
+
+			</div>
+		</div>
+	</body>
+</html>

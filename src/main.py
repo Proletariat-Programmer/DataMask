@@ -333,6 +333,13 @@ def analysis_result(uploadname):
     
     return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname)
 
+# 用于分析结果的展示
+@app.route("/result")
+@login_required
+def tt_result():
+    return render_template("result.html")
+
+
 
 # @login_required
 @app.route("/download/<uid>/<uploadname>/<bigfiletype>/<smallfiletype>/<filename>", methods=['GET'])
@@ -352,6 +359,12 @@ def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
 @app.route("/tip")
 def tip():
     return app.send_static_file("css/tip.png")
+
+
+@app.route("/pic/<picture_name>")
+def pic_root(picture_name):
+    return app.send_static_file(f'css/picture/{ picture_name }')
+
 
 
 @app.errorhandler(401)

@@ -334,10 +334,10 @@ def analysis_result(uploadname):
     return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname)
 
 # 用于分析结果的展示
-@app.route("/result")
+@app.route("/result/<uploadname>")
 @login_required
-def tt_result():
-    return render_template("result.html")
+def temp_result(uploadname):
+    return render_template("result.html", uid=current_user.id, uploadname=uploadname)
 
 
 

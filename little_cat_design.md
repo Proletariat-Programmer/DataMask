@@ -1,5 +1,15 @@
 # 项目设计
 
+todo
+
+1 把姓名性别病例等信息同步到result页
+
+2 增加一个导航页
+
+3 跳转到result页，现在跳转的界面不是对应的
+
+
+
 ## 模块拆解
 
 | 模块名称 | 模块功能           |
@@ -46,8 +56,6 @@
 
 数据库交互认证采用 flask-sqlalchemy
 
-门槛低，大家能看懂
-
 | URL                                                  | 调研结果                |
 | ---------------------------------------------------- | ----------------------- |
 | https://github.com/shekhargulati/flask-login-example | 纯登陆，调用flask-Login |
@@ -87,7 +95,7 @@ CREATE` `TABLE` ``user` (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 ``DEFAULT` `CHARSET = utf8 COMMENT = ``'用户配置表'``;
 ```
 
-分析结果表
+分析结果表(TODO)
 
 ```
 CREATE` `TABLE` ``result` (
@@ -148,7 +156,7 @@ python3 database_init.py
 
 ### 接入分析系统
 
-方案 : subprocess直接开子进程调用，直接从后台调用pyclone，想想还是很美好的
+方案 : subprocess直接开子进程调用，直接从后台调用pyclone
 
 所以分析系统接入使用
 

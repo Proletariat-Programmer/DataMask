@@ -37,7 +37,8 @@
                 <div id="list">
 {% for item in history_list %}
                     {% if item.status == 0 %}
-                    <a href="/analysis_result/{{ item.filename }}" class="list-group-item">{{ item.filename }}
+                    <!-- <a href="/analysis_result/{{ item.filename }}" class="list-group-item">{{ item.filename }} -->
+                    <a href="/result/{{ item.filename }}" class="list-group-item">{{ item.filename }}
                         <span class="label label-success">已完成</span>
                         <span class="badge">{{ item.ctime }}</span>
                     </a>
@@ -63,19 +64,7 @@
                         <span class="badge">{{ item.ctime }}</span>
                     </a> -->
 {% endfor %}
-                    <a href="#" class="list-group-item">免费 Window 空间托管
-                        <span class="label label-success">已完成</span>
-                        <span class="badge">2021.3.16</span>
-                    </a>
-                    <a href="#" class="list-group-item">免费 Window 空间托管
-                        <span class="label label-warning">等待中</span>
-                        <span class="badge">2021.3.16</span>
-                    </a>
-                    <a href="#" class="list-group-item">图像的数量
-                        <span class="label label-danger">处理中</span>
-                        <span class="badge">2021.3.16</span>
-                    </a>
-                    <a href="#" class="list-group-item">每年更新成本</a>
+
                 </div>
             </div>
         </div>

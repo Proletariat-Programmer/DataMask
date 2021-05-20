@@ -106,7 +106,7 @@ if __name__ == '__main__':
     # 创建20个默认用户
     # create some users with ids 1 to 20
     for i in range(1, 21):
-        level = 0 if i == 1 else 1
+        level = 0 if i == 1 else 4
         id = i
         name = "user" + str(id)
         # phone = id

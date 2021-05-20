@@ -24,7 +24,7 @@
 			<th>修改权限</th>
 		</tr>
 		<tr>
-			<td >user2</td>
+			<td>user2</td>
 			<td>user2pw</td>
 			<td>2</td>
 			<td>
@@ -42,7 +42,31 @@
 			</td>
 			<td><button type="button" onclick="alert('提交成功')">提交</button></td>
 		</tr>
+
+		{% for user in all_info %}
 		<tr>
+			<td>{{ user.username }}</td>
+			<td>{{ user.password }}</td>
+			<td>2</td>
+			<td>
+				<select class="form-control">
+					{% for level in all_level %}
+						<option value={{ level }}> {{ level }}</option>
+					{% endfor %}
+				 </select>
+		</td>
+			<td>
+				<select class="form-control">
+				      <option>Read</option>
+					  <option>Write</option>
+					  <option>此功能暂不开放</option>
+				 </select>
+			</td>
+			<td><button type="button" onclick="alert('提交成功')">提交</button></td>
+		</tr>	
+		{% endfor %}
+
+		<!-- <tr>
 			<td >user3</td>
 				<td>user3pw</td>
 				<td>2</td>
@@ -79,7 +103,7 @@
 					 </select>
 				</td>
 				<td><button type="button" onclick="alert('提交成功')">提交</button></td>
-		</tr>
+		</tr> -->
 	</table>
 	</body>
 </html>

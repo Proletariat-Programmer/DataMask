@@ -15,6 +15,8 @@ import datetime
 import pymysql
 pymysql.install_as_MySQLdb()
 
+# 全局变量
+all_user_level = [0, 1, 2, 3, 4]
 ready = 0
 operating = 1
 waiting = 2
@@ -190,8 +192,8 @@ def turn_zip(filename):
 
 
 def register_add_user(username, password):
-    # 多线程处理任务队列
-    db.session.add(User(username, password, 1))
+    #  level 4 - 最普通用户
+    db.session.add(User(username, password, 4))
     db.session.commit()
 
 
@@ -215,7 +217,6 @@ def turn_file_status_ready(upload_id):
     db.session.commit()
 
 
-@app.route('/temp')
 @app.route('/')
 @login_required
 def home():  # some protected url
@@ -368,6 +369,30 @@ def history_list():
 
     # return render_template("history_list.html", history_list = file_name_list)
     return render_template("history_list.html", history_list=file_list, uid = uid)
+
+
+
+@app.route("/level", methods=["GET", "POST"])
+@login_required
+def manager_user():
+    # 非管理员用户直接弹回主界面
+    if not check_admin(current_user.id):
+        return redirect("/")
+
+    # 拉取全部用户信息进行展示
+    all_info = User.query.all()
+
+    if request.method == "POST":
+        # 获取提交数据
+        search_info = request.form.to_dict()
+        # 修改用户数据
+        user = User.query.get(search_info.get("reid"))
+        user.level = int(search_info.get("re_level"))
+        db.session.commit()
+        # 重置页面
+        return redirect("/level")
+
+    return render_template("level.html", all_info=all_info)
 
 
 # 用于分析结果的展示

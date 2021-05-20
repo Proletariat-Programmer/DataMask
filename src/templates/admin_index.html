@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+	<!-- <link rel="stylesheet" type="text/css" href="index.css"/> -->
+
+
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+	<!-- <div id="header">
+		<div id="history">
+			<button type="button">
+				<a href="history.html">历史记录</a>
+			</button>
+			
+		</div>
+	</div> -->
+	<ul class="breadcrumb">
+		<li><a href="admin_index.html">信息提交</a></li>
+		<li><a href="k-ano.html">匿名算法处理</a></li>
+		<li><a href="level.html">用户权限管理</a></li>
+		（管理员）
+	</ul>
+	<div id="info">
+		<form action="" enctype='multipart/form-data' method='POST'>
+			<div id="info-header">
+				个人信息
+			</div>
+		<div id="sex" class="info-input-box">
+			<input type="text" placeholder="姓名">
+		</div>
+		
+		<div id="sex" class="info-input-box">
+			<input type="text" placeholder="性别">
+		</div>
+		<div id="age" class="info-input-box">
+			<input type="number" placeholder="年龄">
+		</div>
+		<div id="phone" class="info-input-box" >
+			<input type="text" placeholder="邮编">
+		</div>
+		<div id="case" >
+			<textarea name="case">请输入病例</textarea>
+		</div>
+		<div id="file">
+			<input type="file" name="file" class="file">
+			<input type="submit" value="上传" onclick="alert('提交成功')">
+		</div>
+        
+    </form>
+	</div>
+    
+</body>
+</html>

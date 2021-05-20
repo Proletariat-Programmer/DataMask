@@ -3,8 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/login.css')}}">
+    <!-- <link rel="stylesheet" type="text/css" href="login.css"> -->
 </head>
 <body>
 
@@ -12,7 +13,7 @@
     <div class="login-header">
         医疗数据安全处理系统
     </div>
-    <form action="" method="POST" id="nameform">
+    <form>
         <div class="login-input-box">
             <span class="icon icon-user"></span>
             <input type="text" placeholder="Please enter your email/phone">
@@ -28,10 +29,8 @@
         </label>
     </div>
     <div class="login-button-box">
-        <button type="submit" form="nameform">register</button>
-        <p></p>
-        <a href="/login">
-            <button>return sign in</button>
+        <a href="login.html">
+            <button onclick="alert('注册成功')">sign up</button>
         </a>
     </div>
 </div>

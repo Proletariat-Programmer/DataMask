@@ -51,15 +51,29 @@ class UploadFile(db.Model):
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     # 文件名称
     filename = db.Column(db.String(64),  index=True)
+    # 上传患者名称
+    up_name = db.Column(db.String(64),  index=True)
+    # 上传患者性别
+    up_sex = db.Column(db.String(64),  index=True)
+    # 上传患者年龄
+    up_age = db.Column(db.Integer,  index=True)
+    # 上传患者联系方式
+    up_phone = db.Column(db.String(64),  index=True)
+
     ctime = db.Column(db.DateTime,  default=datetime.datetime.utcnow)
     # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
     status = db.Column(db.Integer,  index=True)
+
     uid = db.Column(db.Integer,  index=True)
 
-    def __init__(self, filename, status, uid):
+    def __init__(self, filename, status, uid, up_name, up_sex, up_age, up_phone):
         self.filename = filename
         self.status = status
         self.uid = uid
+        self.up_name = up_name
+        self.up_sex = up_sex
+        self.up_age = up_age
+        self.up_phone = up_phone
 
 class User(db.Model):
     # 定义表名
@@ -67,13 +81,18 @@ class User(db.Model):
     # 定义字段
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     name = db.Column(db.String(64), unique=True, index=True)
-    phone = db.Column(db.String(64),unique=True)
+
     # email = db.Column(db.String(64),unique=True)
     password = db.Column(db.String(64))
-    # role_id = db.Column(db.Integer, db.ForeignKey('roles.id')) # 设置外键
-    def __init__(self, name, phone, password):
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
+    # 用户权限登记 (0为管理员 非0为用户)
+    level = db.Column(db.Integer, index=True)
+    def __init__(self, name, password, level):
         self.name = name
-        self.phone = phone
+        self.level = level 
         self.password = password
 
 if __name__ == '__main__':
@@ -87,11 +106,12 @@ if __name__ == '__main__':
     # 创建20个默认用户
     # create some users with ids 1 to 20
     for i in range(1, 21):
+        level = 0 if i == 1 else 1
         id = i
         name = "user" + str(id)
-        phone = id
+        # phone = id
         password = name + "pw"
-        db.session.add(User(name, phone, password))
+        db.session.add(User(name, password, level))
         db.session.commit()
 
 '''

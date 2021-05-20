@@ -49,25 +49,29 @@ login_manager.login_view = "login"
 
 
 class User(UserMixin, db.Model):
-    # silly user model
     # 定义表名
     __tablename__ = 'users'
     # 定义字段
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     name = db.Column(db.String(64), unique=True, index=True)
-    phone = db.Column(db.String(64), unique=True)
     # email = db.Column(db.String(64),unique=True)
     password = db.Column(db.String(64))
-    # role_id = db.Column(db.Integer, db.ForeignKey('roles.id')) # 设置外键
-
-    def __init__(self, name, phone, password):
-        # self.id = id
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
+    # 用户权限登记 (0为管理员 非0为用户)
+    level = db.Column(db.Integer, index=True)
+    def __init__(self, name, password, level):
         self.name = name
-        self.phone = phone
+        self.level = level 
         self.password = password
-
     def __repr__(self):
-        return "%d/%s/%s/%s" % (self.id, self.name, self.phone, self.password)
+        return "%d/%s/%s/%s" % (self.id, self.name, self.password, self.level)
+
+
+    # def __repr__(self):
+    #     return "%d/%s/%s/%s" % (self.id, self.name, self.phone, self.password)
 
 
 class UploadFile(db.Model):
@@ -78,20 +82,38 @@ class UploadFile(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     # 文件名称
     filename = db.Column(db.String(64),  index=True)
+    # 上传患者名称
+    up_name = db.Column(db.String(64),  index=True)
+    # 上传患者性别
+    up_sex = db.Column(db.String(64),  index=True)
+    # 上传患者年龄
+    up_age = db.Column(db.Integer,  index=True)
+    # 上传患者联系方式
+    up_phone = db.Column(db.String(64),  index=True)
+    # 创建时间
     ctime = db.Column(db.DateTime,  default=datetime.datetime.utcnow)
-    # 文件状态  0为已完成 1为进行中 2为等待中 其余为预料之外情况
+    # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
     status = db.Column(db.Integer,  index=True)
+    # 上传操作用户
     uid = db.Column(db.Integer,  index=True)
 
-    def __init__(self, filename, status, uid):
+    def __init__(self, filename, status, uid, up_name, up_sex, up_age, up_phone):
         self.filename = filename
         self.status = status
         self.uid = uid
+        self.up_name = up_name
+        self.up_sex = up_sex
+        self.up_age = up_age
+        self.up_phone = up_phone
 
 
 # 上传的任务队列
 upload_task_id_list = collections.deque()
 
+def check_level(user_id):
+    # 以 user.level 来判断
+    # 越接近0越厉害
+    return User.query.filter_by(id=user_id).first().level
 
 def current_operate(current_file):
     # operate current upload file
@@ -150,9 +172,22 @@ def operator_task():
         time.sleep(60)  # 一分钟检测一次
 
 
-def register_add_user(username, phone, password):
+def turn_zip(filename):
+    # 将目标文件压缩
+    # subprocess
+    try:
+        print("start a new task")
+        analysis_result_code = subprocess.run(
+            ["zip", "参数"], stdout="test.log").returncode
+    except:
+        # 吃错误大法...
+        analysis_result_code = 1
+
+
+
+def register_add_user(username, password):
     # 多线程处理任务队列
-    db.session.add(User(username, phone, password))
+    db.session.add(User(username, password, 1))
     db.session.commit()
 
 
@@ -176,6 +211,7 @@ def turn_file_status_ready(upload_id):
     db.session.commit()
 
 
+@app.route('/temp')
 @app.route('/')
 @login_required
 def home():  # some protected url
@@ -225,11 +261,12 @@ def register():
         #     return render_template("register.html")
         # else:
         print(
-            f'新增用户 {login_info.get("username")} {login_info.get("phone")} {login_info.get("password")}')
+            f'新增用户 {login_info.get("username")} {login_info.get("password")}')
 
         # 新增用户
-        register_add_user(login_info.get("username"), login_info.get(
-            "phone"), login_info.get("password"))
+        # register_add_user(login_info.get("username"), login_info.get(
+        #     "phone"), login_info.get("password"))
+        register_add_user(login_info.get("username"), login_info.get("password"))
 
         return redirect("/login")
         # return redirect(request.args.get("next"))
@@ -251,6 +288,7 @@ def upload():
     if request.method == "POST":
         f = request.files['file']
         basepath = os.path.dirname(__file__)  # 当前文件所在路径
+        upload_info = request.form.to_dict()
         user_id = current_user.id
         print(f'当前登陆用户id {user_id}')
 
@@ -268,9 +306,16 @@ def upload():
         f.save(f'{basepath}/uploads/{str(user_id)}/{secure_filename(f.filename)}')
 
         # 文件保存成功后,将此文件送入list
+        # 创建文件类型
         # filename, ctime, status, uid
+        
+        up_name = upload_info.get("up_name")
+        up_sex = upload_info.get("up_sex")
+        up_age = upload_info.get("up_age")
+        up_phone = upload_info.get("up_phone")
+
         upload_obj = UploadFile(secure_filename(
-            f.filename), waiting, user_id)
+            f.filename), waiting, user_id, up_name, up_sex, int(up_age), up_phone)
 
         # 入库
         upload_add_file(upload_obj)
@@ -281,6 +326,7 @@ def upload():
             filename=f.filename).filter_by(
             uid=user_id).first()
 
+        # threading多线程消息队列
         upload_task_id_list.append(up_load_file_obj)
         print(f'当前队列长度 {len(upload_task_id_list)}')
         print(upload_task_id_list)
@@ -298,13 +344,13 @@ def upload_success():
     return render_template("upload_success.html")
 
 
-@app.route("/history_list")
-@login_required
+@app.route("/history_list") # 注册路由 
+@login_required # 需要登陆才能访问，否则强制转到login登陆界面
 def history_list():
     # history list
     # 历史上传记录
     uid = current_user.id
-    basepath = os.path.dirname(__file__)  # 当前文件所在路径
+    # basepath = os.path.dirname(__file__)  # 当前文件所在路径
     # 检测是否存在对应路径,读取list
     # my_file = Path(f'{basepath}/uploads/{str(uid)}')
     # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
@@ -330,8 +376,11 @@ def analysis_result(uploadname):
     # TODO 通过file_id 直接展示对应的分析结果
 
     # TODO 对file_id 是否属于此用户 , 文件状态是否为ready 进行判断
-    
-    return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname)
+
+    # 查询其他Upload时传递的信息
+    up_obj = UploadFile.query.filter_by(uid=current_user.id).filter_by(uploadname=uploadname).first()
+
+    return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj)
 
 # 用于分析结果的展示
 @app.route("/result/<uploadname>")

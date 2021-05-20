@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/user_index.css')}}">
+
+	<!-- <link rel="stylesheet" type="text/css" href="user_index.css"/> -->
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<ul class="breadcrumb">
+		<li><a href="user_index.html">信息下载</a></li>
+		<li><a href="user_up.html">医疗信息数据上传处理</a></li>
+		<li><a href="history.html">历史记录</a></li>
+		（用户）
+	</ul>
+	<div id="down_list">
+		<table class="table">
+			<tr>
+				<th >文件名</th>
+				<th>更新时间</th>
+			</tr>
+			<tr>
+				<td ><a href="wy.zip" download="wy.zip">k_匿名_k2.zip</a></td>
+				<td>2021-5-13 11:27:06</td>
+		
+	</div>
+	
+	<!-- 第二种方法实现下载 -->
+	<!-- <button type="button" id="btn1">点击下载</button>
+	<script type="text/javascript">
+		var $eleBtn1 = $('#btn1');
+		$eleBtn1.click(function(){
+			var url = 'https://codeload.github.com/douban/douban-client/legacy.zip/master';
+			window.open(url);
+		})
+	</script> -->
+	</body>
+</html>

@@ -219,7 +219,12 @@ def turn_file_status_ready(upload_id):
 @app.route('/')
 @login_required
 def home():  # some protected url
-    return render_template("hello.html")
+    # return render_template("hello.html")
+    # 判断是否为管理员以提供不同用户界面
+    if check_admin(uid):
+        return render_template("admin_index.html")
+    else:
+        return render_template("user_index.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -351,24 +356,18 @@ def upload_success():
 @app.route("/history_list") # 注册路由 
 @login_required # 需要登陆才能访问，否则强制转到login登陆界面
 def history_list():
-    # history list
     # 历史上传记录
     uid = current_user.id
 
-    # 判断是否为管理员以提供不同用户界面
-    if check_admin(uid):
-        return render_template("admin_index.html")
-    else:
-        return render_template("user_index.html")
-        # # basepath = os.path.dirname(__file__)  # 当前文件所在路径
-        # # 检测是否存在对应路径,读取list
-        # # my_file = Path(f'{basepath}/uploads/{str(uid)}')
-        # # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
+    # basepath = os.path.dirname(__file__)  # 当前文件所在路径
+    # 检测是否存在对应路径,读取list
+    # my_file = Path(f'{basepath}/uploads/{str(uid)}')
+    # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
 
-        # file_list = UploadFile.query.filter_by(uid=uid).all()
+    file_list = UploadFile.query.filter_by(uid=uid).all()
 
-        # # return render_template("history_list.html", history_list = file_name_list)
-        # return render_template("history_list.html", history_list=file_list, uid = uid)
+    # return render_template("history_list.html", history_list = file_name_list)
+    return render_template("history_list.html", history_list=file_list, uid = uid)
 
 
 # 用于分析结果的展示

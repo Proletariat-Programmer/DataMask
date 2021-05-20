@@ -21,11 +21,18 @@
 							<div class="col-md-1" id="age">
 								<dl>
 									<dt>性别：</dt>
-									<dd>女</dd>
+									{% if sex == 0 %}
+										<dd>女</dd>	
+									{% elif sex == 1 %}
+										<dd>女</dd>	
+									{% endif %}
+
 									<dt>年龄：</dt>
-									<dd>17</dd>
+									<dd>{{ age }}</dd>
+									<!-- <dd>17</dd> -->
 									<dt>邮编：</dt>
-									<dd>74220</dd>
+									<dd>{{ youbian }}</dd>
+									<!-- <dd>74220</dd> -->
 								</dl>
 							</div>
 							<div class="col-md-8">
@@ -85,22 +92,27 @@
 			<div class="row" id="pic">
 				<div class="row">
 					<div class="col-md-12" >
-						<img src="plots/cluster/density.png" style="width: 800px; display: block; margin: 0 auto;" >
+						<img src="/download/{{ uid }}/{{ uploadname }}/plots/cluster/density.pn" style="width: 800px; display: block; margin: 0 auto;" >
+						<!-- <img src="plots/cluster/density.png" style="width: 800px; display: block; margin: 0 auto;" > -->
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4">
-						<img src="plots/cluster/parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;">
+						<img src="/download/{{ uid }}/{{ uploadname }}/plots/cluster/parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;">
+						<!-- <img src="plots/cluster/parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;"> -->
 					</div>
 					<div class="col-md-4">
-						<img src="plots/cluster/scatter.png" style="width: 300px; height: 300px;display: block; margin: 0 auto;">
+						<img src="/download/{{ uid }}/{{ uploadname }}/plots/cluster/scatter.png" style="width: 300px; height: 300px;display: block; margin: 0 auto;">
+						<!-- <img src="plots/cluster/scatter.png" style="width: 300px; height: 300px;display: block; margin: 0 auto;"> -->
 					</div>
 					<div class="col-md-4">
-						<img src="plots/loci/vaf_parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;">
+						<img src="/download/{{ uid }}/{{ uploadname }}/plots/loci/parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;">
+						<!-- <img src="plots/loci/vaf_parallel_coordinates.png"  style="width: 300px;height: 300px; display: block; margin: 0 auto;"> -->
 					</div>
 					</div>
 				<div class="row">
-				<img src="plots/loci/similarity_matrix.png" style="width: 1000px; display: block; margin: 0 auto;">>
+				<img src="/download/{{ uid }}/{{ uploadname }}/plots/loci/similarity_matrix.png" style="width: 1000px; display: block; margin: 0 auto;">>
+				<!-- <img src="plots/loci/similarity_matrix.png" style="width: 1000px; display: block; margin: 0 auto;">> -->
 			</div>
 		</div>
 	</body>

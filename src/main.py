@@ -115,6 +115,10 @@ def check_level(user_id):
     # 越接近0越厉害
     return User.query.filter_by(id=user_id).first().level
 
+def check_admin(user_id):
+    # 检测用户是否为管理员用户
+    return True if  check_level(user_id) == 0 else False
+
 def current_operate(current_file):
     # operate current upload file
     # 检测是否存在对应路径
@@ -350,22 +354,21 @@ def history_list():
     # history list
     # 历史上传记录
     uid = current_user.id
-    # basepath = os.path.dirname(__file__)  # 当前文件所在路径
-    # 检测是否存在对应路径,读取list
-    # my_file = Path(f'{basepath}/uploads/{str(uid)}')
-    # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
 
-    # TODO 重构将这里完全变成查询数据库的操作
-    '''
+    # 判断是否为管理员以提供不同用户界面
+    if check_admin(uid):
+        return render_template("admin_index.html")
+    else:
+        return render_template("user_index.html")
+        # # basepath = os.path.dirname(__file__)  # 当前文件所在路径
+        # # 检测是否存在对应路径,读取list
+        # # my_file = Path(f'{basepath}/uploads/{str(uid)}')
+        # # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
 
-        通过用户id查询全部已上传文件并直接传输回来
+        # file_list = UploadFile.query.filter_by(uid=uid).all()
 
-    '''
-
-    file_list = UploadFile.query.filter_by(uid=uid).all()
-
-    # return render_template("history_list.html", history_list = file_name_list)
-    return render_template("history_list.html", history_list=file_list, uid = uid)
+        # # return render_template("history_list.html", history_list = file_name_list)
+        # return render_template("history_list.html", history_list=file_list, uid = uid)
 
 
 # 用于分析结果的展示

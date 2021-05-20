@@ -222,7 +222,7 @@ def turn_file_status_ready(upload_id):
 def home():  # some protected url
     # return render_template("hello.html")
     # 判断是否为管理员以提供不同用户界面
-    if check_admin(uid):
+    if check_admin(current_user.id):
         return render_template("admin_index.html")
     else:
         return render_template("user_index.html")

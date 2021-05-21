@@ -281,6 +281,8 @@ def home():
     # return render_template("admin_index.html")
     # 正常提供下载功能
     # current_user.id
+    
+    # TODO 如何通过框架 查询权限大于等于用户等级的数据
 
     all_download = Download.query.filter_by(level_require=4).all()
 

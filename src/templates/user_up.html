@@ -5,7 +5,6 @@
     <title>Title</title>
 
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
-
 	
 	<!-- <link rel="stylesheet" type="text/css" href="index.css"/> -->
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
@@ -22,9 +21,9 @@
 		</div>
 	</div> -->
 	<ul class="breadcrumb">
-		<li><a href="user_index.html">信息下载</a></li>
-		<li><a href="user_up.html">医疗信息数据上传处理</a></li>
-		<li><a href="history.html">历史记录</a></li>
+		<li><a href="/user_index">信息下载</a></li>
+		<li><a href="/user_up">医疗信息数据上传处理</a></li>
+		<li><a href="/history">历史记录</a></li>
 		（用户）
 	</ul>
 	<div id="info">
@@ -36,16 +35,22 @@
 			<input type="text" placeholder="姓名">
 		</div> -->
 		<div id="sex" class="info-input-box">
-			<input type="text" placeholder="性别">
+
+			<select name=up_sex placeholder="性别">
+				<option value=1> 男 </option>
+				<option value=0> 女 </option>
+			</select>
+			<!-- <input type="text" placeholder="性别" name=up_sex> -->
 		</div>
 		<div id="age" class="info-input-box">
-			<input type="number" placeholder="年龄">
+			<input type="number" placeholder="年龄" name=up_age>
 		</div>
 		<div id="phone" class="info-input-box" >
-			<input type="text" placeholder="邮编">
+			<input type="text" placeholder="邮编" name=up_yb>
 		</div>
 		<div id="case" >
-			<textarea name="case">请输入病例</textarea>
+			<textarea name=detail>请输入病例</textarea>
+			<!-- <textarea name="case">请输入病例</textarea> -->
 		</div>
 		<div id="file">
 			<input type="file" name="file" class="file">

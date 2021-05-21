@@ -16,29 +16,31 @@
 					<div id="mes">
 						<div class="row">
 							<div class="col-md-3">
-								<img src="username.png" >
+								<img src="/pic/username.png" >
+								<!-- <img src="username.png"> -->
 							</div>
 							<div class="col-md-1" id="age">
 								<dl>
 									<dt>性别：</dt>
-									{% if sex == 0 %}
+									{% if up_obj.up_sex == 0 %}
 										<dd>女</dd>	
-									{% elif sex == 1 %}
+									{% elif up_obj.up_sex == 1 %}
 										<dd>女</dd>	
 									{% endif %}
-
+									<!-- {{ up_obj.up_sex }} -->
 									<dt>年龄：</dt>
-									<dd>{{ age }}</dd>
+									<dd>{{ up_obj.up_age }}</dd>
 									<!-- <dd>17</dd> -->
 									<dt>邮编：</dt>
-									<dd>{{ youbian }}</dd>
+									<dd>{{ up_obj.up_phone }}</dd>
 									<!-- <dd>74220</dd> -->
 								</dl>
 							</div>
 							<div class="col-md-8">
 								<dl>
 								<dt>病例：</dt>
-								<dd>hypertension</dd>
+								<dd>{{ up_obj.detail }}</dd>
+								<!-- <dd>hypertension</dd> -->
 								</dl>
 							</div>
 						</div>
@@ -92,7 +94,7 @@
 			<div class="row" id="pic">
 				<div class="row">
 					<div class="col-md-12" >
-						<img src="/download/{{ uid }}/{{ uploadname }}/plots/cluster/density.pn" style="width: 800px; display: block; margin: 0 auto;" >
+						<img src="/download/{{ uid }}/{{ uploadname }}/plots/cluster/density.png" style="width: 800px; display: block; margin: 0 auto;" >
 						<!-- <img src="plots/cluster/density.png" style="width: 800px; display: block; margin: 0 auto;" > -->
 					</div>
 				</div>

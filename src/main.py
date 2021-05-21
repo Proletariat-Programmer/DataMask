@@ -75,46 +75,46 @@ class User(UserMixin, db.Model):
     # def __repr__(self):
     #     return "%d/%s/%s/%s" % (self.id, self.name, self.phone, self.password)
 
-
+# upload file system model
 class UploadFile(db.Model):
-    # upload file system model
     # 定义表名
     __tablename__ = 'files'
     # 定义字段
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     # 文件名称
-    filename = db.Column(db.String(64),  index=True)
+    filename = db.Column(db.String(64), index=True)
     # 上传患者名称
-    up_name = db.Column(db.String(64),  index=True)
-    # 上传患者性别
-    up_sex = db.Column(db.String(64),  index=True)
+    up_name = db.Column(db.String(64), index=True)
+    # 上传患者性别 0女 1男
+    up_sex = db.Column(db.Integer, index=True)
     # 上传患者年龄
-    up_age = db.Column(db.Integer,  index=True)
+    up_age = db.Column(db.Integer, index=True)
     # 上传患者联系方式
-    up_phone = db.Column(db.String(64),  index=True)
+    up_phone = db.Column(db.String(64), index=True)
     # 创建时间
-    ctime = db.Column(db.DateTime,  default=datetime.datetime.utcnow)
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
-    status = db.Column(db.Integer,  index=True)
-    # 上传操作用户
-    uid = db.Column(db.Integer,  index=True)
+    status = db.Column(db.Integer, index=True)
+    # 用户id
+    uid = db.Column(db.Integer, index=True)
+    # 病例信息
+    detail = db.Column(db.String(150), index=True)
 
-    def __init__(self, filename, status, uid, up_name, up_sex, up_age, up_phone):
+    def __init__(self, filename, status, uid, up_name, up_sex, up_age, up_phone, detail):
         self.filename = filename
         self.status = status
         self.uid = uid
         self.up_name = up_name
-        self.up_sex = up_sex
-        self.up_age = up_age
+        self.up_sex = int(up_sex)
+        self.up_age = int(up_age)
         self.up_phone = up_phone
-
+        self.detail = detail
 
 # 上传的任务队列
 upload_task_id_list = collections.deque()
 
 def check_level(user_id):
-    # 以 user.level 来判断
-    # 越接近0越厉害
+    # 以 user.level 来判断      越接近0越厉害
     return User.query.filter_by(id=user_id).first().level
 
 def check_admin(user_id):
@@ -190,7 +190,6 @@ def turn_zip(filename):
         analysis_result_code = 1
 
 
-
 def register_add_user(username, password):
     #  level 4 - 最普通用户
     db.session.add(User(username, password, 4))
@@ -217,10 +216,11 @@ def turn_file_status_ready(upload_id):
     db.session.commit()
 
 
-@app.route('/')
+@app.route('/user_index')
+@app.route('/admin_index')
+@app.route('/') 
 @login_required
-def home():  # some protected url
-    # return render_template("hello.html")
+def home():
     # 判断是否为管理员以提供不同用户界面
     if check_admin(current_user.id):
         return render_template("admin_index.html")
@@ -239,7 +239,8 @@ def login():
             if user.password == login_info.get("password"):
                 login_user(user)
                 print(f'用户登陆 {user.id} : {user.name}')
-                return redirect("/history_list")
+                # 登陆成功后跳转到主界面
+                return redirect("/")
 
         return abort(401)
     else:
@@ -291,7 +292,8 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-@app.route("/upload", methods=["POST", "GET"])
+# @app.route("/upload", methods=["POST", "GET"])
+@app.route("/user_up", methods=["POST", "GET"])
 @login_required
 def upload():
     # upload file
@@ -319,13 +321,16 @@ def upload():
         # 创建文件类型
         # filename, ctime, status, uid
         
-        up_name = upload_info.get("up_name")
-        up_sex = upload_info.get("up_sex")
+        # up_name = upload_info.get("up_name")
+        up_name = ""
+
+        up_sex = int(upload_info.get("up_sex"))
         up_age = upload_info.get("up_age")
-        up_phone = upload_info.get("up_phone")
+        up_phone = upload_info.get("up_yb")
+        detail = upload_info.get("detail")
 
         upload_obj = UploadFile(secure_filename(
-            f.filename), waiting, user_id, up_name, up_sex, int(up_age), up_phone)
+            f.filename), waiting, user_id, up_name, up_sex, int(up_age), up_phone, detail)
 
         # 入库
         upload_add_file(upload_obj)
@@ -343,7 +348,8 @@ def upload():
 
         return redirect("/history_list")
 
-    return render_template("upload.html")
+    return render_template("user_up.html")
+    # return render_template("upload.html")
 
 
 @app.route("/upload_success")
@@ -371,6 +377,22 @@ def history_list():
     return render_template("history_list.html", history_list=file_list, uid = uid)
 
 
+@app.route("/history")  # 注册路由
+@login_required  # 需要登陆才能访问，否则强制转到login登陆界面
+def history_user():
+    # 历史上传记录
+    uid = current_user.id
+
+    # basepath = os.path.dirname(__file__)  # 当前文件所在路径
+    # 检测是否存在对应路径,读取list
+    # my_file = Path(f'{basepath}/uploads/{str(uid)}')
+    # file_name_list = os.listdir(my_file) if my_file.is_dir() else []
+
+    file_list = UploadFile.query.filter_by(uid=uid).all()
+
+    # return render_template("history_list.html", history_list = file_name_list)
+    return render_template("history.html", history_list=file_list, uid=uid)
+
 
 @app.route("/level", methods=["GET", "POST"])
 @login_required
@@ -378,7 +400,6 @@ def manager_user():
     # 非管理员用户直接弹回主界面
     if not check_admin(current_user.id):
         return redirect("/")
-
     # 拉取全部用户信息进行展示
     all_info = User.query.all()
 
@@ -395,6 +416,20 @@ def manager_user():
     return render_template("level.html", all_info=all_info)
 
 
+@app.route("/k-ano", methods=["GET", "POST"])
+@login_required
+def k_ano():
+    
+    return render_template("k-ano.html")
+
+
+@app.route("/k2", methods=["GET", "POST"])
+@login_required
+def k2():
+    return render_template("k2.html")
+
+
+
 # 用于分析结果的展示
 @app.route("/analysis_result/<uploadname>")
 @login_required
@@ -405,7 +440,8 @@ def analysis_result(uploadname):
     # TODO 对file_id 是否属于此用户 , 文件状态是否为ready 进行判断
 
     # 查询其他Upload时传递的信息
-    up_obj = UploadFile.query.filter_by(uid=current_user.id).filter_by(uploadname=uploadname).first()
+    up_obj = UploadFile.query.filter_by(
+        uid=current_user.id).filter_by(filename=uploadname).first()
 
     return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj)
 
@@ -413,8 +449,12 @@ def analysis_result(uploadname):
 @app.route("/result/<uploadname>")
 @login_required
 def temp_result(uploadname):
-    return render_template("result.html", uid=current_user.id, uploadname=uploadname)
+    up_obj = UploadFile.query.filter_by(status=0).first()
+    # up_obj = UploadFile.query.filter_by(
+    #     uid=current_user.id).filter_by(filename=uploadname).filter_by(status=2).first()
 
+    # status
+    return render_template("result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj)
 
 
 # @login_required

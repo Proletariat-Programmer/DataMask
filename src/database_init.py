@@ -43,6 +43,36 @@ db = SQLAlchemy(app)
 #     name = db.Column(db.String(64), unique=True)
 #     users = db.relationship('User',backref='role') # 反推与role关联的多个User模型对象
 
+class AdminUp(db.Model):
+    # 定义表名
+    __tablename__ = 'files'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 文件名称
+    csvname = db.Column(db.String(64), index=True)
+    # 上传患者名称
+    up_name = db.Column(db.String(64), index=True)
+    # 上传患者性别 0女 1男
+    up_sex = db.Column(db.Integer, index=True)
+    # 上传患者年龄
+    up_age = db.Column(db.Integer, index=True)
+    # 上传患者联系方式
+    up_phone = db.Column(db.String(64), index=True)
+    # 创建时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    # 病例名称
+    detail = db.Column(db.String(150), index=True)
+
+    def __init__(self, csvname, status, uid, up_name, up_sex, up_age, up_phone, detail):
+        self.csvname = csvname
+        self.status = status
+        self.uid = uid
+        self.up_name = up_name
+        self.up_sex = int(up_sex)
+        self.up_age = int(up_age)
+        self.up_phone = up_phone
+        self.detail = detail
+
 # upload file system model
 class UploadFile(db.Model):
     # 定义表名
@@ -50,30 +80,33 @@ class UploadFile(db.Model):
     # 定义字段
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     # 文件名称
-    filename = db.Column(db.String(64),  index=True)
+    filename = db.Column(db.String(64), index=True)
     # 上传患者名称
-    up_name = db.Column(db.String(64),  index=True)
-    # 上传患者性别
-    up_sex = db.Column(db.String(64),  index=True)
+    up_name = db.Column(db.String(64), index=True)
+    # 上传患者性别 0女 1男
+    up_sex = db.Column(db.Integer, index=True)
     # 上传患者年龄
-    up_age = db.Column(db.Integer,  index=True)
+    up_age = db.Column(db.Integer, index=True)
     # 上传患者联系方式
-    up_phone = db.Column(db.String(64),  index=True)
-
-    ctime = db.Column(db.DateTime,  default=datetime.datetime.utcnow)
+    up_phone = db.Column(db.String(64), index=True)
+    # 创建时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     # 文件状态  0为已完成 1为进行中 2为排队中 其余为预料之外情况
-    status = db.Column(db.Integer,  index=True)
+    status = db.Column(db.Integer, index=True)
+    # 用户id
+    uid = db.Column(db.Integer, index=True)
+    # 病例信息
+    detail = db.Column(db.String(150), index=True)
 
-    uid = db.Column(db.Integer,  index=True)
-
-    def __init__(self, filename, status, uid, up_name, up_sex, up_age, up_phone):
+    def __init__(self, filename, status, uid, up_name, up_sex, up_age, up_phone, detail):
         self.filename = filename
         self.status = status
         self.uid = uid
         self.up_name = up_name
-        self.up_sex = up_sex
-        self.up_age = up_age
+        self.up_sex = int(up_sex)
+        self.up_age = int(up_age)
         self.up_phone = up_phone
+        self.detail = detail
 
 class User(db.Model):
     # 定义表名
@@ -113,6 +146,10 @@ if __name__ == '__main__':
         password = name + "pw"
         db.session.add(User(name, password, level))
         db.session.commit()
+
+    upload_obj = UploadFile("SRR385938.tsv", 0,2, "hello", 1, 30, 300132, "only a test")
+    db.session.add(upload_obj)
+    db.session.commit()
 
 '''
 初始化后效果展示

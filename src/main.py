@@ -75,6 +75,36 @@ class User(UserMixin, db.Model):
     # def __repr__(self):
     #     return "%d/%s/%s/%s" % (self.id, self.name, self.phone, self.password)
 
+
+class AdminUp(db.Model):
+    # 定义表名
+    __tablename__ = 'adup'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 文件名称
+    csvname = db.Column(db.String(64), index=True)
+    # 上传患者名称
+    up_name = db.Column(db.String(64), index=True)
+    # 上传患者性别 0女 1男
+    up_sex = db.Column(db.Integer, index=True)
+    # 上传患者年龄
+    up_age = db.Column(db.Integer, index=True)
+    # 上传患者联系方式
+    up_phone = db.Column(db.String(64), index=True)
+    # 病例名称
+    b_name = db.Column(db.String(150), index=True)
+    # 创建时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+
+    def __init__(self, csvname, up_name, up_sex, up_age, up_phone, b_name):
+        self.csvname = csvname
+        self.up_name = up_name
+        self.up_sex = int(up_sex)
+        self.up_age = int(up_age)
+        self.up_phone = up_phone
+        self.b_name = b_name
+
+
 # upload file system model
 class UploadFile(db.Model):
     # 定义表名
@@ -109,6 +139,30 @@ class UploadFile(db.Model):
         self.up_age = int(up_age)
         self.up_phone = up_phone
         self.detail = detail
+
+
+class Download(db.Model):
+    # 定义表名
+    __tablename__ = 'download'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 压缩包名称
+    zip_name = db.Column(db.String(64), index=True)
+    # 文件存储路径
+    savepath = db.Column(db.String(64), index=True)
+    # 权限管理
+    level_require = db.Column(db.Integer, index=True)
+    # 文件创建时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    # 文件最后更新时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, zipname, savepath, level_require):
+        self.zipname = zipname
+        self.savepath = savepath
+        self.level_require = int(level_require)
+
 
 # 上传的任务队列
 upload_task_id_list = collections.deque()
@@ -217,15 +271,20 @@ def turn_file_status_ready(upload_id):
 
 
 @app.route('/user_index')
-@app.route('/admin_index')
 @app.route('/') 
 @login_required
 def home():
     # 判断是否为管理员以提供不同用户界面
     if check_admin(current_user.id):
-        return render_template("admin_index.html")
-    else:
-        return render_template("user_index.html")
+        return redirect("/admin_index")
+
+    # return render_template("admin_index.html")
+    # 正常提供下载功能
+    # current_user.id
+
+    all_download = Download.query.filter_by(level_require=4).all()
+
+    return render_template("user_index.html", all_download=all_download)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -284,12 +343,39 @@ def register():
     else:
         return render_template("register.html")
 
-
-@app.route("/dashboard")
+# (self, csvname, up_name, up_sex, up_age, up_phone, b_name)
+@app.route('/admin_index', methods=["GET", "POST"])
 @login_required
-def dashboard():
-    # dashboard of system
-    return render_template("dashboard.html")
+def admin_index():
+    # 判断是否为管理员以提供不同用户界面
+    if not check_admin(current_user.id):
+        return redirect("/")
+    elif request.method == "POST":
+        # 前景提要
+        f = request.files['file']
+        upload_info = request.form.to_dict()
+        # 获取全部信息
+        up_name = upload_info.get("up_name")
+        up_sex = int(upload_info.get("up_sex"))
+        up_age = upload_info.get("up_age")
+        up_phone = upload_info.get("up_yb")
+        b_name = upload_info.get("detail")
+
+        # 创建对象并入库
+        upload_obj = AdminUp(secure_filename(
+            f.filename), up_name, up_sex, int(up_age), up_phone, b_name)
+        upload_add_file(upload_obj)
+
+        # 最终返回到 admin_index 管理界面
+        return redirect("/admin_index")
+
+    return render_template("admin_index.html")
+
+# @app.route("/dashboard")
+# @login_required
+# def dashboard():
+#     # dashboard of system
+#     return render_template("dashboard.html")
 
 
 # @app.route("/upload", methods=["POST", "GET"])

@@ -45,7 +45,7 @@ db = SQLAlchemy(app)
 
 class AdminUp(db.Model):
     # 定义表名
-    __tablename__ = 'files'
+    __tablename__ = 'adup'
     # 定义字段
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     # 文件名称
@@ -58,20 +58,42 @@ class AdminUp(db.Model):
     up_age = db.Column(db.Integer, index=True)
     # 上传患者联系方式
     up_phone = db.Column(db.String(64), index=True)
+    # 病例名称
+    b_name = db.Column(db.String(150), index=True)
     # 创建时间
     ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    # 病例名称
-    detail = db.Column(db.String(150), index=True)
 
-    def __init__(self, csvname, status, uid, up_name, up_sex, up_age, up_phone, detail):
+    def __init__(self, csvname, up_name, up_sex, up_age, up_phone, b_name):
         self.csvname = csvname
-        self.status = status
-        self.uid = uid
         self.up_name = up_name
         self.up_sex = int(up_sex)
         self.up_age = int(up_age)
         self.up_phone = up_phone
-        self.detail = detail
+        self.b_name = b_name
+
+
+class Download(db.Model):
+    # 定义表名
+    __tablename__ = 'download'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 压缩包名称
+    zip_name = db.Column(db.String(64), index=True)
+    # 文件存储路径
+    savepath = db.Column(db.String(64), index=True)
+    # 权限管理
+    level_require = db.Column(db.Integer, index=True)
+    # 文件创建时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    # 文件最后更新时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, zip_name, savepath, level_require):
+        self.zip_name = zip_name
+        self.savepath = savepath
+        self.level_require = int(level_require)
+
 
 # upload file system model
 class UploadFile(db.Model):
@@ -147,9 +169,17 @@ if __name__ == '__main__':
         db.session.add(User(name, password, level))
         db.session.commit()
 
+    # 测试用例
     upload_obj = UploadFile("SRR385938.tsv", 0,2, "hello", 1, 30, 300132, "only a test")
     db.session.add(upload_obj)
     db.session.commit()
+
+    # 用户x a
+    # zipname, savepath, level_require
+    down_obj = Download("test.zip", "savepath", 4)
+    db.session.add(down_obj)
+    db.session.commit()
+
 
 '''
 初始化后效果展示

@@ -24,10 +24,19 @@
 				<th >文件名</th>
 				<th>更新时间</th>
 			</tr>
+
+			{% for item in all_download %}
+
+			<tr>
+				<td><a href="{{ item.savepath }}" >{{ item.zip_name }}</a></td>
+				<td>{{ item.mtime }}</td>
+			</tr>
+
+			{% endfor %}
 			<tr>
 				<td ><a href="wy.zip" download="wy.zip">k_匿名_k2.zip</a></td>
 				<td>2021-5-13 11:27:06</td>
-		
+			</tr>
 	</div>
 	
 	<!-- 第二种方法实现下载 -->

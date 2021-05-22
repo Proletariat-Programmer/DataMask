@@ -513,16 +513,41 @@ def manager_user():
 
 @app.route("/k-ano", methods=["GET", "POST"])
 @login_required
-def k_ano():
-    
+def k_ano():  
     return render_template("k-ano.html")
 
 
-@app.route("/k2", methods=["GET", "POST"])
-@login_required
-def k2():
-    return render_template("k2.html")
+# @app.route("/k2", methods=["GET", "POST"])
+# @login_required
+# def k2():
+#     return render_template("k2.html")
 
+
+@app.route("/choose/<method>", methods=["GET", "POST"])
+@login_required
+def choose_k(method):
+    # 数据脱敏方法选择应对界面
+    if method == "k2":
+        # TODO 读取数据库 查询全部管理员上传数据
+        # 读取 AdminUp
+        all_admin_up = AdminUp.query().all()
+
+        # TODO 调用K匿名算法,处理结果存储 
+        # 来个新数据库 K_operate
+
+        # TODO 截取一部分数据提取出来
+        # 查询Select 前几个=。=
+
+        return render_template("k2.html")
+    elif method == "k10":
+        # TODO k10 对应界面
+        return render_template("k2.html")
+    elif method == "k2l2":
+        # TODO k2l2 对应界面
+        return render_template("k2.html")
+    elif method == "k2p2":
+        # TODO k2p2 对应界面
+        return render_template("k2.html")
 
 
 # 用于分析结果的展示
@@ -554,9 +579,7 @@ def temp_result(uploadname):
 @app.route("/user_download/<level>/<filename>", methods=['GET'])
 # 不查数据库,通uploadname过uid + type + filename直接拼出来目标文件位置
 def user_download(level, filename):
-    # object_file_path = f'analysis_result/{str(current_user.id)}/{uploadname}/{smallfiletype}/{filename}'
-    # 设定为 level/current_level/filename/
-    # 例如 level/4/t4.zip
+    # 用户下载路径例如 level/4/t4.zip 
     object_file_path = f"level/{ level }/{filename}"
 
     # filepath是文件的路径，但是文件必须存储在static文件夹下， 比如images\test.jp
@@ -565,8 +588,8 @@ def user_download(level, filename):
 
 # @login_required
 @app.route("/download/<uid>/<uploadname>/<bigfiletype>/<smallfiletype>/<filename>", methods=['GET'])
-# 不查数据库,通uploadname过uid + type + filename直接拼出来目标文件位置
 def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
+    # 不查数据库,通uploadname过uid + type + filename直接拼出来目标文件位置
 
     # object_file_path = f'analysis_result/{str(current_user.id)}/{uploadname}/{smallfiletype}/{filename}'
     object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{smallfiletype}/{filename}'
@@ -603,7 +626,7 @@ def load_user(userid):
 
 
 if __name__ == "__main__":
-    # TODO 测试operator_task
+    # operator_task 多线程队列处理
     threading_task = threading.Thread(target=operator_task)
     threading_task.start()
 

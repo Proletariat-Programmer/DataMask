@@ -23,11 +23,8 @@ waiting = 2
 
 
 '''
-
 梳理了admin上传文件-k匿名-用户下载
-
 设计了管理员提交 & 用户可下载内容展示的
-
 '''
 
 app = Flask(__name__, static_folder="static")
@@ -292,8 +289,9 @@ def home():
     # current_user.id
     
     # TODO 如何通过框架 查询权限大于等于用户等级的数据
-
-    all_download = Download.query.filter_by(level_require=4).all()
+    all_download = []
+    for i in range(check_level(current_user.id), 4+1):
+        all_download += Download.query.filter_by(level_require=i).all()
 
     return render_template("user_index.html", all_download=all_download)
 
@@ -509,9 +507,7 @@ def manager_user():
         db.session.commit()
         # 重置页面
         return redirect("/level")
-    print(all_user_level)
-    print(all_user_level)
-    print(all_user_level)
+
     return render_template("level.html", all_info=all_info, all_level=all_user_level)
 
 
@@ -551,9 +547,20 @@ def temp_result(uploadname):
     up_obj = UploadFile.query.filter_by(status=0).first()
     # up_obj = UploadFile.query.filter_by(
     #     uid=current_user.id).filter_by(filename=uploadname).filter_by(status=2).first()
-
-    # status
     return render_template("result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj)
+
+
+# @login_required
+@app.route("/user_download/<level>/<filename>", methods=['GET'])
+# 不查数据库,通uploadname过uid + type + filename直接拼出来目标文件位置
+def user_download(level, filename):
+    # object_file_path = f'analysis_result/{str(current_user.id)}/{uploadname}/{smallfiletype}/{filename}'
+    # 设定为 level/current_level/filename/
+    # 例如 level/4/t4.zip
+    object_file_path = f"level/{ level }/{filename}"
+
+    # filepath是文件的路径，但是文件必须存储在static文件夹下， 比如images\test.jp
+    return app.send_static_file(object_file_path)
 
 
 # @login_required

@@ -176,7 +176,19 @@ if __name__ == '__main__':
 
     # 用户x a
     # zipname, savepath, level_require
-    down_obj = Download("test.zip", "savepath", 4)
+    down_obj = Download("t4.zip", "4/wy.zip", 4)
+    db.session.add(down_obj)
+    db.session.commit()
+
+    down_obj = Download("t3.zip", "3/wy.zip", 3)
+    db.session.add(down_obj)
+    db.session.commit()
+
+    down_obj = Download("t2.zip", "2/wy.zip", 2)
+    db.session.add(down_obj)
+    db.session.commit()
+
+    down_obj = Download("t1.zip", "1/wy.zip", 1)
     db.session.add(down_obj)
     db.session.commit()
 

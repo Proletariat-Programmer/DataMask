@@ -7,7 +7,14 @@
 	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		input{
+			border: 0px;
+			outline: none;
+		}
+	</style>
 </head>
+
 <body>
 	<ul class="breadcrumb">
 		<li><a href="/admin_index">信息提交</a></li>
@@ -15,15 +22,18 @@
 		<li><a href="/level">用户权限管理</a></li>
 		（管理员）
 	</ul>
-	<table class="table">
+
+	<table class="table" >
 		<tr>
-			<th >姓名</th>
+			<th>ID</th>
+			<th>姓名</th>
 			<th>密码</th>
 			<th>等级</th>
 			<th>修改等级</th>
 			<th>修改权限</th>
 		</tr>
-		<tr>
+		<tr action="" method="POST" id="nameform">
+			<td>0</td>
 			<td>user2</td>
 			<td>user2pw</td>
 			<td>2</td>
@@ -33,41 +43,51 @@
 				      <option>2</option>
 				      <option>3</option>
 				 </select>
-		</td>
+			</td>
 			<td>
 				<select class="form-control">
 				      <option>Read</option>
 				      <option>Write</option>
 				 </select>
 			</td>
-			<td><button type="button" onclick="alert('提交成功')">提交</button></td>
+			<td><button type="submit" form="nameform" onclick="alert('提交成功')">提交</button></td>
+			<!-- <td><button type="button" onclick="alert('提交成功')">提交</button></td> -->
 		</tr>
 
 		{% for user in all_info %}
-		<tr>
-			<td>{{ user.username }}</td>
-			<td>{{ user.password }}</td>
-			<td>{{ user.level }}</td>
-			<td>
-				<select class="form-control" name=re_level>
-					{% for level in all_level %}
-						<option value={{ level }}> {{ level }}</option>
-					{% endfor %}
-				 </select>
-		</td>
-			<td>
-				<select class="form-control">
-				      <option>Read</option>
-					  <option>Write</option>
-					  <option>此功能暂不开放</option>
-				 </select>
-			</td>
-			<p>
-				POST请求没写 && user.id 没加上
+		<form action="" method="POST" enctype='multipart/form-data'>
+			<tr>
+				<td> <input  type="text" name="reid" value={{ user.id }} readonly="true" ></input> </td>
 
-			</p>
-			<td><button type="button" onclick="alert('提交成功')">提交</button></td>
-		</tr>	
+				<td>{{ user.name }}</td>
+				<td>{{ user.password }}</td>
+				<td>{{ user.level }}</td>
+				
+				<td>
+					<select name= re_level class="form-control">
+						<option value=1 >1</option>
+						<option value=2 >2</option>
+						<option value=3 >3</option>
+						<option value=4 >4</option>
+					</select>
+
+				</td>
+
+				<td>
+					<div>
+						<select class="form-control">
+							<option>Read</option>
+							<option>Write</option>
+							<option>此功能暂不开放</option>
+						</select>
+					</div>
+				</td>
+
+				<td><input type="submit" value="提交" onclick="alert('提交成功')"></td>
+				
+				<!-- <td><button type="button" onclick="alert('提交成功')">提交</button></td> -->
+			</tr>	
+		</form>
 		{% endfor %}
 
 		<!-- <tr>

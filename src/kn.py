@@ -3,12 +3,6 @@ import matplotlib.pylab as pl
 import matplotlib.patches as patches
 import time
 
-
-#########################################
-#########################################
-#########################################
-# K匿名部分
-
 names = (
     'age',
     'fnlwgt', 
@@ -23,17 +17,17 @@ categorical = set((
    'csv_name',
 ))
 
-# TODO 封装完成后删除
-# 目前是全局变量
-df = pd.read_csv("data1.csv", sep=",", header=None, names=names, index_col=False, engine='python');
-for name in categorical:
-    df[name] = df[name].astype('category')
+feature_columns = ['age','sex','fnlwgt','csv_name']
+sensitive_column = 'disease'
 
-def prepare_data(data_path):
-    df = pd.read_csv(f"{ data_path }", sep=",", header=None, names=names, index_col=False, engine='python');
+
+def prepare_data(savepath):
+    df = pd.read_csv(savepath, sep=",", header=None, names=names, index_col=False, engine='python');
+
     for name in categorical:
         df[name] = df[name].astype('category')
     return df
+
 
 def get_spans(df, partition, scale=None):
     spans = {}
@@ -46,9 +40,6 @@ def get_spans(df, partition, scale=None):
             span = span/scale[column]
         spans[column] = span
     return spans
-    
-full_spans = get_spans(df, df.index)
-#print(full_spans)
 
 def split(df, partition, column):
     dfp = df[column][partition]
@@ -59,16 +50,18 @@ def split(df, partition, column):
         return dfp.index[dfp.isin(lv)], dfp.index[dfp.isin(rv)]
     else:        
         median = dfp.median()
+        #print(median)
         dfl = dfp.index[dfp <= median]
         dfr = dfp.index[dfp > median]
         return (dfl, dfr)
 
 def is_k_anonymous(df, partition, sensitive_column, k=2):
+    #print(partition)
+    #print(len(partition))
     if len(partition) < k:
         return False
     return True
 
-# time_start = time.time()
 def partition_dataset(df, feature_columns, sensitive_column, scale, is_valid):
     finished_partitions = []
     partitions = [df.index]
@@ -85,13 +78,6 @@ def partition_dataset(df, feature_columns, sensitive_column, scale, is_valid):
         else:
             finished_partitions.append(partition)
     return finished_partitions
-
-feature_columns = ['age','sex','fnlwgt','csv_name']
-sensitive_column = 'disease'
-finished_partitions = partition_dataset(df, feature_columns, sensitive_column, full_spans, is_k_anonymous)
-
-print(len(finished_partitions))
-
 
 
 def agg_categorical_column(series):
@@ -113,9 +99,9 @@ def build_anonymized_dataset(df, partitions, feature_columns, sensitive_column, 
             print("Finished {} partitions...".format(i))
         if max_partitions is not None and i > max_partitions:
             break
-
+       # print(df.loc[partition])
         grouped_columns = df.loc[partition].agg(aggregations, squeeze=False)
-
+       # print(grouped_columns)
         sensitive_counts = df.loc[partition].groupby(sensitive_column).agg({sensitive_column : 'count'})
         values = grouped_columns.iloc[0].to_dict()
         for sensitive_value, count in sensitive_counts[sensitive_column].items():
@@ -129,52 +115,65 @@ def build_anonymized_dataset(df, partitions, feature_columns, sensitive_column, 
             rows.append(values.copy())
     return pd.DataFrame(rows)
 
-dfn = build_anonymized_dataset(df, finished_partitions, feature_columns, sensitive_column)
 
-print(dfn.sort_values(feature_columns+[sensitive_column]))
-time_end = time.time()
-print('k-ano totally cost',time_end-time_start)
+# K匿名算法实现部分
+def k_niming(file_path, k_number):
+    # 数据
+    # pa = "data1.csv"
+    df = prepare_data(file_path)
+    full_spans = get_spans(df, df.index)
+    time_start = time.time()
+
+    finished_partitions = partition_dataset(df, feature_columns, sensitive_column, full_spans, lambda *args: is_k_anonymous(*args, k=k_number))
+
+    print(len(finished_partitions))
+    #print(finished_partitions)    
+
+    dfn = build_anonymized_dataset(df, finished_partitions, feature_columns, sensitive_column)
+    #print(dfn)
+    print(dfn.sort_values(feature_columns+[sensitive_column]))
+    time_end = time.time()
+    print('k-ano totally cost',time_end-time_start)
+    print("K匿名处理完啦")
 
 
-#########################################
-#########################################
-#########################################
-# l多样性
-
-#print(dfn)
-#l-多样性
+'''
+ l-多样性
+'''
 def diversity(df, partition, column):
     return len(df[column][partition].unique())
 
 def is_l_diverse(df, partition, sensitive_column, l=2):
     return diversity(df, partition, sensitive_column) >= l
 
-finished_l_diverse_partitions = partition_dataset(df, feature_columns, sensitive_column, full_spans, lambda *args: is_k_anonymous(*args) and is_l_diverse(*args))
+def l_niming(path, k_number):
+    # 数据
+    # pa = "data1.csv"
+    # pa = "./data/k-anonymity/data1.csv"
+    df = prepare_data(path)
+    full_spans = get_spans(df, df.index)
+    finished_l_diverse_partitions = partition_dataset(df, feature_columns, sensitive_column, full_spans, lambda *args: is_k_anonymous(*args, k=k_number) and is_l_diverse(*args))
 
-print(len(finished_l_diverse_partitions))
-#print(finished_l_diverse_partitions)
+    print(len(finished_l_diverse_partitions))
 
-dfn2 = build_anonymized_dataset(df, finished_l_diverse_partitions, feature_columns, sensitive_column)
+    dfn2 = build_anonymized_dataset(df, finished_l_diverse_partitions, feature_columns, sensitive_column)
 
-print(dfn2.sort_values(feature_columns+[sensitive_column]))
+    print(dfn2.sort_values(feature_columns+[sensitive_column]))
+    global_freqs = {}
+    total_count = float(len(df))
+    group_counts = df.groupby(sensitive_column)[sensitive_column].agg('count')
+    for value, count in group_counts.to_dict().items():
+        p = count/total_count
+        global_freqs[value] = p
 
 
-#########################################
-#########################################
-#########################################
-# t接近
+    for freq,value in global_freqs.items():
+        print(freq,value)
+    print("l匿名")
 
-global_freqs = {}
-total_count = float(len(df))
-group_counts = df.groupby(sensitive_column)[sensitive_column].agg('count')
-for value, count in group_counts.to_dict().items():
-    p = count/total_count
-    global_freqs[value] = p
-
-#print(type(global_freqs))
-for freq,value in global_freqs.items():
-    print(freq,value)
-
+'''
+t接近
+'''
 def t_closeness(df, partition, column, global_freqs):
     total_count = float(len(partition))
     d_max = None
@@ -192,10 +191,35 @@ def is_t_close(df, partition, sensitive_column, global_freqs, p=0.2):
         raise ValueError("this method only works for categorical values")
     return t_closeness(df, partition, sensitive_column, global_freqs) <= p
 
-finished_t_close_partitions = partition_dataset(df, feature_columns, sensitive_column, full_spans, lambda *args: is_k_anonymous(*args) and is_t_close(*args, global_freqs))
 
-print(len(finished_t_close_partitions))
-#print(finished_t_close_partitions)
-dfn3 = build_anonymized_dataset(df, finished_t_close_partitions, feature_columns, sensitive_column)
 
-print(dfn3.sort_values(feature_columns+[sensitive_column]))
+def t_niming(path, k_number):
+    # 数据
+    # pa = "data1.csv"
+    df = prepare_data(path)
+    full_spans = get_spans(df, df.index)
+
+    # 频率
+    global_freqs = {}
+    total_count = float(len(df))
+    group_counts = df.groupby(sensitive_column)[sensitive_column].agg('count')
+    for value, count in group_counts.to_dict().items():
+        p = count/total_count
+        global_freqs[value] = p
+
+
+    finished_t_close_partitions = partition_dataset(df, feature_columns, sensitive_column, full_spans, lambda *args: is_k_anonymous(*args,k=k_number) and is_t_close(*args, global_freqs))
+
+    print(len(finished_t_close_partitions))
+    #print(finished_t_close_partitions)
+    dfn3 = build_anonymized_dataset(df, finished_t_close_partitions, feature_columns, sensitive_column)
+
+    print(dfn3.sort_values(feature_columns+[sensitive_column]))
+    print("t匿名")
+
+
+# 调用成功
+path = "data1.csv"
+k_niming(path, 2)
+l_niming(path, 2)
+t_niming(path, 2)

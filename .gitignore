@@ -6,4 +6,5 @@ test
 /src/static/analysis_result
 /src/log_pyclone.txt
 /src/code
-/src/.vscode/
+/src/.vscode/setting.json
+src/.vscode/settings.json

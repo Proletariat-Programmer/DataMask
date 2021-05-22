@@ -4,6 +4,8 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, \
     login_required, login_user, logout_user
+
+import kn # 内部引用
 import pdftopng # 内部引用
 from pathlib import Path
 import threading
@@ -529,12 +531,13 @@ def choose_k(method):
     # 数据脱敏方法选择应对界面
     if method == "k2":
         # TODO 读取数据库 查询全部管理员上传数据
-        # 读取 AdminUp
+        # 读取 
+
         all_admin_up = AdminUp.query().all()
 
         # TODO 调用K匿名算法,处理结果存储 
         # 来个新数据库 K_operate
-
+        kn.k_niming()
         # TODO 截取一部分数据提取出来
         # 查询Select 前几个=。=
 

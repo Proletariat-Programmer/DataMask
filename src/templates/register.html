@@ -13,7 +13,7 @@
     <div class="login-header">
         医疗数据安全处理系统
     </div>
-    <form>
+    <form action="" method="POST" id="nameform">
         <div class="login-input-box">
             <span class="icon icon-user"></span>
             <input type="text" placeholder="Please enter your email/phone" name=username>
@@ -28,12 +28,22 @@
             <input type="checkbox"> Remember Me
         </label>
     </div>
+
     <div class="login-button-box">
         <!-- <a href="login.html"> -->
-        <a href="/login">
-            <button onclick="alert('注册成功')">sign up</button>
-        </a>
+        <!-- <a href="/login"> -->
+            <button  type="submit" form="nameform" onclick="alert('注册成功')">sign up</button>
+        <!-- </a> -->
     </div>
+
+    <!-- <div class="login-button-box">
+        <button type="submit" form="nameform">注 册</button>
+        <p></p>
+        <a href="/login">
+            <button>返回登陆</button>
+        </a>
+    </div> -->
+
 </div>
 
 </body>

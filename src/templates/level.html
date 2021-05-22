@@ -47,9 +47,9 @@
 		<tr>
 			<td>{{ user.username }}</td>
 			<td>{{ user.password }}</td>
-			<td>2</td>
+			<td>{{ user.level }}</td>
 			<td>
-				<select class="form-control">
+				<select class="form-control" name=re_level>
 					{% for level in all_level %}
 						<option value={{ level }}> {{ level }}</option>
 					{% endfor %}
@@ -62,6 +62,10 @@
 					  <option>此功能暂不开放</option>
 				 </select>
 			</td>
+			<p>
+				POST请求没写 && user.id 没加上
+
+			</p>
 			<td><button type="button" onclick="alert('提交成功')">提交</button></td>
 		</tr>	
 		{% endfor %}

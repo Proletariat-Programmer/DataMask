@@ -21,6 +21,15 @@ ready = 0
 operating = 1
 waiting = 2
 
+
+'''
+
+梳理了admin上传文件-k匿名-用户下载
+
+设计了管理员提交 & 用户可下载内容展示的
+
+'''
+
 app = Flask(__name__, static_folder="static")
 # PyClone 处理记录文件
 open_file_name = "log_pyclone.txt"
@@ -500,8 +509,10 @@ def manager_user():
         db.session.commit()
         # 重置页面
         return redirect("/level")
-
-    return render_template("level.html", all_info=all_info)
+    print(all_user_level)
+    print(all_user_level)
+    print(all_user_level)
+    return render_template("level.html", all_info=all_info, all_level=all_user_level)
 
 
 @app.route("/k-ano", methods=["GET", "POST"])

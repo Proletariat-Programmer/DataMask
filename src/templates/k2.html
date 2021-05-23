@@ -25,48 +25,21 @@
 				<th>疾病</th>
 				<th>cvs_name</th>
 			</tr>
+
+			{% for key,value in df_head.iterrows() %}
+				
 			<tr>
-				<td >female</td>
-				<td>25.5</td>
-				<td>53712</td>
-				<td>endometriosis</td>
-				<td>10002.csv,10007.csv</td>
-			</tr>
-			<tr>
-				<td>Male</td>
-				<td>25.5</td>
-				<td>53711</td>
-				<td>hypertemsion</td>
-				<td>10001.csv</td>
-			</tr>
-			<tr>
-				<td>Male</td>
-				<td>25.5</td>
-				<td>53711</td>
-				<td>prostate cancer</td>
-				<td>10003.csv</td>
-			</tr>
-			<tr>
-				<td>Male,Female</td>
-				<td>27.33</td>
-				<td>53711</td>
-				<td>Alzheimer's disease</td>
-				<td>10006.csv</td>
-			</tr>
-			<tr>
-				<td>Male,Female</td>
-				<td>27.33</td>
-				<td>53711</td>
-				<td>multiple sclerosis</td>
-				<td>10004.csv</td>
-			</tr>
-			<tr>
-				<td>Male,Female</td>
-				<td>27.33</td>
-				<td>53711</td>
-				<td>skin cancer</td>
-				<td>10005.csv</td>
-			</tr>
+				<td>{{ value['sex'] }}</td>
+				<td>{{ value['age'] }}</td>
+				<td>{{ value['fnlwgt']|int }}</td>
+				<td>{{ value['disease'] }}</td>
+				<td>{{ value['csv_name'] }}</td>
+			</tr>		
+<!-- 
+				<p>{{ value['age'] }} - {{ value['count'] }} - {{ value['csv_name'] }} - {{ value['disease'] }} - {{ value['fnlwgt'] }} -
+					{{ value['sex'] }}</p> -->
+			{% endfor %}
+
 		</table>
 	</body>
 </html>

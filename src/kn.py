@@ -1,14 +1,13 @@
 import pandas as pd
-import matplotlib.pylab as pl
-import matplotlib.patches as patches
 import time
 
 names = (
+    'name',
     'age',
     'fnlwgt', 
     'sex',
     'disease',
-    'csv_name'
+    'csv_name',
 )
 
 categorical = set((
@@ -23,7 +22,8 @@ sensitive_column = 'disease'
 
 def prepare_data(savepath):
     df = pd.read_csv(savepath, sep=",", header=None, names=names, index_col=False, engine='python');
-
+    # 读取再把没用的这列删除=。=
+    df = df.drop(columns = 'name')
     for name in categorical:
         df[name] = df[name].astype('category')
     return df
@@ -117,7 +117,7 @@ def build_anonymized_dataset(df, partitions, feature_columns, sensitive_column, 
 
 
 # K匿名算法实现部分
-def k_niming(file_path, k_number):
+def k_niming(file_path, k_number, savepath):
     # 数据
     # pa = "data1.csv"
     df = prepare_data(file_path)
@@ -134,7 +134,13 @@ def k_niming(file_path, k_number):
     print(dfn.sort_values(feature_columns+[sensitive_column]))
     time_end = time.time()
     print('k-ano totally cost',time_end-time_start)
-    print("K匿名处理完啦")
+    # Only a test
+    dfn.to_csv(savepath, index=0)
+    print("K匿名展示")
+
+    print("K匿名处理s完啦")
+
+    return dfn.head(5).copy()
 
 
 '''
@@ -146,7 +152,8 @@ def diversity(df, partition, column):
 def is_l_diverse(df, partition, sensitive_column, l=2):
     return diversity(df, partition, sensitive_column) >= l
 
-def l_niming(path, k_number):
+
+def l_niming(path, k_number, savepath):
     # 数据
     # pa = "data1.csv"
     # pa = "./data/k-anonymity/data1.csv"
@@ -169,6 +176,11 @@ def l_niming(path, k_number):
 
     for freq,value in global_freqs.items():
         print(freq,value)
+
+    # Only a test
+    dfn2.to_csv(savepath, index=0)
+
+
     print("l匿名")
 
 '''
@@ -192,8 +204,7 @@ def is_t_close(df, partition, sensitive_column, global_freqs, p=0.2):
     return t_closeness(df, partition, sensitive_column, global_freqs) <= p
 
 
-
-def t_niming(path, k_number):
+def t_niming(path, k_number, savepath):
     # 数据
     # pa = "data1.csv"
     df = prepare_data(path)
@@ -215,11 +226,16 @@ def t_niming(path, k_number):
     dfn3 = build_anonymized_dataset(df, finished_t_close_partitions, feature_columns, sensitive_column)
 
     print(dfn3.sort_values(feature_columns+[sensitive_column]))
+    # Only a test
+    dfn3.to_csv(savepath, index=0)
     print("t匿名")
 
 
-# 调用成功
-path = "data1.csv"
-k_niming(path, 2)
-l_niming(path, 2)
-t_niming(path, 2)
+# ## 调用成功
+# path = "data1.csv"
+# savepath = "onlytest"
+# # path k 数值  savepath
+    
+# k_niming(path, 2, f'{savepath}1.csv')
+# l_niming(path, 2, f'{savepath}2.csv')
+# t_niming(path, 2, f'{savepath}3.csv')

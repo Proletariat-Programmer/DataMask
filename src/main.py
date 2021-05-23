@@ -5,6 +5,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, \
     login_required, login_user, logout_user
 
+# 用于文件追加写入
+import pandas as pd
+
 import kn # 内部引用
 import pdftopng # 内部引用
 from pathlib import Path
@@ -367,10 +370,26 @@ def admin_index():
         upload_info = request.form.to_dict()
         # 获取全部信息
         up_name = upload_info.get("up_name")
+        # 0女 1男
         up_sex = int(upload_info.get("up_sex"))
         up_age = upload_info.get("up_age")
         up_phone = upload_info.get("up_yb")
         b_name = upload_info.get("detail")
+        true_sex = 'Female' if up_sex == 0 else 'Male'
+
+        # csv 追加写入
+        data_add = {'name': [upload_info.get("up_name")],
+                    'age': [upload_info.get("up_age")],
+                    'fnlwgt': [upload_info.get("up_yb")],
+                    'sex': [true_sex],
+                    'disease': [upload_info.get("detail")],
+                    'csv_name': [secure_filename(f.filename)]}
+
+        df_add = pd.DataFrame(data=data_add, index=[0])
+        # a-add追加写入
+        df_add.to_csv("static/upload_data/data.csv",
+                      mode='a', header=False, index=False)
+        print("成功追加写入")
 
         # 创建对象并入库
         upload_obj = AdminUp(secure_filename(
@@ -525,7 +544,7 @@ def k_ano():
 #     return render_template("k2.html")
 
 
-@app.route("/choose/<method>", methods=["GET", "POST"])
+@app.route("/choose_k/<method>", methods=["GET", "POST"])
 @login_required
 def choose_k(method):
     # 数据脱敏方法选择应对界面
@@ -533,15 +552,31 @@ def choose_k(method):
         # TODO 读取数据库 查询全部管理员上传数据
         # 读取 
 
-        all_admin_up = AdminUp.query().all()
+        # all_admin_up = AdminUp.query().all()
 
         # TODO 调用K匿名算法,处理结果存储 
         # 来个新数据库 K_operate
-        kn.k_niming()
+        result_filename = "k2"
+        df_head = kn.k_niming("static/upload_data/data2.csv", 2,
+                    f"static/level/4/{result_filename}.csv")
+        
+        # 压缩
+        analysis_result_code = 0
+        try:
+            print("start a new task")
+            analysis_result_code = subprocess.run(
+                ["zip", f"static/level/4/{result_filename}.zip",
+                f"static/level/4/{result_filename}.csv"],).returncode
+        except:
+            # 吃错误大法...
+            analysis_result_code = 1
+        if analysis_result_code == 0:
+            print("压缩完成")
+
         # TODO 截取一部分数据提取出来
         # 查询Select 前几个=。=
 
-        return render_template("k2.html")
+        return render_template("k2.html", df_head=df_head)
     elif method == "k10":
         # TODO k10 对应界面
         return render_template("k2.html")

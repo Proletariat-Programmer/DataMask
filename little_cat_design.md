@@ -77,6 +77,13 @@ pip3 install flask-login
 pip3 install flask-sqlalchemy
 pip3 install PyMySQL
 pip3 install cryptography
+
+pip3 install pandas
+pip3 install matplotlib
+
+pip3 install fitz
+pip3 install PyMuPDF
+
 ```
 
 ### 数据库设计

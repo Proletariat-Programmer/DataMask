@@ -235,19 +235,20 @@ if __name__ == '__main__':
 
     # 用户x a
     # zipname, savepath, level_require
-    down_obj = Download("t4.zip", "4/wy.zip", 4)
+    # K2
+    down_obj = Download("t4.zip", "4/wy.zip", 2)
     db.session.add(down_obj)
-    db.session.commit()
-
+    db.session.commit() 
+    # K2L2
     down_obj = Download("t3.zip", "3/wy.zip", 3)
     db.session.add(down_obj)
     db.session.commit()
-
-    down_obj = Download("t2.zip", "2/wy.zip", 2)
+    # K2T2
+    down_obj = Download("t2.zip", "2/wy.zip", 4)
     db.session.add(down_obj)
     db.session.commit()
-
-    down_obj = Download("t1.zip", "1/wy.zip", 1)
+    # K10
+    down_obj = Download("t1.zip", "1/wy.zip", 5)
     db.session.add(down_obj)
     db.session.commit()
 
@@ -273,13 +274,13 @@ if __name__ == '__main__':
     # role 角色表初始化
     db.session.add(Role("admin")) # 1
     db.session.commit()
-    db.session.add(Role("user-K2P2")) # 2
+    db.session.add(Role("user-K2")) # 2
     db.session.commit()
     db.session.add(Role("user-K2L2")) # 3
     db.session.commit()
-    db.session.add(Role("user-K10")) # 4
+    db.session.add(Role("user-K2T2")) # 4
     db.session.commit()
-    db.session.add(Role("user-K2")) # 5
+    db.session.add(Role("user-K10")) # 5
     db.session.commit()
     # 以上id均从1开始计数
 

@@ -238,7 +238,7 @@ class LevelRole(db.Model):
 upload_task_id_list = collections.deque()
 
 def check_level(user_id):
-    # 通过查询获取用户信息
+    # 通过查询获取用户信息 role角色等级范围
     user_obj =  User.query.filter_by(id=user_id).first()
     ur_obj = UserRole.query.filter_by(uid=user_obj.id).first()
 
@@ -260,27 +260,20 @@ def current_operate(current_file):
         os.makedirs(my_file)  # 只能创建单级目录 =.=对这个用法表示怀疑
         print(f'路径不存在 {my_file} 创建路径')
 
-    # 初始化 pyclone 参数
-    analysis_result_code = 0
+    # 初始化 PyClone 参数
     in_file_path = f'{basepath}/uploads/{str(current_file.uid)}/{current_file.filename}'
     working_dir_path = f'{basepath}/static/analysis_result/{str(current_file.uid)}/{current_file.filename}' # TODO 这里修改了待验证
 
     # 打开一个文件作为收集途径
     with open(open_file_name, "w+") as file:
-        # 调用 pyclone
         try:
             print("start a new task")
-            analysis_result_code = subprocess.run(
+            _ = subprocess.run(        # 调用 PyClone
                 ["PyClone", "run_analysis_pipeline",
                  "--in_files", f'{in_file_path}',
                  "--working_dir", f'{working_dir_path}'], stdout=file).returncode
         except:
-            # 吃错误大法...
-            analysis_result_code = 1
-
-    # 不为零代表出现异常情况
-    if analysis_result_code != 0:
-        print("任务异常")
+            print("压缩异常")
 
     # TODO 文件出炉
     pdftopng.loadall_pdf2png(current_file.uid, current_file.filename)
@@ -301,22 +294,19 @@ def operator_task():
             print(f"当前任务 {current_task}")
             turn_file_status_operating(current_task.id)  # 在这里将 task 状态变更为 处理中
             current_operate(current_task)
-
         else:
             print("current task list is nil, retry after 1 minute")
         time.sleep(60)  # 一分钟检测一次
 
 
 def turn_zip(filename):
-    # 将目标文件压缩
-    # subprocess
+    # 压缩目标文件
     try:
         print("start a new task")
-        analysis_result_code = subprocess.run(
+        _ = subprocess.run(
             ["zip", "参数"], stdout="test.log").returncode
     except:
-        # 吃错误大法...
-        analysis_result_code = 1
+        print("压缩异常")
 
 
 def register_add_user(username, password):
@@ -354,6 +344,7 @@ def turn_ur(uid, rid):
     ur.rid = rid
     db.session.commit()
 
+
 @app.route('/user_index')
 @app.route('/') 
 @login_required
@@ -362,14 +353,18 @@ def home():
     if check_admin(current_user.id):
         return redirect("/admin_index")
 
-    # return render_template("admin_index.html")
-    # 正常提供下载功能
-    # current_user.id
-    
-    # TODO 如何通过框架 查询权限大于等于用户等级的数据
+    #  如何通过框架 查询权限等于用户等级的数据
+    # K2 最牛逼
+    # K2L2
+    # K2T2
+    # K10
+
     all_download = []
-    for i in range(check_level(current_user.id), 4+1):
-        all_download += Download.query.filter_by(level_require=i).all()
+    user_level = check_level(current_user.id)
+    all_download += Download.query.filter_by(level_require=user_level).all()
+    # all_download += Download.query.filter_by(level_require=i).all()
+    # for i in range(check_level(current_user.id), 4+1):
+    #     all_download += Download.query.filter_by(level_require=i).all()
 
     return render_template("user_index.html", all_download=all_download)
 
@@ -648,57 +643,63 @@ def choose_k(method):
                     f"static/level/4/{result_filename}.csv")
         
         # 压缩
-        analysis_result_code = 0
         try:
             print("start a new task")
-            analysis_result_code = subprocess.run(
+            _ = subprocess.run(
                 ["zip", f"static/level/4/{result_filename}.zip",
                 f"static/level/4/{result_filename}.csv"],).returncode
         except:
-            # 吃错误大法...
-            analysis_result_code = 1
-        if analysis_result_code == 0:
-            print("压缩完成")
-
-        # TODO 截取一部分数据提取出来
-        # 查询Select 前几个=。=
+            print("压缩异常")
 
         return render_template("k2.html", df_head=df_head)
     elif method == "k10":
 
-               # TODO 读取数据库 查询全部管理员上传数据
-        # 读取
-
-        # all_admin_up = AdminUp.query().all()
-
-        # TODO 调用K匿名算法,处理结果存储
-        # 来个新数据库 K_operate
         result_filename = "k10"
         df_head = kn.k_niming("static/upload_data/data2.csv", 10,
                               f"static/level/4/{result_filename}.csv")
 
         # 压缩
-        analysis_result_code = 0
         try:
             print("start a new task")
-            analysis_result_code = subprocess.run(
+            _ = subprocess.run(
                 ["zip", f"static/level/4/{result_filename}.zip",
                  f"static/level/4/{result_filename}.csv"],).returncode
         except:
-            # 吃错误大法...
-            analysis_result_code = 1
-        if analysis_result_code == 0:
-            print("压缩完成")
+            print("压缩异常")
 
-        # TODO 截取一部分数据提取出来
-        # 查询Select 前几个=。=
-        # TODO k10 对应界面
         return render_template("k2.html")
     elif method == "k2l2":
-        # TODO k2l2 对应界面
+
+        result_filename = "k2l2"
+        df_head = kn.l_niming("static/upload_data/data2.csv", 2,
+                              f"static/level/4/{result_filename}.csv")
+
+        # 压缩
+        try:
+            print("start a new task")
+            _ = subprocess.run(
+                ["zip", f"static/level/4/{result_filename}.zip",
+                 f"static/level/4/{result_filename}.csv"],).returncode
+        except:
+            print("压缩异常")
+
+
         return render_template("k2.html")
     elif method == "k2p2":
-        # TODO k2p2 对应界面
+
+        result_filename = "k2t2"
+        df_head = kn.t_niming("static/upload_data/data2.csv", 2,
+                              f"static/level/4/{result_filename}.csv")
+
+        # 压缩
+        try:
+            print("start a new task")
+            _ = subprocess.run(
+                ["zip", f"static/level/4/{result_filename}.zip",
+                 f"static/level/4/{result_filename}.csv"],).returncode
+        except:
+            print("压缩异常")
+
         return render_template("k2.html")
 
 
@@ -801,8 +802,8 @@ if __name__ == "__main__":
 '''
 1 管理员上传数据 - 管理员选择方法 - 用户下载数据 全自动流程
 2 Done history_list 页面链接
-3 Done tables文件可以下载
-4 Done tables文件展示和后端对齐
-5 后台数据批量导入
+3 Done tables 文件可以下载
+4 Done tables 文件展示和后端对齐
+5 Done 后台数据批量导入
 6 Done 角色权限表
 '''

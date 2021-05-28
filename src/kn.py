@@ -182,6 +182,8 @@ def l_niming(path, k_number, savepath):
 
 
     print("l匿名")
+    return dfn2.head(15).copy()
+
 
 '''
 t接近
@@ -229,6 +231,8 @@ def t_niming(path, k_number, savepath):
     # Only a test
     dfn3.to_csv(savepath, index=0)
     print("t匿名")
+
+    return dfn3.head(15).copy()
 
 
 # ## 调用成功

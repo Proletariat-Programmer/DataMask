@@ -1,5 +1,5 @@
 from flask import Flask, render_template, Response, redirect, url_for,\
-    request, session, abort
+    request, session, abort, send_from_directory
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, \
@@ -8,12 +8,16 @@ from flask_login import LoginManager, UserMixin, current_user, \
 # 用于文件追加写入
 import pandas as pd
 
+# 内部引用数据库
+# from database_init import AdminUp, Download, UploadFile, User, Role, Level, LevelRole
+
 import kn # 内部引用
 import pdftopng # 内部引用
 from pathlib import Path
 import threading
 import collections
 import subprocess
+import csv
 import time
 import os
 import datetime
@@ -49,7 +53,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@127.0.0.1:3306/test
 # 设置sqlalchemy自动更跟踪数据库
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 # 查询时会显示原始SQL语句
-app.config['SQLALCHEMY_ECHO'] = True
+# app.config['SQLALCHEMY_ECHO'] = True
 # 禁止自动提交数据处理
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = False
 # 创建SQLAlichemy实例
@@ -65,26 +69,19 @@ class User(UserMixin, db.Model):
     # 定义表名
     __tablename__ = 'users'
     # 定义字段
-    id = db.Column(db.Integer, primary_key=True,autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(64), unique=True, index=True)
-    # email = db.Column(db.String(64),unique=True)
     password = db.Column(db.String(64))
     # 操作时间
     ctime = db.Column(db.DateTime, default=datetime.datetime.now)
     # 最近更次时间
-    mtime = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
-    # 用户权限登记 (0为管理员 非0为用户)
-    level = db.Column(db.Integer, index=True)
-    def __init__(self, name, password, level):
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+    def __init__(self, name, password):
         self.name = name
-        self.level = level 
         self.password = password
     def __repr__(self):
-        return "%d/%s/%s/%s" % (self.id, self.name, self.password, self.level)
-
-
-    # def __repr__(self):
-    #     return "%d/%s/%s/%s" % (self.id, self.name, self.phone, self.password)
+        return "%d/%s/%s/%s" % (self.id, self.name, self.password)
 
 
 class AdminUp(db.Model):
@@ -114,6 +111,29 @@ class AdminUp(db.Model):
         self.up_age = int(up_age)
         self.up_phone = up_phone
         self.b_name = b_name
+
+
+class Download(db.Model):
+    # 定义表名
+    __tablename__ = 'download'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 压缩包名称
+    zip_name = db.Column(db.String(64), index=True)
+    # 文件存储路径
+    savepath = db.Column(db.String(64), index=True)
+    # 权限管理
+    level_require = db.Column(db.Integer, index=True)
+    # 文件创建时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    # 文件最后更新时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, zip_name, savepath, level_require):
+        self.zip_name = zip_name
+        self.savepath = savepath
+        self.level_require = int(level_require)
 
 
 # upload file system model
@@ -152,39 +172,83 @@ class UploadFile(db.Model):
         self.detail = detail
 
 
-class Download(db.Model):
+
+
+class Level(db.Model):
     # 定义表名
-    __tablename__ = 'download'
+    __tablename__ = 'level'
     # 定义字段
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    # 压缩包名称
-    zip_name = db.Column(db.String(64), index=True)
-    # 文件存储路径
-    savepath = db.Column(db.String(64), index=True)
-    # 权限管理
-    level_require = db.Column(db.Integer, index=True)
-    # 文件创建时间
-    ctime = db.Column(db.DateTime, default=datetime.datetime.utcnow)
-    # 文件最后更新时间
+    # 操作名
+    operate = db.Column(db.String(64))
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
     mtime = db.Column(db.DateTime, default=datetime.datetime.now,
                       onupdate=datetime.datetime.now)
 
-    def __init__(self, zipname, savepath, level_require):
-        self.zipname = zipname
-        self.savepath = savepath
-        self.level_require = int(level_require)
+    def __init__(self, operate):
+        self.operate = operate
+
+
+class UserRole(db.Model):
+    # 定义表名
+    __tablename__ = 'u_r'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 关联用户
+    uid = db.Column(db.Integer, index=True)
+    # 关联角色
+    rid = db.Column(db.Integer, index=True)
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, uid, rid):
+        self.uid = uid
+        self.rid = rid
+
+
+class LevelRole(db.Model):
+    # 定义表名
+    __tablename__ = 'l_r'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 权限
+    lid = db.Column(db.Integer, index=True)
+    # 角色
+    rid = db.Column(db.Integer, index=True)
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, lid, rid):
+        self.lid = lid
+        self.rid = rid
 
 
 # 上传的任务队列
 upload_task_id_list = collections.deque()
 
 def check_level(user_id):
-    # 以 user.level 来判断      越接近0越厉害
-    return User.query.filter_by(id=user_id).first().level
+    # 通过查询获取用户信息
+    user_obj =  User.query.filter_by(id=user_id).first()
+    ur_obj = UserRole.query.filter_by(uid=user_obj.id).first()
+
+    # level_obj = LevelRole.query.filter_by(rid=ur_obj.rid).first()
+    
+    return ur_obj.id
 
 def check_admin(user_id):
-    # 检测用户是否为管理员用户
-    return True if  check_level(user_id) == 0 else False
+    # 检测用户是否为管理员
+    return True if  check_level(user_id) == 1 else False
 
 def current_operate(current_file):
     # operate current upload file
@@ -257,7 +321,11 @@ def turn_zip(filename):
 
 def register_add_user(username, password):
     #  level 4 - 最普通用户
-    db.session.add(User(username, password, 4))
+    db.session.add(User(username, password))
+    db.session.commit()
+    # 再补一个用户角色表
+    user_obj = User.query.filter_by(name=username).first()
+    db.session.add(UserRole(user_obj.id, 2))  # 1
     db.session.commit()
 
 
@@ -280,6 +348,11 @@ def turn_file_status_ready(upload_id):
     current_file.status = ready
     db.session.commit()
 
+
+def turn_ur(uid, rid):
+    ur = UserRole.query.filter_by(uid=uid).first()
+    ur.rid = rid
+    db.session.commit()
 
 @app.route('/user_index')
 @app.route('/') 
@@ -387,7 +460,7 @@ def admin_index():
 
         df_add = pd.DataFrame(data=data_add, index=[0])
         # a-add追加写入
-        df_add.to_csv("static/upload_data/data.csv",
+        df_add.to_csv("static/upload_data/data2.csv",
                       mode='a', header=False, index=False)
         print("成功追加写入")
 
@@ -506,8 +579,8 @@ def history_user():
 
     file_list = UploadFile.query.filter_by(uid=uid).all()
 
-    # return render_template("history_list.html", history_list = file_name_list)
-    return render_template("history.html", history_list=file_list, uid=uid)
+    return render_template("history_list.html", history_list=file_list, uid=uid)
+    # return render_template("history.html", history_list=file_list, uid=uid)
 
 
 @app.route("/level", methods=["GET", "POST"])
@@ -516,32 +589,46 @@ def manager_user():
     # 非管理员用户直接弹回主界面
     if not check_admin(current_user.id):
         return redirect("/")
-    # 拉取全部用户信息进行展示
-    all_info = User.query.all()
-
-    if request.method == "POST":
+    elif request.method == "POST":
         # 获取提交数据
         search_info = request.form.to_dict()
-        # 修改用户数据
-        user = User.query.get(search_info.get("reid"))
-        user.level = int(search_info.get("re_level"))
-        db.session.commit()
+        # 修改用户 - 角色对应关系
+        print("获取的数据为")
+        print((search_info.get("reid"), (search_info.get("re_level"))))
+        re_uid = int(search_info.get("reid").replace("'", ""))
+        re_level = int(search_info.get("re_level").replace("'", ""))
+
+        turn_ur(re_uid, re_level)
+        print(re_uid, re_level)
+        # ur_changed = UserRole.query.filter_by(uid=4).update(dict(rid=3))
+        # db.session.commit()
+        # UR = UserRole.query.filter_by(uid=re_uid).first()
+        # UR = UserRole.query.get(4)
+        # print(UR.id, UR.rid, UR.uid)
+        # UR.rid = 90
+        # db.session.commit()
+
+        # UR = UserRole.query.get(4)
+        # print(UR.id, UR.rid, UR.uid)
+        print("原则上修改成功")
         # 重置页面
         return redirect("/level")
 
-    return render_template("level.html", all_info=all_info, all_level=all_user_level)
+    # 拉取全部用户信息进行展示
+    Res = []
+    all_user_info = User.query.all()
+    for item in all_user_info:
+        ur = UserRole.query.filter_by(uid=item.id).first()
+        Res.append({"id": item.id , "name": item.name,
+                    "password": item.password, "level": ur.rid})
+
+    return render_template("level.html", all_info=Res, all_level=all_user_level)
 
 
 @app.route("/k-ano", methods=["GET", "POST"])
 @login_required
 def k_ano():  
     return render_template("k-ano.html")
-
-
-# @app.route("/k2", methods=["GET", "POST"])
-# @login_required
-# def k2():
-#     return render_template("k2.html")
 
 
 @app.route("/choose_k/<method>", methods=["GET", "POST"])
@@ -578,6 +665,33 @@ def choose_k(method):
 
         return render_template("k2.html", df_head=df_head)
     elif method == "k10":
+
+               # TODO 读取数据库 查询全部管理员上传数据
+        # 读取
+
+        # all_admin_up = AdminUp.query().all()
+
+        # TODO 调用K匿名算法,处理结果存储
+        # 来个新数据库 K_operate
+        result_filename = "k10"
+        df_head = kn.k_niming("static/upload_data/data2.csv", 10,
+                              f"static/level/4/{result_filename}.csv")
+
+        # 压缩
+        analysis_result_code = 0
+        try:
+            print("start a new task")
+            analysis_result_code = subprocess.run(
+                ["zip", f"static/level/4/{result_filename}.zip",
+                 f"static/level/4/{result_filename}.csv"],).returncode
+        except:
+            # 吃错误大法...
+            analysis_result_code = 1
+        if analysis_result_code == 0:
+            print("压缩完成")
+
+        # TODO 截取一部分数据提取出来
+        # 查询Select 前几个=。=
         # TODO k10 对应界面
         return render_template("k2.html")
     elif method == "k2l2":
@@ -608,9 +722,20 @@ def analysis_result(uploadname):
 @login_required
 def temp_result(uploadname):
     up_obj = UploadFile.query.filter_by(status=0).first()
+
+    # 展示文件
+    tsv_content = []
+    with open(f'static/analysis_result/{current_user.id}/{uploadname}/tables/cluster.tsv', "r") as file:
+        rd = csv.reader(file, delimiter="\t", quotechar='"')
+        t = 1
+        for item in rd:
+            if t == 1:
+                t+= 1
+                continue
+            tsv_content.append(item)
     # up_obj = UploadFile.query.filter_by(
     #     uid=current_user.id).filter_by(filename=uploadname).filter_by(status=2).first()
-    return render_template("result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj)
+    return render_template("result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj, tsv_content=tsv_content)
 
 
 # @login_required
@@ -631,8 +756,10 @@ def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
 
     # object_file_path = f'analysis_result/{str(current_user.id)}/{uploadname}/{smallfiletype}/{filename}'
     object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{smallfiletype}/{filename}'
-    if bigfiletype == "tables":
-        object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{filename}'
+    if bigfiletype == "tables":        
+        # object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{filename}'
+        basepath = os.path.dirname(__file__)  # 当前文件所在路径
+        return send_from_directory(f'{basepath}/static/analysis_result/{uid}/{uploadname}/{bigfiletype}', path="cluster.tsv", as_attachment=True)
 
     # filepath是文件的路径，但是文件必须存储在static文件夹下， 比如images\test.jp
     return app.send_static_file(object_file_path)
@@ -647,7 +774,6 @@ def tip():
 @app.route("/pic/<picture_name>")
 def pic_root(picture_name):
     return app.send_static_file(f'css/picture/{ picture_name }')
-
 
 
 @app.errorhandler(401)
@@ -670,3 +796,13 @@ if __name__ == "__main__":
 
     app.debug = True  # 开启快乐幼儿源模式
     app.run()
+
+
+'''
+1 管理员上传数据 - 管理员选择方法 - 用户下载数据 全自动流程
+2 Done history_list 页面链接
+3 Done tables文件可以下载
+4 Done tables文件展示和后端对齐
+5 后台数据批量导入
+6 Done 角色权限表
+'''

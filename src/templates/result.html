@@ -48,48 +48,24 @@
 					</div>
 			</div>
 			<table class="table">
+
 				<tr>
-					<th >sample_id</th>
+					<th>sample_id</th>
 					<th>cluster_id</th>
 					<th>size</th>
 					<th>mean</th>
 					<th>std</th>
 				</tr>
+				{% for item in tsv_content %}
 				<tr>
-					<td >SRR385938</td>
-					<td>0</td>
-					<td>2</td>
-					<td>0.08098242127033796</td>
-					<td>0.002977631928636432</td>
+					<td>{{ item[0] }}</td>
+					<td>{{ item[1] }}</td>
+					<td>{{ item[2] }}</td>
+					<td>{{ item[3] }}</td>
+					<td>{{ item[4] }}</td>
 				</tr>
-				<tr>
-					<td>SRR385938</td>
-					<td>0</td>
-					<td>2</td>
-					<td>0.08098242127033796</td>
-					<td>0.002977631928636432</td>
-				</tr>
-				<tr>
-					<td>SRR385938</td>
-					<td>0</td>
-					<td>2</td>
-					<td>0.08098242127033796</td>
-					<td>0.002977631928636432</td>
-				</tr>
-				<tr>
-					<td>SRR385938</td>
-					<td>0</td>
-					<td>2</td>
-					<td>0.08098242127033796</td>
-					<td>0.002977631928636432</td>
-				</tr>
-				<tr>
-					<td>SRR385938</td>
-					<td>0</td>
-					<td>2</td>
-					<td>0.08098242127033796</td>
-					<td>0.002977631928636432</td>
-				</tr>
+
+				{% endfor %}
 			</table>
 
 			<table class="table">
@@ -98,7 +74,7 @@
 				</tr>
 			
 				<tr>
-					<td><a href="wy.zip" download="wy.zip">table/loci.tsv</a></td>
+					<td><a href="/download/{{ uid }}/{{ uploadname }}/tables/nil/cluster.tsv" >cluster.tsv</a></td>
 				</tr>
 			</table>
 

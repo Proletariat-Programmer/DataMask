@@ -35,14 +35,6 @@ app.config.from_object(Config)
 # 创建数据库sqlalchemy工具对象
 db = SQLAlchemy(app)
 
-# class Role(db.Model):
-#     # 定义表名
-#     __tablename__ = 'roles'
-#     # 定义字段
-#     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
-#     name = db.Column(db.String(64), unique=True)
-#     users = db.relationship('User',backref='role') # 反推与role关联的多个User模型对象
-
 class AdminUp(db.Model):
     # 定义表名
     __tablename__ = 'adup'
@@ -144,11 +136,89 @@ class User(db.Model):
     # 最近更次时间
     mtime = db.Column(db.DateTime, default=datetime.datetime.now, onupdate=datetime.datetime.now)
     # 用户权限登记 (0为管理员 非0为用户)
-    level = db.Column(db.Integer, index=True)
-    def __init__(self, name, password, level):
+    # level = db.Column(db.Integer, index=True)
+    def __init__(self, name, password):
         self.name = name
-        self.level = level 
         self.password = password
+
+
+class Role(db.Model):
+    # 定义表名
+    __tablename__ = 'role'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 角色名称
+    role_name = db.Column(db.String(64))
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, role_name):
+        self.role_name = role_name
+
+
+class Level(db.Model):
+    # 定义表名
+    __tablename__ = 'level'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 操作名
+    operate = db.Column(db.String(64))
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, operate):
+        self.operate = operate
+
+
+class UserRole(db.Model):
+    # 定义表名
+    __tablename__ = 'u_r'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 关联用户
+    uid = db.Column(db.Integer, index=True)
+    # 关联角色
+    rid = db.Column(db.Integer, index=True)
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, uid, rid):
+        self.uid = uid
+        self.rid = rid
+
+
+class LevelRole(db.Model):
+    # 定义表名
+    __tablename__ = 'l_r'
+    # 定义字段
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    # 权限
+    lid = db.Column(db.Integer, index=True)
+    # 角色
+    rid = db.Column(db.Integer, index=True)
+
+    # 操作时间
+    ctime = db.Column(db.DateTime, default=datetime.datetime.now)
+    # 最近更次时间
+    mtime = db.Column(db.DateTime, default=datetime.datetime.now,
+                      onupdate=datetime.datetime.now)
+
+    def __init__(self, lid, rid):
+        self.lid = lid
+        self.rid = rid
+
 
 if __name__ == '__main__':
 
@@ -157,17 +227,6 @@ if __name__ == '__main__':
 
     # 创建所有表
     db.create_all()
-
-    # 创建20个默认用户
-    # create some users with ids 1 to 20
-    for i in range(1, 21):
-        level = 0 if i == 1 else 4
-        id = i
-        name = "user" + str(id)
-        # phone = id
-        password = name + "pw"
-        db.session.add(User(name, password, level))
-        db.session.commit()
 
     # 测试用例
     upload_obj = UploadFile("SRR385938.tsv", 0,2, "hello", 1, 30, 300132, "only a test")
@@ -191,6 +250,93 @@ if __name__ == '__main__':
     down_obj = Download("t1.zip", "1/wy.zip", 1)
     db.session.add(down_obj)
     db.session.commit()
+
+
+    # level 权限表初始化
+    db.session.add(Level("K2-Show")) # 1
+    db.session.commit()
+    db.session.add(Level("K10-Show")) # 2
+    db.session.commit()
+    db.session.add(Level("K2L2-Show")) # 3
+    db.session.commit()
+    db.session.add(Level("K2P2-Show")) # 4
+    db.session.commit()
+    db.session.add(Level("K2-Download")) # 5
+    db.session.commit()
+    db.session.add(Level("K10-Download")) # 6
+    db.session.commit()
+    db.session.add(Level("K2L2-Download")) # 7
+    db.session.commit()
+    db.session.add(Level("K2P2-Download"))# 8
+    db.session.commit()
+
+    # role 角色表初始化
+    db.session.add(Role("admin")) # 1
+    db.session.commit()
+    db.session.add(Role("user-K2P2")) # 2
+    db.session.commit()
+    db.session.add(Role("user-K2L2")) # 3
+    db.session.commit()
+    db.session.add(Role("user-K10")) # 4
+    db.session.commit()
+    db.session.add(Role("user-K2")) # 5
+    db.session.commit()
+    # 以上id均从1开始计数
+
+    # 用户表初始化
+    # create some users with ids 1 to 20
+    for i in range(1, 21):
+        name = "user" + str(i)
+        password = name + "pw"
+        db.session.add(User(name, password))
+        db.session.commit()
+
+    # u_r 用户角色表初始化
+    for i in range(1, 21):
+        if i == 1:
+            db.session.add(UserRole(i, 1))  # 1
+            db.session.commit()
+        else:
+            db.session.add(UserRole(i, 2))  # 1
+            db.session.commit()
+
+    # l_r 角色权限表初始化
+    for i in range(1, 9): # 管理员 - 8种权限
+        db.session.add(LevelRole(i, 1))  # 1
+        db.session.commit()
+    
+    # K2P2 
+    db.session.add(LevelRole(4, 1))  # 2
+    db.session.commit()
+    db.session.add(LevelRole(8, 1))  # 2
+    db.session.commit()
+
+    # K2L2
+    db.session.add(LevelRole(3, 1))  # 3
+    db.session.commit()
+    db.session.add(LevelRole(7, 1))  # 3
+    db.session.commit()
+
+    # K10
+    db.session.add(LevelRole(2, 1))  # 4
+    db.session.commit()
+    db.session.add(LevelRole(6, 1))  # 4
+    db.session.commit()
+
+    # K2
+    db.session.add(LevelRole(1, 1))  # 5
+    db.session.commit()
+    db.session.add(LevelRole(5, 1))  # 5
+    db.session.commit()
+
+
+    # test
+    ur = UserRole.query.filter_by(uid=4).first()
+    ur.rid = 3
+    db.session.commit()
+
+    print("结束")
+
 
 
 '''

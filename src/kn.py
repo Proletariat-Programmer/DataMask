@@ -140,7 +140,7 @@ def k_niming(file_path, k_number, savepath):
 
     print("K匿名处理s完啦")
 
-    return dfn.head(5).copy()
+    return dfn.head(15).copy()
 
 
 '''

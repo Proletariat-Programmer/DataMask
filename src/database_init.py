@@ -84,7 +84,9 @@ class Download(db.Model):
     def __init__(self, zip_name, savepath, level_require):
         self.zip_name = zip_name
         self.savepath = savepath
-        self.level_require = int(level_require)
+        #  isinstance(22,int)
+        self.level_require = level_require if not isinstance(
+            level_require, int) else int(level_require)
 
 
 # upload file system model
@@ -272,6 +274,7 @@ if __name__ == '__main__':
     db.session.commit()
 
     # role 角色表初始化
+    # id 表示
     db.session.add(Role("admin")) # 1
     db.session.commit()
     db.session.add(Role("user-K2")) # 2

@@ -24,6 +24,11 @@ import datetime
 import pymysql
 pymysql.install_as_MySQLdb()
 
+# K2 最牛逼
+# K2L2
+# K2T2
+# K10
+
 # 全局变量
 all_user_level = [0, 1, 2, 3, 4]
 ready = 0
@@ -133,7 +138,10 @@ class Download(db.Model):
     def __init__(self, zip_name, savepath, level_require):
         self.zip_name = zip_name
         self.savepath = savepath
-        self.level_require = int(level_require)
+        #  isinstance(22,int)
+        self.level_require = level_require if not isinstance(
+            level_require, int) else int(level_require)
+
 
 
 # upload file system model
@@ -631,55 +639,66 @@ def k_ano():
 def choose_k(method):
     # 数据脱敏方法选择应对界面
     if method == "k2":
-        # TODO 读取数据库 查询全部管理员上传数据
-        # 读取 
-
-        # all_admin_up = AdminUp.query().all()
-
-        # TODO 调用K匿名算法,处理结果存储 
-        # 来个新数据库 K_operate
         result_filename = "k2"
+        level_required = "2"
+
         df_head = kn.k_niming("static/upload_data/data2.csv", 2,
-                    f"static/level/4/{result_filename}.csv")
-        
+                              f"static/level/{level_required}/{result_filename}.csv")
         # 压缩
         try:
             print("start a new task")
             _ = subprocess.run(
-                ["zip", f"static/level/4/{result_filename}.zip",
-                f"static/level/4/{result_filename}.csv"],).returncode
+                ["zip", f"static/level/{level_required}/{result_filename}.zip",
+                 f"static/level/{level_required}/{result_filename}.csv",
+                 "tsv_example/SRR385938.tsv",
+                 "tsv_example/SRR385939.tsv", 
+                 "tsv_example/SRR385940.tsv",
+                 "tsv_example/SRR385941.tsv" ],).returncode
         except:
             print("压缩异常")
+        
+        # Download数据库入库
+        db.session.add(
+            Download(f"{result_filename}.zip", f"{level_required}/{result_filename}.zip", {level_required}))
+        db.session.commit()
 
         return render_template("k2.html", df_head=df_head)
     elif method == "k10":
-
         result_filename = "k10"
+        level_required = "5"
         df_head = kn.k_niming("static/upload_data/data2.csv", 10,
-                              f"static/level/4/{result_filename}.csv")
+                              f"static/level/{level_required}/{result_filename}.csv")
 
         # 压缩
         try:
             print("start a new task")
             _ = subprocess.run(
-                ["zip", f"static/level/4/{result_filename}.zip",
-                 f"static/level/4/{result_filename}.csv"],).returncode
+                ["zip", f"static/level/{level_required}/{result_filename}.zip",
+                 f"static/level/{level_required}/{result_filename}.csv",
+                 "tsv_example/SRR385938.tsv",
+                 "tsv_example/SRR385939.tsv",
+                 "tsv_example/SRR385940.tsv",
+                 "tsv_example/SRR385941.tsv"],).returncode
         except:
             print("压缩异常")
 
         return render_template("k2.html")
     elif method == "k2l2":
-
         result_filename = "k2l2"
+        level_required = "3"
         df_head = kn.l_niming("static/upload_data/data2.csv", 2,
-                              f"static/level/4/{result_filename}.csv")
+                              f"static/level/{level_required}/{result_filename}.csv")
 
         # 压缩
         try:
             print("start a new task")
             _ = subprocess.run(
-                ["zip", f"static/level/4/{result_filename}.zip",
-                 f"static/level/4/{result_filename}.csv"],).returncode
+                ["zip", f"static/level/{level_required}/{result_filename}.zip",
+                 f"static/level/{level_required}/{result_filename}.csv",
+                 "tsv_example/SRR385938.tsv",
+                 "tsv_example/SRR385939.tsv",
+                 "tsv_example/SRR385940.tsv",
+                 "tsv_example/SRR385941.tsv"],).returncode
         except:
             print("压缩异常")
 
@@ -688,18 +707,22 @@ def choose_k(method):
     elif method == "k2p2":
 
         result_filename = "k2t2"
+        level_required = "4"
         df_head = kn.t_niming("static/upload_data/data2.csv", 2,
-                              f"static/level/4/{result_filename}.csv")
+                              f"static/level/{level_required}/{result_filename}.csv")
 
         # 压缩
         try:
             print("start a new task")
             _ = subprocess.run(
-                ["zip", f"static/level/4/{result_filename}.zip",
-                 f"static/level/4/{result_filename}.csv"],).returncode
+                ["zip", f"static/level/{level_required}/{result_filename}.zip",
+                 f"static/level/{level_required}/{result_filename}.csv",
+                 "tsv_example/SRR385938.tsv",
+                 "tsv_example/SRR385939.tsv",
+                 "tsv_example/SRR385940.tsv",
+                 "tsv_example/SRR385941.tsv"],).returncode
         except:
             print("压缩异常")
-
         return render_template("k2.html")
 
 
@@ -760,7 +783,7 @@ def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
     if bigfiletype == "tables":        
         # object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{filename}'
         basepath = os.path.dirname(__file__)  # 当前文件所在路径
-        return send_from_directory(f'{basepath}/static/analysis_result/{uid}/{uploadname}/{bigfiletype}', path="cluster.tsv", as_attachment=True)
+        return send_from_directory(f'{basepath}/static/analysis_result/{uid}/{uploadname}/{bigfiletype}', path="loci.tsv", as_attachment=True)
 
     # filepath是文件的路径，但是文件必须存储在static文件夹下， 比如images\test.jp
     return app.send_static_file(object_file_path)
@@ -806,4 +829,13 @@ if __name__ == "__main__":
 4 Done tables 文件展示和后端对齐
 5 Done 后台数据批量导入
 6 Done 角色权限表
+TODO
+Done loci 提供下载
+k匿名处理后，数据入数据库 (才能在用户下载界面看到)
+
 '''
+
+# K2 最牛逼
+# K2L2
+# K2T2
+# K10

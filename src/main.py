@@ -1,5 +1,9 @@
+
+
+from typing import Tuple
 from flask import Flask, render_template, Response, redirect, url_for,\
     request, session, abort, send_from_directory
+
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, \
@@ -248,11 +252,13 @@ upload_task_id_list = collections.deque()
 def check_level(user_id):
     # 通过查询获取用户信息 role角色等级范围
     user_obj =  User.query.filter_by(id=user_id).first()
+    print(f"当前用户id - {user_obj.id}")
     ur_obj = UserRole.query.filter_by(uid=user_obj.id).first()
-
+    print(f"当前用户级别 - {ur_obj.rid}")
+    
     # level_obj = LevelRole.query.filter_by(rid=ur_obj.rid).first()
     
-    return ur_obj.id
+    return ur_obj.rid
 
 def check_admin(user_id):
     # 检测用户是否为管理员
@@ -273,15 +279,19 @@ def current_operate(current_file):
     working_dir_path = f'{basepath}/static/analysis_result/{str(current_file.uid)}/{current_file.filename}' # TODO 这里修改了待验证
 
     # 打开一个文件作为收集途径
+    analysis_result_code = 0
     with open(open_file_name, "w+") as file:
         try:
             print("start a new task")
-            _ = subprocess.run(        # 调用 PyClone
+            analysis_result_code = subprocess.run(        # 调用 PyClone
                 ["PyClone", "run_analysis_pipeline",
                  "--in_files", f'{in_file_path}',
                  "--working_dir", f'{working_dir_path}'], stdout=file).returncode
         except:
-            print("压缩异常")
+            analysis_result_code = 1
+    # 不为零代表出现异常情况
+    if analysis_result_code != 0:
+        print("任务异常")
 
     # TODO 文件出炉
     pdftopng.loadall_pdf2png(current_file.uid, current_file.filename)
@@ -369,6 +379,9 @@ def home():
 
     all_download = []
     user_level = check_level(current_user.id)
+    print(f"当前登陆用户权限为 {user_level}")
+    print(f"当前登陆用户权限为 {user_level}")
+    print(f"当前登陆用户权限为 {user_level}")
     all_download += Download.query.filter_by(level_require=user_level).all()
     # all_download += Download.query.filter_by(level_require=i).all()
     # for i in range(check_level(current_user.id), 4+1):
@@ -586,6 +599,12 @@ def history_user():
     # return render_template("history.html", history_list=file_list, uid=uid)
 
 
+@app.route("/wy")  # 注册路由
+def wywy():
+    return {"wy":"123"}
+
+
+
 @app.route("/level", methods=["GET", "POST"])
 @login_required
 def manager_user():
@@ -682,7 +701,7 @@ def choose_k(method):
         except:
             print("压缩异常")
 
-        return render_template("k2.html")
+        return render_template("k2.html", df_head=df_head)
     elif method == "k2l2":
         result_filename = "k2l2"
         level_required = "3"
@@ -702,10 +721,8 @@ def choose_k(method):
         except:
             print("压缩异常")
 
-
-        return render_template("k2.html")
+        return render_template("k2.html", df_head=df_head)
     elif method == "k2p2":
-
         result_filename = "k2t2"
         level_required = "4"
         df_head = kn.t_niming("static/upload_data/data2.csv", 2,
@@ -723,7 +740,7 @@ def choose_k(method):
                  "tsv_example/SRR385941.tsv"],).returncode
         except:
             print("压缩异常")
-        return render_template("k2.html")
+        return render_template("k2.html", df_head=df_head)
 
 
 # 用于分析结果的展示
@@ -740,6 +757,7 @@ def analysis_result(uploadname):
         uid=current_user.id).filter_by(filename=uploadname).first()
 
     return render_template("analysis_result.html", uid=current_user.id, uploadname=uploadname, up_obj=up_obj)
+    return render_template("analysis_result.html", name=xxx)
 
 # 用于分析结果的展示
 @app.route("/result/<uploadname>")
@@ -783,7 +801,8 @@ def download_file(uid, uploadname, bigfiletype, smallfiletype, filename):
     if bigfiletype == "tables":        
         # object_file_path = f'analysis_result/{uid}/{uploadname}/{bigfiletype}/{filename}'
         basepath = os.path.dirname(__file__)  # 当前文件所在路径
-        return send_from_directory(f'{basepath}/static/analysis_result/{uid}/{uploadname}/{bigfiletype}', path="loci.tsv", as_attachment=True)
+        # return send_from_directory(f'{basepath}/static/analysis_result/{uid}/{uploadname}/{bigfiletype}', path="loci.tsv", as_attachment=True)
+        return send_from_directory(f'{basepath}/static/analysis_result/{uid}/{uploadname}/{bigfiletype}', filename="loci.tsv", as_attachment=True)
 
     # filepath是文件的路径，但是文件必须存储在static文件夹下， 比如images\test.jp
     return app.send_static_file(object_file_path)
@@ -820,6 +839,8 @@ if __name__ == "__main__":
 
     app.debug = True  # 开启快乐幼儿源模式
     app.run()
+    while True:
+        pass
 
 
 '''

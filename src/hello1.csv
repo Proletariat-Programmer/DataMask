@@ -1,0 +1,1863 @@
+age,count,csv_name,disease,fnlwgt,sex
+30.5,1,"11250.csv,10656.csv",diabetes,60612.0, Female
+30.5,1,"11250.csv,10656.csv",prostate cancer,60612.0, Female
+37.0,1,"11134.csv,11530.csv",Alzheimer's disease,60612.0, Female
+37.0,1,"11134.csv,11530.csv",prostate cancer,60612.0, Female
+38.0,2,"10133.csv,10490.csv,10342.csv",hypertension,60612.0, Male
+38.0,1,"10133.csv,10490.csv,10342.csv",skin cancer,60612.0, Male
+28.0,1,"10175.csv,10864.csv,10366.csv",Alzheimer's disease,94110.0, Male
+28.0,1,"10175.csv,10864.csv,10366.csv",endometriosis,94110.0, Male
+28.0,1,"10175.csv,10864.csv,10366.csv",hypertension,94110.0, Male
+38.0,1,"11090.csv,11911.csv",diabetes,94110.0, Male
+38.0,1,"11090.csv,11911.csv",prostate cancer,94110.0, Male
+22.666666666666668,1,"10731.csv,10597.csv,11475.csv",Alzheimer's disease,43221.0, Female
+22.666666666666668,1,"10731.csv,10597.csv,11475.csv",prostate cancer,43221.0, Female
+22.666666666666668,1,"10731.csv,10597.csv,11475.csv",skin cancer,43221.0, Female
+26.0,1,"10771.csv,11657.csv,10499.csv",hypertension,43221.0, Female
+26.0,1,"10771.csv,11657.csv,10499.csv",kidney disease,43221.0, Female
+26.0,1,"10771.csv,11657.csv,10499.csv",skin cancer,43221.0, Female
+33.0,1,"10885.csv,10270.csv,11166.csv",hypertension,43221.0, Female
+33.0,2,"10885.csv,10270.csv,11166.csv",kidney disease,43221.0, Female
+35.0,1,"10970.csv,10540.csv",breast cancer,43221.0, Female
+35.0,1,"10970.csv,10540.csv",kidney disease,43221.0, Female
+22.0,1,"11363.csv,10903.csv",diabetes,60612.0, Female
+22.0,1,"11363.csv,10903.csv",skin cancer,60612.0, Female
+27.666666666666668,2,"10893.csv,11550.csv,11273.csv",Alzheimer's disease,60612.0, Female
+27.666666666666668,1,"10893.csv,11550.csv,11273.csv",kidney disease,60612.0, Female
+38.0,2,"11744.csv,11802.csv,10191.csv",Alzheimer's disease,55103.666666666664, Female
+38.0,1,"11744.csv,11802.csv,10191.csv",diabetes,55103.666666666664, Female
+20.0,1,"11332.csv,10966.csv",HIV/AIDS,94105.0, Female
+20.0,1,"11332.csv,10966.csv",hypertension,94105.0, Female
+26.0,1,"11541.csv,11478.csv,11904.csv",Alzheimer's disease,92745.0, Female
+26.0,1,"11541.csv,11478.csv,11904.csv",breast cancer,92745.0, Female
+26.0,1,"11541.csv,11478.csv,11904.csv",heart disease,92745.0, Female
+27.5,1,"11077.csv,10067.csv",HIV/AIDS,94107.5, Female
+27.5,1,"11077.csv,10067.csv",skin cancer,94107.5, Female
+27.0,1,"11749.csv,11637.csv",Alzheimer's disease,94107.5, Female
+27.0,1,"11749.csv,11637.csv",HIV/AIDS,94107.5, Female
+31.0,1,"10647.csv,10009.csv,11266.csv",Alzheimer's disease,89130.0, Female
+31.0,1,"10647.csv,10009.csv,11266.csv",hypertension,89130.0, Female
+31.0,1,"10647.csv,10009.csv,11266.csv",schizophrenia,89130.0, Female
+31.666666666666668,2,"11597.csv,10702.csv,11235.csv",Alzheimer's disease,94110.0, Female
+31.666666666666668,1,"11597.csv,10702.csv,11235.csv",kidney disease,94110.0, Female
+38.0,2,"11843.csv,10924.csv,11477.csv",Alzheimer's disease,89429.0, Female
+38.0,1,"11843.csv,10924.csv,11477.csv",prostate cancer,89429.0, Female
+36.0,1,"10385.csv,10148.csv,10948.csv",heart disease,94105.0, Female
+36.0,1,"10385.csv,10148.csv,10948.csv",prostate cancer,94105.0, Female
+36.0,1,"10385.csv,10148.csv,10948.csv",skin cancer,94105.0, Female
+37.0,1,"10006.csv,10205.csv",Alzheimer's disease,94105.0, Female
+37.0,1,"10006.csv,10205.csv",hypertension,94105.0, Female
+37.333333333333336,1,"10466.csv,11828.csv,11003.csv",Alzheimer's disease,94106.66666666667, Female
+37.333333333333336,1,"10466.csv,11828.csv,11003.csv",endometriosis,94106.66666666667, Female
+37.333333333333336,1,"10466.csv,11828.csv,11003.csv",multiple sclerosis,94106.66666666667, Female
+47.666666666666664,2,"11252.csv,10969.csv,10994.csv",breast cancer,94110.0, Male
+47.666666666666664,1,"11252.csv,10969.csv,10994.csv",hypertension,94110.0, Male
+42.0,1,"11786.csv,11761.csv",diabetes,43221.0, Female
+42.0,1,"11786.csv,11761.csv",endometriosis,43221.0, Female
+44.666666666666664,1,"10489.csv,10163.csv,11794.csv",HIV/AIDS,43217.333333333336, Female
+44.666666666666664,2,"10489.csv,10163.csv,11794.csv",hypertension,43217.333333333336, Female
+46.666666666666664,1,"10308.csv,11125.csv,10083.csv",hypertension,43213.666666666664, Female
+46.666666666666664,1,"10308.csv,11125.csv,10083.csv",multiple sclerosis,43213.666666666664, Female
+46.666666666666664,1,"10308.csv,11125.csv,10083.csv",schizophrenia,43213.666666666664, Female
+56.333333333333336,1,"11489.csv,10592.csv,11947.csv",diabetes,43213.666666666664, Female
+56.333333333333336,2,"11489.csv,10592.csv,11947.csv",prostate cancer,43213.666666666664, Female
+54.5,1,"11328.csv,11342.csv",endometriosis,60612.0, Female
+54.5,1,"11328.csv,11342.csv",skin cancer,60612.0, Female
+47.0,1,"10769.csv,10937.csv,10509.csv",gastritis,89127.0, Female
+47.0,2,"10769.csv,10937.csv,10509.csv",kidney disease,89127.0, Female
+48.0,1,"10099.csv,11029.csv",multiple sclerosis,89127.0, Female
+48.0,1,"10099.csv,11029.csv",skin cancer,89127.0, Female
+48.0,2,"11411.csv,11533.csv",kidney disease,89127.0, Female
+49.0,1,"11766.csv,11196.csv",breast cancer,89127.0, Female
+49.0,1,"11766.csv,11196.csv",multiple sclerosis,89127.0, Female
+54.0,2,"10946.csv,10022.csv",breast cancer,89127.0, Female
+55.5,2,"11456.csv,11645.csv",prostate cancer,89127.0, Female
+71.5,1,"11459.csv,11632.csv",prostate cancer,89127.0, Female
+71.5,1,"11459.csv,11632.csv",skin cancer,89127.0, Female
+43.0,1,"10182.csv,10020.csv",hypertension,94110.0, Female
+43.0,1,"10182.csv,10020.csv",kidney disease,94110.0, Female
+43.0,1,"10328.csv,11948.csv",diabetes,94107.5, Female
+43.0,1,"10328.csv,11948.csv",kidney disease,94107.5, Female
+46.0,2,"10382.csv,10476.csv",skin cancer,90011.5, Female
+44.666666666666664,1,"10144.csv,10259.csv,10085.csv",Alzheimer's disease,94106.66666666667, Female
+44.666666666666664,2,"10144.csv,10259.csv,10085.csv",skin cancer,94106.66666666667, Female
+46.333333333333336,1,"10135.csv,10126.csv,10384.csv",breast cancer,94106.66666666667, Female
+46.333333333333336,1,"10135.csv,10126.csv,10384.csv",hypertension,94106.66666666667, Female
+46.333333333333336,1,"10135.csv,10126.csv,10384.csv",skin cancer,94106.66666666667, Female
+50.666666666666664,1,"11285.csv,10990.csv,11011.csv",Alzheimer's disease,94108.33333333333, Female
+50.666666666666664,1,"11285.csv,10990.csv,11011.csv",hypertension,94108.33333333333, Female
+50.666666666666664,1,"11285.csv,10990.csv,11011.csv",prostate cancer,94108.33333333333, Female
+53.0,1,"10512.csv,10068.csv,10188.csv",Alzheimer's disease,91085.33333333333, Female
+53.0,1,"10512.csv,10068.csv,10188.csv",HIV/AIDS,91085.33333333333, Female
+53.0,1,"10512.csv,10068.csv,10188.csv",hypertension,91085.33333333333, Female
+56.0,1,"10739.csv,11553.csv",prostate cancer,89136.0, Female
+56.0,1,"10739.csv,11553.csv",schizophrenia,89136.0, Female
+57.0,1,"10369.csv,10516.csv",diabetes,92059.0, Female
+57.0,1,"10369.csv,10516.csv",hypertension,92059.0, Female
+63.333333333333336,1,"11292.csv,10320.csv,10623.csv",Alzheimer's disease,91083.0, Female
+63.333333333333336,1,"11292.csv,10320.csv,10623.csv",prostate cancer,91083.0, Female
+63.333333333333336,1,"11292.csv,10320.csv,10623.csv",schizophrenia,91083.0, Female
+63.5,1,"11902.csv,11246.csv",breast cancer,94110.0, Female
+63.5,1,"11902.csv,11246.csv",multiple sclerosis,94110.0, Female
+72.66666666666667,1,"10835.csv,11711.csv,11264.csv",HIV/AIDS,91085.33333333333, Female
+72.66666666666667,1,"10835.csv,11711.csv,11264.csv",gastritis,91085.33333333333, Female
+72.66666666666667,1,"10835.csv,11711.csv,11264.csv",kidney disease,91085.33333333333, Female
+82.5,1,"11041.csv,11998.csv",HIV/AIDS,92062.5, Female
+82.5,1,"11041.csv,11998.csv",hypertension,92062.5, Female
+30.0,1,"10183.csv,10089.csv,10012.csv",Alzheimer's disease,10017.666666666666, Male
+30.0,1,"10183.csv,10089.csv,10012.csv",hypertension,10017.666666666666, Male
+30.0,1,"10183.csv,10089.csv,10012.csv",multiple sclerosis,10017.666666666666, Male
+38.0,1,"11245.csv,10521.csv,11225.csv",Alzheimer's disease,10009.333333333334, Male
+38.0,1,"11245.csv,10521.csv,11225.csv",hypertension,10009.333333333334, Male
+38.0,1,"11245.csv,10521.csv,11225.csv",prostate cancer,10009.333333333334, Male
+38.0,1,"11804.csv,11548.csv,11620.csv",Alzheimer's disease,10026.0, Male
+38.0,2,"11804.csv,11548.csv,11620.csv",skin cancer,10026.0, Male
+26.0,1,"10332.csv,11296.csv,11973.csv",Alzheimer's disease,43213.666666666664, Male
+26.0,1,"10332.csv,11296.csv,11973.csv",breast cancer,43213.666666666664, Male
+26.0,1,"10332.csv,11296.csv,11973.csv",diabetes,43213.666666666664, Male
+38.0,1,"10300.csv,11072.csv",endometriosis,43215.5, Male
+38.0,1,"10300.csv,11072.csv",hypertension,43215.5, Male
+31.0,1,"11219.csv,10679.csv",diabetes,44101.0, Male
+31.0,1,"11219.csv,10679.csv",skin cancer,44101.0, Male
+19.666666666666668,2,"10945.csv,11036.csv,10497.csv",gastritis,60612.0, Male
+19.666666666666668,1,"10945.csv,11036.csv,10497.csv",skin cancer,60612.0, Male
+25.0,1,"10798.csv,11383.csv",Alzheimer's disease,60612.0, Male
+25.0,1,"10798.csv,11383.csv",gastritis,60612.0, Male
+28.666666666666668,1,"11130.csv,11567.csv,10823.csv",Alzheimer's disease,60612.0, Male
+28.666666666666668,1,"11130.csv,11567.csv,10823.csv",hypertension,60612.0, Male
+28.666666666666668,1,"11130.csv,11567.csv,10823.csv",kidney disease,60612.0, Male
+30.5,1,"10060.csv,10080.csv",hypertension,60612.0, Male
+30.5,1,"10060.csv,10080.csv",schizophrenia,60612.0, Male
+30.0,1,"10650.csv,11953.csv",breast cancer,60612.0, Male
+30.0,1,"10650.csv,11953.csv",schizophrenia,60612.0, Male
+38.0,1,"11865.csv,11723.csv,10943.csv",Alzheimer's disease,44101.0, Male
+38.0,1,"11865.csv,11723.csv,10943.csv",HIV/AIDS,44101.0, Male
+38.0,1,"11865.csv,11723.csv,10943.csv",skin cancer,44101.0, Male
+38.0,1,"11340.csv,11595.csv,10218.csv",breast cancer,60605.0, Male
+38.0,1,"11340.csv,11595.csv,10218.csv",kidney disease,60605.0, Male
+38.0,1,"11340.csv,11595.csv,10218.csv",multiple sclerosis,60605.0, Male
+35.0,1,"10942.csv,11698.csv",diabetes,60612.0, Male
+35.0,1,"10942.csv,11698.csv",skin cancer,60612.0, Male
+36.0,1,"10207.csv,10609.csv",endometriosis,60612.0, Male
+36.0,1,"10207.csv,10609.csv",skin cancer,60612.0, Male
+37.0,1,"11501.csv,10935.csv,11946.csv",breast cancer,60612.0, Male
+37.0,1,"11501.csv,10935.csv,11946.csv",heart disease,60612.0, Male
+37.0,1,"11501.csv,10935.csv,11946.csv",multiple sclerosis,60612.0, Male
+38.0,1,"11066.csv,10628.csv",hypertension,60612.0, Male
+38.0,1,"11066.csv,10628.csv",prostate cancer,60612.0, Male
+38.0,1,"11752.csv,11714.csv",diabetes,60612.0, Male
+38.0,1,"11752.csv,11714.csv",gastritis,60612.0, Male
+24.0,1,"11703.csv,11573.csv",gastritis,90015.0, Male
+24.0,1,"11703.csv,11573.csv",kidney disease,90015.0, Male
+24.0,1,"10200.csv,10613.csv,10192.csv",gastritis,94108.33333333333, Male
+24.0,1,"10200.csv,10613.csv,10192.csv",heart disease,94108.33333333333, Male
+24.0,1,"10200.csv,10613.csv,10192.csv",multiple sclerosis,94108.33333333333, Male
+26.333333333333332,1,"10435.csv,11653.csv,11581.csv",HIV/AIDS,94110.0, Male
+26.333333333333332,2,"10435.csv,11653.csv,11581.csv",hypertension,94110.0, Male
+33.666666666666664,1,"11647.csv,10856.csv,10419.csv",gastritis,90008.0, Male
+33.666666666666664,1,"11647.csv,10856.csv,10419.csv",hypertension,90008.0, Male
+33.666666666666664,1,"11647.csv,10856.csv,10419.csv",prostate cancer,90008.0, Male
+33.0,1,"11527.csv,10353.csv,10865.csv",gastritis,90015.0, Male
+33.0,1,"11527.csv,10353.csv,10865.csv",kidney disease,90015.0, Male
+33.0,1,"11527.csv,10353.csv,10865.csv",prostate cancer,90015.0, Male
+34.0,1,"11123.csv,11537.csv,10394.csv",kidney disease,90015.0, Male
+34.0,1,"11123.csv,11537.csv,10394.csv",schizophrenia,90015.0, Male
+34.0,1,"11123.csv,11537.csv,10394.csv",skin cancer,90015.0, Male
+32.0,2,"10770.csv,10014.csv",hypertension,94107.5, Male
+32.0,1,"10882.csv,11497.csv,11850.csv",Alzheimer's disease,94110.0, Male
+32.0,2,"10882.csv,11497.csv,11850.csv",prostate cancer,94110.0, Male
+34.0,1,"10658.csv,10520.csv,10627.csv",breast cancer,94105.0, Male
+34.0,1,"10658.csv,10520.csv,10627.csv",diabetes,94105.0, Male
+34.0,1,"10658.csv,10520.csv,10627.csv",hypertension,94105.0, Male
+33.666666666666664,2,"11094.csv,10683.csv,10717.csv",breast cancer,94108.33333333333, Male
+33.666666666666664,1,"11094.csv,10683.csv,10717.csv",multiple sclerosis,94108.33333333333, Male
+33.0,2,"11568.csv,11596.csv,11796.csv",breast cancer,94106.66666666667, Male
+33.0,1,"11568.csv,11596.csv,11796.csv",kidney disease,94106.66666666667, Male
+34.0,1,"11654.csv,11351.csv,11894.csv",Alzheimer's disease,94106.66666666667, Male
+34.0,1,"11654.csv,11351.csv,11894.csv",schizophrenia,94106.66666666667, Male
+34.0,1,"11654.csv,11351.csv,11894.csv",skin cancer,94106.66666666667, Male
+37.0,1,"10772.csv,10894.csv",Alzheimer's disease,90008.0, Male
+37.0,1,"10772.csv,10894.csv",multiple sclerosis,90008.0, Male
+38.0,1,"10356.csv,10239.csv,10019.csv",kidney disease,90008.0, Male
+38.0,1,"10356.csv,10239.csv,10019.csv",schizophrenia,90008.0, Male
+38.0,1,"10356.csv,10239.csv,10019.csv",skin cancer,90008.0, Male
+29.0,1,"10189.csv,10114.csv,10131.csv",HIV/AIDS,43210.0, Female
+29.0,1,"10189.csv,10114.csv,10131.csv",hypertension,43210.0, Female
+29.0,1,"10189.csv,10114.csv,10131.csv",kidney disease,43210.0, Female
+38.0,1,"10878.csv,11257.csv",heart disease,43210.0, Female
+38.0,1,"10878.csv,11257.csv",skin cancer,43210.0, Female
+19.0,1,"10636.csv,10104.csv,10226.csv",Alzheimer's disease,43221.0, Female
+19.0,1,"10636.csv,10104.csv,10226.csv",heart disease,43221.0, Female
+19.0,1,"10636.csv,10104.csv,10226.csv",kidney disease,43221.0, Female
+21.0,1,"11560.csv,11847.csv",Alzheimer's disease,43221.0, Female
+21.0,1,"11560.csv,11847.csv",HIV/AIDS,43221.0, Female
+24.0,1,"10564.csv,11045.csv",Alzheimer's disease,43221.0, Female
+24.0,1,"10564.csv,11045.csv",hypertension,43221.0, Female
+25.0,1,"11691.csv,10289.csv",hypertension,43221.0, Female
+25.0,1,"11691.csv,10289.csv",schizophrenia,43221.0, Female
+28.0,1,"10972.csv,10093.csv",breast cancer,43221.0, Female
+28.0,1,"10972.csv,10093.csv",skin cancer,43221.0, Female
+28.0,1,"11391.csv,11704.csv",multiple sclerosis,43221.0, Female
+28.0,1,"11391.csv,11704.csv",prostate cancer,43221.0, Female
+31.0,1,"10716.csv,11133.csv",Alzheimer's disease,43221.0, Female
+31.0,1,"10716.csv,11133.csv",hypertension,43221.0, Female
+31.0,1,"11365.csv,11239.csv",Alzheimer's disease,43221.0, Female
+31.0,1,"11365.csv,11239.csv",HIV/AIDS,43221.0, Female
+19.5,1,"10127.csv,10718.csv",hypertension,60605.0, Female
+19.5,1,"10127.csv,10718.csv",skin cancer,60605.0, Female
+22.0,1,"11705.csv,10982.csv,11177.csv",HIV/AIDS,60605.0, Female
+22.0,1,"11705.csv,10982.csv,11177.csv",kidney disease,60605.0, Female
+22.0,1,"11705.csv,10982.csv,11177.csv",skin cancer,60605.0, Female
+23.0,1,"10386.csv,10934.csv",hypertension,60605.0, Female
+23.0,1,"10386.csv,10934.csv",prostate cancer,60605.0, Female
+23.5,1,"11316.csv,11551.csv",diabetes,52353.0, Female
+23.5,1,"11316.csv,11551.csv",heart disease,52353.0, Female
+25.0,2,"11856.csv,10734.csv",hypertension,60605.0, Female
+26.5,1,"11492.csv,11233.csv",diabetes,52353.0, Female
+26.5,1,"11492.csv,11233.csv",heart disease,52353.0, Female
+17.666666666666668,1,"10206.csv,10805.csv,11702.csv",breast cancer,60612.0, Female
+17.666666666666668,1,"10206.csv,10805.csv,11702.csv",diabetes,60612.0, Female
+17.666666666666668,1,"10206.csv,10805.csv,11702.csv",heart disease,60612.0, Female
+19.0,1,"11195.csv,11141.csv",HIV/AIDS,60612.0, Female
+19.0,1,"11195.csv,11141.csv",prostate cancer,60612.0, Female
+23.0,2,"10480.csv,11004.csv",hypertension,60612.0, Female
+24.5,2,"11756.csv,11554.csv",diabetes,60612.0, Female
+34.0,1,"10438.csv,10420.csv",kidney disease,60605.0, Female
+34.0,1,"10438.csv,10420.csv",prostate cancer,60605.0, Female
+34.0,1,"11064.csv,11115.csv,10686.csv",hypertension,60605.0, Female
+34.0,2,"11064.csv,11115.csv,10686.csv",prostate cancer,60605.0, Female
+20.0,1,"10376.csv,10398.csv",breast cancer,89127.0, Female
+20.0,1,"10376.csv,10398.csv",heart disease,89127.0, Female
+20.0,1,"11126.csv,11275.csv,10665.csv",endometriosis,89420.66666666667, Female
+20.0,1,"11126.csv,11275.csv,10665.csv",multiple sclerosis,89420.66666666667, Female
+20.0,1,"11126.csv,11275.csv,10665.csv",prostate cancer,89420.66666666667, Female
+23.0,1,"10595.csv,10327.csv",breast cancer,89131.5, Female
+23.0,1,"10595.csv,10327.csv",skin cancer,89131.5, Female
+23.0,1,"10621.csv,11836.csv",Alzheimer's disease,89131.5, Female
+23.0,1,"10621.csv,11836.csv",heart disease,89131.5, Female
+23.0,1,"11590.csv,10013.csv,10877.csv",hypertension,94105.0, Female
+23.0,1,"11590.csv,10013.csv,10877.csv",prostate cancer,94105.0, Female
+23.0,1,"11590.csv,10013.csv,10877.csv",skin cancer,94105.0, Female
+23.0,1,"11025.csv,10794.csv",breast cancer,94110.0, Female
+23.0,1,"11025.csv,10794.csv",skin cancer,94110.0, Female
+22.0,1,"11738.csv,11236.csv",Alzheimer's disease,94110.0, Female
+22.0,1,"11738.csv,11236.csv",heart disease,94110.0, Female
+27.0,1,"10655.csv,10138.csv,10142.csv",Alzheimer's disease,89130.0, Female
+27.0,1,"10655.csv,10138.csv,10142.csv",heart disease,89130.0, Female
+27.0,1,"10655.csv,10138.csv,10142.csv",prostate cancer,89130.0, Female
+26.333333333333332,1,"11308.csv,10295.csv,11940.csv",endometriosis,90008.0, Female
+26.333333333333332,1,"11308.csv,10295.csv,11940.csv",prostate cancer,90008.0, Female
+26.333333333333332,1,"11308.csv,10295.csv,11940.csv",skin cancer,90008.0, Female
+28.0,1,"10005.csv,10402.csv",Alzheimer's disease,89131.5, Female
+28.0,1,"10005.csv,10402.csv",skin cancer,89131.5, Female
+28.0,1,"11473.csv,11988.csv,10409.csv",Alzheimer's disease,89130.0, Female
+28.0,1,"11473.csv,11988.csv,10409.csv",hypertension,89130.0, Female
+28.0,1,"11473.csv,11988.csv,10409.csv",prostate cancer,89130.0, Female
+28.0,2,"10164.csv,10782.csv",Alzheimer's disease,90008.0, Female
+28.0,1,"11158.csv,11312.csv,11968.csv",Alzheimer's disease,90008.0, Female
+28.0,1,"11158.csv,11312.csv,11968.csv",hypertension,90008.0, Female
+28.0,1,"11158.csv,11312.csv,11968.csv",kidney disease,90008.0, Female
+25.0,1,"10279.csv,10051.csv",gastritis,94110.0, Female
+25.0,1,"10279.csv,10051.csv",prostate cancer,94110.0, Female
+24.666666666666668,1,"10517.csv,10692.csv,10976.csv",Alzheimer's disease,92743.33333333333, Female
+24.666666666666668,1,"10517.csv,10692.csv,10976.csv",hypertension,92743.33333333333, Female
+24.666666666666668,1,"10517.csv,10692.csv,10976.csv",multiple sclerosis,92743.33333333333, Female
+32.0,1,"10248.csv,10546.csv",Alzheimer's disease,89136.0, Female
+32.0,1,"10248.csv,10546.csv",gastritis,89136.0, Female
+32.0,1,"11034.csv,10766.csv,10962.csv",multiple sclerosis,89133.0, Female
+32.0,2,"11034.csv,10766.csv,10962.csv",prostate cancer,89133.0, Female
+33.0,1,"10269.csv,10377.csv",hypertension,89127.0, Female
+33.0,1,"10269.csv,10377.csv",skin cancer,89127.0, Female
+33.0,1,"10555.csv,10425.csv",HIV/AIDS,89131.5, Female
+33.0,1,"10555.csv,10425.csv",breast cancer,89131.5, Female
+29.5,1,"10457.csv,10324.csv",multiple sclerosis,90011.5, Female
+29.5,1,"10457.csv,10324.csv",prostate cancer,90011.5, Female
+29.0,1,"10890.csv,11302.csv,11966.csv",diabetes,90015.0, Female
+29.0,1,"10890.csv,11302.csv,11966.csv",hypertension,90015.0, Female
+29.0,1,"10890.csv,11302.csv,11966.csv",kidney disease,90015.0, Female
+29.5,1,"10094.csv,10319.csv",HIV/AIDS,94105.0, Female
+29.5,1,"10094.csv,10319.csv",diabetes,94105.0, Female
+30.0,1,"11523.csv,10824.csv,10418.csv",diabetes,94105.0, Female
+30.0,1,"11523.csv,10824.csv,10418.csv",heart disease,94105.0, Female
+30.0,1,"11523.csv,10824.csv,10418.csv",hypertension,94105.0, Female
+31.666666666666668,1,"10109.csv,10423.csv,10748.csv",hypertension,92739.33333333333, Female
+31.666666666666668,2,"10109.csv,10423.csv,10748.csv",kidney disease,92739.33333333333, Female
+35.0,1,"11920.csv,11787.csv,10554.csv",kidney disease,89130.0, Female
+35.0,2,"11920.csv,11787.csv,10554.csv",multiple sclerosis,89130.0, Female
+36.0,1,"11630.csv,10578.csv,10715.csv",heart disease,89130.0, Female
+36.0,1,"11630.csv,10578.csv,10715.csv",hypertension,89130.0, Female
+36.0,1,"11630.csv,10578.csv,10715.csv",skin cancer,89130.0, Female
+36.0,1,"11612.csv,10712.csv",breast cancer,90008.0, Female
+36.0,1,"11612.csv,10712.csv",endometriosis,90008.0, Female
+37.0,1,"10092.csv,10297.csv",Alzheimer's disease,89567.5, Female
+37.0,1,"10092.csv,10297.csv",prostate cancer,89567.5, Female
+37.0,1,"11623.csv,10774.csv,11753.csv",Alzheimer's disease,89719.66666666667, Female
+37.0,1,"11623.csv,10774.csv,11753.csv",breast cancer,89719.66666666667, Female
+37.0,1,"11623.csv,10774.csv,11753.csv",hypertension,89719.66666666667, Female
+34.666666666666664,1,"10404.csv,10391.csv,10493.csv",Alzheimer's disease,94106.66666666667, Female
+34.666666666666664,1,"10404.csv,10391.csv,10493.csv",endometriosis,94106.66666666667, Female
+34.666666666666664,1,"10404.csv,10391.csv,10493.csv",skin cancer,94106.66666666667, Female
+48.0,1,"10097.csv,10063.csv,10791.csv",kidney disease,10009.333333333334, Male
+48.0,1,"10097.csv,10063.csv,10791.csv",multiple sclerosis,10009.333333333334, Male
+48.0,1,"10097.csv,10063.csv,10791.csv",schizophrenia,10009.333333333334, Male
+48.0,1,"11016.csv,11461.csv,11528.csv",Alzheimer's disease,43221.0, Male
+48.0,1,"11016.csv,11461.csv,11528.csv",kidney disease,43221.0, Male
+48.0,1,"11016.csv,11461.csv,11528.csv",skin cancer,43221.0, Male
+47.333333333333336,1,"10639.csv,11022.csv,11757.csv",breast cancer,60605.0, Male
+47.333333333333336,1,"10639.csv,11022.csv,11757.csv",diabetes,60605.0, Male
+47.333333333333336,1,"10639.csv,11022.csv,11757.csv",hypertension,60605.0, Male
+41.0,2,"10992.csv,10287.csv,11718.csv",hypertension,60612.0, Male
+41.0,1,"10992.csv,10287.csv,11718.csv",skin cancer,60612.0, Male
+42.666666666666664,1,"10322.csv,10256.csv,10364.csv",diabetes,60612.0, Male
+42.666666666666664,1,"10322.csv,10256.csv,10364.csv",endometriosis,60612.0, Male
+42.666666666666664,1,"10322.csv,10256.csv,10364.csv",hypertension,60612.0, Male
+42.666666666666664,1,"10781.csv,11745.csv,10895.csv",Alzheimer's disease,60612.0, Male
+42.666666666666664,1,"10781.csv,11745.csv,10895.csv",breast cancer,60612.0, Male
+42.666666666666664,1,"10781.csv,11745.csv,10895.csv",skin cancer,60612.0, Male
+46.0,1,"10057.csv,10408.csv,11617.csv",diabetes,60612.0, Male
+46.0,1,"10057.csv,10408.csv,11617.csv",hypertension,60612.0, Male
+46.0,1,"10057.csv,10408.csv,11617.csv",multiple sclerosis,60612.0, Male
+47.0,1,"11658.csv,10897.csv,11993.csv",breast cancer,60612.0, Male
+47.0,2,"11658.csv,10897.csv,11993.csv",diabetes,60612.0, Male
+48.0,1,"11621.csv,10671.csv",Alzheimer's disease,60612.0, Male
+48.0,1,"11621.csv,10671.csv",skin cancer,60612.0, Male
+51.0,2,"11587.csv,10843.csv",Alzheimer's disease,60612.0, Male
+54.666666666666664,1,"11063.csv,11727.csv,10968.csv",Alzheimer's disease,60612.0, Male
+54.666666666666664,1,"11063.csv,11727.csv,10968.csv",HIV/AIDS,60612.0, Male
+54.666666666666664,1,"11063.csv,11727.csv,10968.csv",heart disease,60612.0, Male
+67.33333333333333,2,"11007.csv,10535.csv,11545.csv",Alzheimer's disease,60612.0, Male
+67.33333333333333,1,"11007.csv,10535.csv,11545.csv",HIV/AIDS,60612.0, Male
+42.333333333333336,1,"11228.csv,11510.csv,11672.csv",heart disease,90015.0, Male
+42.333333333333336,1,"11228.csv,11510.csv,11672.csv",prostate cancer,90015.0, Male
+42.333333333333336,1,"11228.csv,11510.csv,11672.csv",schizophrenia,90015.0, Male
+43.0,1,"10363.csv,10726.csv",Alzheimer's disease,94110.0, Male
+43.0,1,"10363.csv,10726.csv",gastritis,94110.0, Male
+43.0,1,"10801.csv,10846.csv",Alzheimer's disease,94107.5, Male
+43.0,1,"10801.csv,10846.csv",skin cancer,94107.5, Male
+43.0,1,"11538.csv,10862.csv",hypertension,94107.5, Male
+43.0,1,"11538.csv,10862.csv",prostate cancer,94107.5, Male
+43.0,1,"11931.csv,11792.csv,11780.csv",heart disease,94106.66666666667, Male
+43.0,1,"11931.csv,11792.csv,11780.csv",prostate cancer,94106.66666666667, Male
+43.0,1,"11931.csv,11792.csv,11780.csv",skin cancer,94106.66666666667, Male
+45.0,1,"10262.csv,11060.csv,10452.csv",HIV/AIDS,89130.0, Male
+45.0,1,"10262.csv,11060.csv,10452.csv",diabetes,89130.0, Male
+45.0,1,"10262.csv,11060.csv,10452.csv",hypertension,89130.0, Male
+45.0,1,"11311.csv,11221.csv,11846.csv",Alzheimer's disease,89130.0, Male
+45.0,1,"11311.csv,11221.csv,11846.csv",HIV/AIDS,89130.0, Male
+45.0,1,"11311.csv,11221.csv,11846.csv",endometriosis,89130.0, Male
+48.0,1,"10040.csv,10301.csv,10855.csv",diabetes,90008.0, Male
+48.0,1,"10040.csv,10301.csv,10855.csv",hypertension,90008.0, Male
+48.0,1,"10040.csv,10301.csv,10855.csv",kidney disease,90008.0, Male
+48.0,1,"11643.csv,11585.csv,11217.csv",Alzheimer's disease,89717.33333333333, Male
+48.0,1,"11643.csv,11585.csv,11217.csv",prostate cancer,89717.33333333333, Male
+48.0,1,"11643.csv,11585.csv,11217.csv",skin cancer,89717.33333333333, Male
+45.333333333333336,1,"10997.csv,10250.csv,10853.csv",gastritis,94105.0, Male
+45.333333333333336,1,"10997.csv,10250.csv,10853.csv",prostate cancer,94105.0, Male
+45.333333333333336,1,"10997.csv,10250.csv,10853.csv",schizophrenia,94105.0, Male
+48.0,1,"10821.csv,10998.csv",prostate cancer,90015.0, Male
+48.0,1,"10821.csv,10998.csv",schizophrenia,90015.0, Male
+47.0,1,"11476.csv,11343.csv",Alzheimer's disease,94105.0, Male
+47.0,1,"11476.csv,11343.csv",hypertension,94105.0, Male
+52.0,1,"10400.csv,11369.csv,10417.csv",diabetes,89133.0, Male
+52.0,1,"10400.csv,11369.csv,10417.csv",kidney disease,89133.0, Male
+52.0,1,"10400.csv,11369.csv,10417.csv",multiple sclerosis,89133.0, Male
+52.0,1,"10619.csv,10640.csv",Alzheimer's disease,94110.0, Male
+52.0,1,"10619.csv,10640.csv",gastritis,94110.0, Male
+55.0,1,"11402.csv,11594.csv,10747.csv",HIV/AIDS,89423.0, Male
+55.0,2,"11402.csv,11594.csv,10747.csv",hypertension,89423.0, Male
+56.0,1,"10117.csv,10026.csv,10246.csv",Alzheimer's disease,89719.66666666667, Male
+56.0,1,"10117.csv,10026.csv,10246.csv",kidney disease,89719.66666666667, Male
+56.0,1,"10117.csv,10026.csv,10246.csv",skin cancer,89719.66666666667, Male
+55.5,1,"10349.csv,10119.csv",Alzheimer's disease,94110.0, Male
+55.5,1,"10349.csv,10119.csv",skin cancer,94110.0, Male
+56.0,1,"11145.csv,11942.csv",multiple sclerosis,94105.0, Male
+56.0,1,"11145.csv,11942.csv",prostate cancer,94105.0, Male
+60.0,1,"11116.csv,10593.csv",gastritis,89575.5, Male
+60.0,1,"11116.csv,10593.csv",skin cancer,89575.5, Male
+60.0,1,"10709.csv,10453.csv,10471.csv",Alzheimer's disease,94105.0, Male
+60.0,1,"10709.csv,10453.csv,10471.csv",gastritis,94105.0, Male
+60.0,1,"10709.csv,10453.csv,10471.csv",skin cancer,94105.0, Male
+62.0,1,"10362.csv,11097.csv,10502.csv",Alzheimer's disease,89420.66666666667, Male
+62.0,2,"10362.csv,11097.csv,10502.csv",hypertension,89420.66666666667, Male
+62.0,1,"11350.csv,11542.csv",kidney disease,94105.0, Male
+62.0,1,"11350.csv,11542.csv",prostate cancer,94105.0, Male
+63.666666666666664,1,"10429.csv,11504.csv,10809.csv",Alzheimer's disease,94110.0, Male
+63.666666666666664,1,"10429.csv,11504.csv,10809.csv",HIV/AIDS,94110.0, Male
+63.666666666666664,1,"10429.csv,11504.csv,10809.csv",breast cancer,94110.0, Male
+65.5,1,"10357.csv,10330.csv",heart disease,94110.0, Male
+65.5,1,"10357.csv,10330.csv",skin cancer,94110.0, Male
+82.66666666666667,1,"10919.csv,11936.csv,11952.csv",breast cancer,89716.66666666667, Male
+82.66666666666667,1,"10919.csv,11936.csv,11952.csv",hypertension,89716.66666666667, Male
+82.66666666666667,1,"10919.csv,11936.csv,11952.csv",skin cancer,89716.66666666667, Male
+42.0,2,"10743.csv,10666.csv,11717.csv",diabetes,10009.333333333334, Female
+42.0,1,"10743.csv,10666.csv,11717.csv",multiple sclerosis,10009.333333333334, Female
+43.0,2,"11100.csv,11080.csv,10090.csv",Alzheimer's disease,10009.333333333334, Female
+43.0,1,"11100.csv,11080.csv,10090.csv",prostate cancer,10009.333333333334, Female
+46.0,1,"10906.csv,10705.csv",Alzheimer's disease,10013.5, Female
+46.0,1,"10906.csv,10705.csv",gastritis,10013.5, Female
+47.0,1,"11566.csv,11860.csv",multiple sclerosis,10001.0, Female
+47.0,1,"11566.csv,11860.csv",schizophrenia,10001.0, Female
+48.0,1,"11818.csv,10891.csv",hypertension,10001.0, Female
+48.0,1,"11818.csv,10891.csv",schizophrenia,10001.0, Female
+40.333333333333336,2,"10496.csv,10510.csv,10251.csv",kidney disease,43217.333333333336, Female
+40.333333333333336,1,"10496.csv,10510.csv,10251.csv",schizophrenia,43217.333333333336, Female
+53.0,1,"11368.csv,10225.csv",hypertension,10026.0, Female
+53.0,1,"11368.csv,10225.csv",prostate cancer,10026.0, Female
+56.5,2,"11119.csv,11242.csv",heart disease,10026.0, Female
+59.0,1,"11393.csv,10025.csv",breast cancer,10013.5, Female
+59.0,1,"11393.csv,10025.csv",endometriosis,10013.5, Female
+62.0,1,"11321.csv,11892.csv,11216.csv",hypertension,10017.666666666666, Female
+62.0,1,"11321.csv,11892.csv,11216.csv",kidney disease,10017.666666666666, Female
+62.0,1,"11321.csv,11892.csv,11216.csv",skin cancer,10017.666666666666, Female
+68.66666666666667,1,"11887.csv,11263.csv,10556.csv",Alzheimer's disease,10017.666666666666, Female
+68.66666666666667,1,"11887.csv,11263.csv,10556.csv",diabetes,10017.666666666666, Female
+68.66666666666667,1,"11887.csv,11263.csv,10556.csv",hypertension,10017.666666666666, Female
+73.0,1,"10528.csv,10553.csv",Alzheimer's disease,10026.0, Female
+73.0,1,"10528.csv,10553.csv",kidney disease,10026.0, Female
+75.0,2,"11563.csv,10229.csv",Alzheimer's disease,10013.5, Female
+51.0,2,"10086.csv,10632.csv",prostate cancer,43210.0, Female
+52.333333333333336,1,"11689.csv,11171.csv,11694.csv",kidney disease,43217.333333333336, Female
+52.333333333333336,1,"11689.csv,11171.csv,11694.csv",schizophrenia,43217.333333333336, Female
+52.333333333333336,1,"11689.csv,11171.csv,11694.csv",skin cancer,43217.333333333336, Female
+60.0,1,"10844.csv,10209.csv",HIV/AIDS,43221.0, Female
+60.0,1,"10844.csv,10209.csv",breast cancer,43221.0, Female
+59.0,1,"11143.csv,11187.csv",Alzheimer's disease,43215.5, Female
+59.0,1,"11143.csv,11187.csv",gastritis,43215.5, Female
+64.0,2,"10986.csv,10230.csv",prostate cancer,43215.5, Female
+64.0,2,"11958.csv,11047.csv",hypertension,43215.5, Female
+40.666666666666664,2,"11751.csv,11763.csv,11238.csv",Alzheimer's disease,60612.0, Female
+40.666666666666664,1,"11751.csv,11763.csv,11238.csv",skin cancer,60612.0, Female
+43.0,1,"11373.csv,10917.csv,11687.csv",Alzheimer's disease,60612.0, Female
+43.0,1,"11373.csv,10917.csv,11687.csv",diabetes,60612.0, Female
+43.0,1,"11373.csv,10917.csv,11687.csv",skin cancer,60612.0, Female
+47.0,1,"11074.csv,10151.csv,10759.csv",gastritis,60609.666666666664, Female
+47.0,1,"11074.csv,10151.csv,10759.csv",hypertension,60609.666666666664, Female
+47.0,1,"11074.csv,10151.csv,10759.csv",multiple sclerosis,60609.666666666664, Female
+49.0,1,"11367.csv,11366.csv,10860.csv",heart disease,49602.333333333336, Female
+49.0,1,"11367.csv,11366.csv,10860.csv",prostate cancer,49602.333333333336, Female
+49.0,1,"11367.csv,11366.csv,10860.csv",skin cancer,49602.333333333336, Female
+49.0,1,"11697.csv,11775.csv,10007.csv",Alzheimer's disease,60612.0, Female
+49.0,2,"11697.csv,11775.csv,10007.csv",kidney disease,60612.0, Female
+58.333333333333336,1,"10547.csv,10253.csv,11611.csv",breast cancer,60612.0, Female
+58.333333333333336,1,"10547.csv,10253.csv,11611.csv",hypertension,60612.0, Female
+58.333333333333336,1,"10547.csv,10253.csv,11611.csv",skin cancer,60612.0, Female
+62.0,1,"10851.csv,11800.csv,10827.csv",Alzheimer's disease,55108.333333333336, Female
+62.0,2,"10851.csv,11800.csv,10827.csv",kidney disease,55108.333333333336, Female
+75.0,1,"11580.csv,10979.csv",gastritis,60612.0, Female
+75.0,1,"11580.csv,10979.csv",kidney disease,60612.0, Female
+43.0,1,"10746.csv,10455.csv",Alzheimer's disease,89127.0, Female
+43.0,1,"10746.csv,10455.csv",prostate cancer,89127.0, Female
+45.0,1,"11944.csv,11857.csv",hypertension,89127.0, Female
+45.0,1,"11944.csv,11857.csv",multiple sclerosis,89127.0, Female
+39.0,2,"10370.csv,10298.csv,11408.csv",prostate cancer,89136.0, Female
+39.0,1,"10370.csv,10298.csv,11408.csv",skin cancer,89136.0, Female
+39.0,1,"11716.csv,10828.csv",hypertension,90008.0, Female
+39.0,1,"11716.csv,10828.csv",multiple sclerosis,90008.0, Female
+40.0,1,"11401.csv,10433.csv,11423.csv",Alzheimer's disease,89717.33333333333, Female
+40.0,2,"11401.csv,10433.csv,11423.csv",skin cancer,89717.33333333333, Female
+40.5,1,"10198.csv,10242.csv",hypertension,90015.0, Female
+40.5,1,"10198.csv,10242.csv",prostate cancer,90015.0, Female
+42.0,1,"10204.csv,11565.csv,11240.csv",diabetes,89717.33333333333, Female
+42.0,2,"10204.csv,11565.csv,11240.csv",skin cancer,89717.33333333333, Female
+42.0,1,"10786.csv,10359.csv",Alzheimer's disease,90015.0, Female
+42.0,1,"10786.csv,10359.csv",kidney disease,90015.0, Female
+43.0,1,"10150.csv,10306.csv",HIV/AIDS,90011.5, Female
+43.0,1,"10150.csv,10306.csv",multiple sclerosis,90011.5, Female
+43.0,1,"11043.csv,11375.csv,11081.csv",diabetes,90012.66666666667, Female
+43.0,1,"11043.csv,11375.csv,11081.csv",kidney disease,90012.66666666667, Female
+43.0,1,"11043.csv,11375.csv,11081.csv",prostate cancer,90012.66666666667, Female
+40.5,1,"10187.csv,10237.csv",Alzheimer's disease,94107.5, Female
+40.5,1,"10187.csv,10237.csv",skin cancer,94107.5, Female
+40.666666666666664,1,"10785.csv,11058.csv,11376.csv",breast cancer,94108.33333333333, Female
+40.666666666666664,1,"10785.csv,11058.csv,11376.csv",gastritis,94108.33333333333, Female
+40.666666666666664,1,"10785.csv,11058.csv,11376.csv",prostate cancer,94108.33333333333, Female
+42.0,1,"10440.csv,10923.csv",hypertension,94107.5, Female
+42.0,1,"10440.csv,10923.csv",skin cancer,94107.5, Female
+42.0,1,"11282.csv,11353.csv,11834.csv",heart disease,94108.33333333333, Female
+42.0,1,"11282.csv,11353.csv,11834.csv",prostate cancer,94108.33333333333, Female
+42.0,1,"11282.csv,11353.csv,11834.csv",skin cancer,94108.33333333333, Female
+47.0,1,"10816.csv,10053.csv",Alzheimer's disease,89136.0, Female
+47.0,1,"10816.csv,10053.csv",hypertension,89136.0, Female
+47.0,2,"11420.csv,11675.csv",hypertension,89136.0, Female
+47.0,1,"10631.csv,10103.csv",diabetes,90015.0, Female
+47.0,1,"10631.csv,10103.csv",hypertension,90015.0, Female
+47.0,1,"11522.csv,11179.csv",HIV/AIDS,90008.0, Female
+47.0,1,"11522.csv,11179.csv",breast cancer,90008.0, Female
+44.0,2,"10727.csv,10388.csv",skin cancer,94107.5, Female
+45.0,1,"11629.csv,11742.csv",diabetes,94110.0, Female
+45.0,1,"11629.csv,11742.csv",endometriosis,94110.0, Female
+47.0,1,"10988.csv,11271.csv",kidney disease,94110.0, Female
+47.0,1,"10988.csv,11271.csv",skin cancer,94110.0, Female
+46.5,1,"11765.csv,11793.csv",heart disease,94107.5, Female
+46.5,1,"11765.csv,11793.csv",skin cancer,94107.5, Female
+49.0,1,"11165.csv,10606.csv",hypertension,89572.0, Female
+49.0,1,"11165.csv,10606.csv",skin cancer,89572.0, Female
+50.0,1,"11743.csv,11684.csv",Alzheimer's disease,89136.0, Female
+50.0,1,"11743.csv,11684.csv",gastritis,89136.0, Female
+51.0,1,"11364.csv,11314.csv",gastritis,89136.0, Female
+51.0,1,"11364.csv,11314.csv",kidney disease,89136.0, Female
+51.0,1,"10953.csv,11018.csv",gastritis,90008.0, Female
+51.0,1,"10953.csv,11018.csv",multiple sclerosis,90008.0, Female
+49.0,1,"10600.csv,10044.csv",kidney disease,94105.0, Female
+49.0,1,"10600.csv,10044.csv",multiple sclerosis,94105.0, Female
+49.0,2,"10881.csv,11431.csv,11468.csv",multiple sclerosis,94110.0, Female
+49.0,1,"10881.csv,11431.csv,11468.csv",skin cancer,94110.0, Female
+52.0,1,"10611.csv,11254.csv",kidney disease,92060.0, Female
+52.0,1,"10611.csv,11254.csv",skin cancer,92060.0, Female
+53.0,1,"10832.csv,11981.csv",gastritis,94107.5, Female
+53.0,1,"10832.csv,11981.csv",skin cancer,94107.5, Female
+59.333333333333336,1,"10284.csv,10603.csv,11436.csv",Alzheimer's disease,89426.66666666667, Female
+59.333333333333336,1,"10284.csv,10603.csv,11436.csv",HIV/AIDS,89426.66666666667, Female
+59.333333333333336,1,"10284.csv,10603.csv,11436.csv",prostate cancer,89426.66666666667, Female
+59.0,1,"10227.csv,10579.csv",hypertension,90015.0, Female
+59.0,1,"10227.csv,10579.csv",multiple sclerosis,90015.0, Female
+58.5,1,"11518.csv,11303.csv",hypertension,94107.5, Female
+58.5,1,"11518.csv,11303.csv",multiple sclerosis,94107.5, Female
+60.0,1,"11754.csv,11866.csv",diabetes,94107.5, Female
+60.0,1,"11754.csv,11866.csv",prostate cancer,94107.5, Female
+66.0,2,"11790.csv,10170.csv",skin cancer,89575.5, Female
+67.5,1,"10161.csv,10475.csv",HIV/AIDS,94105.0, Female
+67.5,1,"10161.csv,10475.csv",multiple sclerosis,94105.0, Female
+69.5,1,"11114.csv,10657.csv",multiple sclerosis,94105.0, Female
+69.5,1,"11114.csv,10657.csv",prostate cancer,94105.0, Female
+71.0,1,"11646.csv,11339.csv",Alzheimer's disease,91620.5, Female
+71.0,1,"11646.csv,11339.csv",hypertension,91620.5, Female
+22.0,1,"11265.csv,10472.csv",breast cancer,10013.5, Male
+22.0,1,"11265.csv,10472.csv",gastritis,10013.5, Male
+25.0,1,"11331.csv,10961.csv",breast cancer,10001.0, Male
+25.0,1,"11331.csv,10961.csv",prostate cancer,10001.0, Male
+26.0,1,"10352.csv,10341.csv,10311.csv",heart disease,10009.333333333334, Male
+26.0,1,"10352.csv,10341.csv,10311.csv",multiple sclerosis,10009.333333333334, Male
+26.0,1,"10352.csv,10341.csv,10311.csv",prostate cancer,10009.333333333334, Male
+29.0,1,"10387.csv,10576.csv,10159.csv",breast cancer,10009.333333333334, Male
+29.0,1,"10387.csv,10576.csv,10159.csv",hypertension,10009.333333333334, Male
+29.0,1,"10387.csv,10576.csv,10159.csv",kidney disease,10009.333333333334, Male
+30.0,1,"10560.csv,10337.csv",gastritis,10013.5, Male
+30.0,1,"10560.csv,10337.csv",hypertension,10013.5, Male
+30.0,1,"11305.csv,11512.csv",diabetes,10026.0, Male
+30.0,1,"11305.csv,11512.csv",prostate cancer,10026.0, Male
+33.0,1,"10436.csv,10481.csv,10088.csv",Alzheimer's disease,10017.666666666666, Male
+33.0,1,"10436.csv,10481.csv,10088.csv",kidney disease,10017.666666666666, Male
+33.0,1,"10436.csv,10481.csv,10088.csv",skin cancer,10017.666666666666, Male
+34.0,1,"10312.csv,10437.csv",prostate cancer,10001.0, Male
+34.0,1,"10312.csv,10437.csv",skin cancer,10001.0, Male
+34.0,1,"11639.csv,11156.csv,11842.csv",Alzheimer's disease,10026.0, Male
+34.0,2,"11639.csv,11156.csv,11842.csv",hypertension,10026.0, Male
+36.0,1,"10533.csv,10197.csv",breast cancer,10013.5, Male
+36.0,1,"10533.csv,10197.csv",heart disease,10013.5, Male
+20.0,1,"10421.csv,10244.csv,10449.csv",Alzheimer's disease,43221.0, Male
+20.0,1,"10421.csv,10244.csv,10449.csv",diabetes,43221.0, Male
+20.0,1,"10421.csv,10244.csv,10449.csv",heart disease,43221.0, Male
+20.0,1,"11001.csv,11570.csv,11322.csv",heart disease,43221.0, Male
+20.0,1,"11001.csv,11570.csv,11322.csv",hypertension,43221.0, Male
+20.0,1,"11001.csv,11570.csv,11322.csv",kidney disease,43221.0, Male
+21.5,1,"10037.csv,10120.csv",HIV/AIDS,43215.5, Male
+21.5,1,"10037.csv,10120.csv",skin cancer,43215.5, Male
+22.0,1,"11078.csv,10814.csv",gastritis,43210.0, Male
+22.0,1,"11078.csv,10814.csv",hypertension,43210.0, Male
+21.0,1,"11831.csv,11284.csv,11095.csv",HIV/AIDS,43217.333333333336, Male
+21.0,1,"11831.csv,11284.csv,11095.csv",endometriosis,43217.333333333336, Male
+21.0,1,"11831.csv,11284.csv,11095.csv",hypertension,43217.333333333336, Male
+22.0,1,"11096.csv,11458.csv",Alzheimer's disease,43210.0, Male
+22.0,1,"11096.csv,11458.csv",breast cancer,43210.0, Male
+27.0,1,"10663.csv,10171.csv,10445.csv",heart disease,43210.0, Male
+27.0,1,"10663.csv,10171.csv,10445.csv",prostate cancer,43210.0, Male
+27.0,1,"10663.csv,10171.csv,10445.csv",skin cancer,43210.0, Male
+27.0,1,"10904.csv,11323.csv,11495.csv",breast cancer,43213.666666666664, Male
+27.0,1,"10904.csv,11323.csv,11495.csv",hypertension,43213.666666666664, Male
+27.0,1,"10904.csv,11323.csv,11495.csv",schizophrenia,43213.666666666664, Male
+28.0,2,"11496.csv,11194.csv,10407.csv",hypertension,43210.0, Male
+28.0,1,"11496.csv,11194.csv,10407.csv",prostate cancer,43210.0, Male
+28.0,1,"11965.csv,11918.csv,11588.csv",diabetes,43221.0, Male
+28.0,1,"11965.csv,11918.csv,11588.csv",heart disease,43221.0, Male
+28.0,1,"11965.csv,11918.csv,11588.csv",hypertension,43221.0, Male
+31.0,1,"10704.csv,10729.csv",Alzheimer's disease,43210.0, Male
+31.0,1,"10704.csv,10729.csv",diabetes,43210.0, Male
+30.333333333333332,1,"11927.csv,11795.csv,11261.csv",Alzheimer's disease,43221.0, Male
+30.333333333333332,1,"11927.csv,11795.csv,11261.csv",gastritis,43221.0, Male
+30.333333333333332,1,"11927.csv,11795.csv,11261.csv",kidney disease,43221.0, Male
+32.0,1,"10463.csv,10678.csv,10410.csv",HIV/AIDS,43221.0, Male
+32.0,2,"10463.csv,10678.csv,10410.csv",hypertension,43221.0, Male
+32.0,1,"11808.csv,10963.csv,11680.csv",breast cancer,43217.333333333336, Male
+32.0,1,"11808.csv,10963.csv,11680.csv",hypertension,43217.333333333336, Male
+32.0,1,"11808.csv,10963.csv,11680.csv",skin cancer,43217.333333333336, Male
+33.0,1,"10351.csv,10888.csv,10629.csv",HIV/AIDS,43217.333333333336, Male
+33.0,1,"10351.csv,10888.csv,10629.csv",kidney disease,43217.333333333336, Male
+33.0,1,"10351.csv,10888.csv,10629.csv",skin cancer,43217.333333333336, Male
+33.0,1,"11361.csv,11146.csv,11975.csv",Alzheimer's disease,43210.0, Male
+33.0,1,"11361.csv,11146.csv,11975.csv",breast cancer,43210.0, Male
+33.0,1,"11361.csv,11146.csv,11975.csv",gastritis,43210.0, Male
+36.0,1,"11295.csv,11227.csv",hypertension,43215.5, Male
+36.0,1,"11295.csv,11227.csv",schizophrenia,43215.5, Male
+36.0,2,"11984.csv,11359.csv,11304.csv",Alzheimer's disease,43213.666666666664, Male
+36.0,1,"11984.csv,11359.csv,11304.csv",hypertension,43213.666666666664, Male
+37.0,1,"11203.csv,10848.csv,10936.csv",Alzheimer's disease,43221.0, Male
+37.0,1,"11203.csv,10848.csv,10936.csv",diabetes,43221.0, Male
+37.0,1,"11203.csv,10848.csv,10936.csv",multiple sclerosis,43221.0, Male
+37.0,1,"11212.csv,11686.csv,11513.csv",Alzheimer's disease,43217.333333333336, Male
+37.0,1,"11212.csv,11686.csv,11513.csv",diabetes,43217.333333333336, Male
+37.0,1,"11212.csv,11686.csv,11513.csv",kidney disease,43217.333333333336, Male
+22.5,1,"10812.csv,11333.csv",Alzheimer's disease,44101.0, Male
+22.5,1,"10812.csv,11333.csv",prostate cancer,44101.0, Male
+24.0,1,"10043.csv,10670.csv,10908.csv",hypertension,44101.0, Male
+24.0,1,"10043.csv,10670.csv,10908.csv",kidney disease,44101.0, Male
+24.0,1,"10043.csv,10670.csv,10908.csv",skin cancer,44101.0, Male
+24.333333333333332,1,"11600.csv,11381.csv,11767.csv",Alzheimer's disease,44101.0, Male
+24.333333333333332,1,"11600.csv,11381.csv,11767.csv",gastritis,44101.0, Male
+24.333333333333332,1,"11600.csv,11381.csv,11767.csv",hypertension,44101.0, Male
+24.0,1,"10802.csv,10111.csv,10612.csv",Alzheimer's disease,60605.0, Male
+24.0,1,"10802.csv,10111.csv,10612.csv",kidney disease,60605.0, Male
+24.0,1,"10802.csv,10111.csv,10612.csv",schizophrenia,60605.0, Male
+26.5,1,"11592.csv,10274.csv",Alzheimer's disease,60605.0, Male
+26.5,1,"11592.csv,10274.csv",hypertension,60605.0, Male
+27.0,1,"11884.csv,11735.csv",hypertension,60605.0, Male
+27.0,1,"11884.csv,11735.csv",multiple sclerosis,60605.0, Male
+28.666666666666668,1,"10483.csv,10073.csv,10569.csv",Alzheimer's disease,60605.0, Male
+28.666666666666668,1,"10483.csv,10073.csv,10569.csv",breast cancer,60605.0, Male
+28.666666666666668,1,"10483.csv,10073.csv,10569.csv",skin cancer,60605.0, Male
+31.0,2,"10773.csv,10221.csv",Alzheimer's disease,60605.0, Male
+30.0,2,"10850.csv,11046.csv,11358.csv",Alzheimer's disease,60605.0, Male
+30.0,1,"10850.csv,11046.csv,11358.csv",diabetes,60605.0, Male
+30.666666666666668,1,"11791.csv,11776.csv,11785.csv",HIV/AIDS,60605.0, Male
+30.666666666666668,1,"11791.csv,11776.csv,11785.csv",breast cancer,60605.0, Male
+30.666666666666668,1,"11791.csv,11776.csv,11785.csv",heart disease,60605.0, Male
+17.5,1,"10422.csv,10588.csv",HIV/AIDS,60612.0, Male
+17.5,1,"10422.csv,10588.csv",skin cancer,60612.0, Male
+17.0,1,"11520.csv,11547.csv",endometriosis,60612.0, Male
+17.0,1,"11520.csv,11547.csv",skin cancer,60612.0, Male
+22.5,1,"10506.csv,10154.csv",breast cancer,60612.0, Male
+22.5,1,"10506.csv,10154.csv",prostate cancer,60612.0, Male
+24.0,1,"11678.csv,10571.csv",Alzheimer's disease,60612.0, Male
+24.0,1,"11678.csv,10571.csv",heart disease,60612.0, Male
+27.0,1,"10545.csv,10392.csv",diabetes,60612.0, Male
+27.0,1,"10545.csv,10392.csv",hypertension,60612.0, Male
+26.5,2,"11733.csv,11679.csv",hypertension,60612.0, Male
+33.0,1,"10495.csv,10959.csv,10344.csv",breast cancer,60605.0, Male
+33.0,1,"10495.csv,10959.csv,10344.csv",multiple sclerosis,60605.0, Male
+33.0,1,"10495.csv,10959.csv,10344.csv",prostate cancer,60605.0, Male
+34.0,1,"10178.csv,10016.csv",breast cancer,60605.0, Male
+34.0,1,"10178.csv,10016.csv",hypertension,60605.0, Male
+34.0,1,"11012.csv,10914.csv",heart disease,52353.0, Male
+34.0,1,"11012.csv,10914.csv",hypertension,52353.0, Male
+35.0,2,"10842.csv,10736.csv",gastritis,44101.0, Male
+35.0,1,"11719.csv,11540.csv",hypertension,44101.0, Male
+35.0,1,"11719.csv,11540.csv",skin cancer,44101.0, Male
+35.0,1,"10892.csv,10199.csv",HIV/AIDS,60605.0, Male
+35.0,1,"10892.csv,10199.csv",multiple sclerosis,60605.0, Male
+35.0,1,"11734.csv,11138.csv",hypertension,60605.0, Male
+35.0,1,"11734.csv,11138.csv",skin cancer,60605.0, Male
+37.0,1,"10011.csv,11289.csv,11782.csv",HIV/AIDS,44101.0, Male
+37.0,2,"10011.csv,11289.csv,11782.csv",hypertension,44101.0, Male
+36.5,1,"10134.csv,10291.csv",multiple sclerosis,60605.0, Male
+36.5,1,"10134.csv,10291.csv",skin cancer,60605.0, Male
+36.666666666666664,1,"11260.csv,10909.csv,11183.csv",breast cancer,60605.0, Male
+36.666666666666664,1,"11260.csv,10909.csv,11183.csv",kidney disease,60605.0, Male
+36.666666666666664,1,"11260.csv,10909.csv,11183.csv",skin cancer,60605.0, Male
+33.0,1,"10638.csv,10674.csv",hypertension,60612.0, Male
+33.0,1,"10638.csv,10674.csv",prostate cancer,60612.0, Male
+32.666666666666664,1,"11184.csv,10721.csv,10808.csv",Alzheimer's disease,60612.0, Male
+32.666666666666664,1,"11184.csv,10721.csv,10808.csv",diabetes,60612.0, Male
+32.666666666666664,1,"11184.csv,10721.csv,10808.csv",hypertension,60612.0, Male
+19.0,1,"10027.csv,10202.csv,10125.csv",Alzheimer's disease,89127.0, Male
+19.0,1,"10027.csv,10202.csv,10125.csv",prostate cancer,89127.0, Male
+19.0,1,"10027.csv,10202.csv,10125.csv",schizophrenia,89127.0, Male
+17.333333333333332,1,"11453.csv,10081.csv,10868.csv",heart disease,90008.0, Male
+17.333333333333332,1,"11453.csv,10081.csv,10868.csv",multiple sclerosis,90008.0, Male
+17.333333333333332,1,"11453.csv,10081.csv,10868.csv",skin cancer,90008.0, Male
+19.0,1,"11384.csv,11389.csv,11421.csv",Alzheimer's disease,90008.0, Male
+19.0,1,"11384.csv,11389.csv,11421.csv",diabetes,90008.0, Male
+19.0,1,"11384.csv,11389.csv,11421.csv",skin cancer,90008.0, Male
+20.0,2,"11174.csv,11142.csv,11160.csv",Alzheimer's disease,89130.0, Male
+20.0,1,"11174.csv,11142.csv,11160.csv",prostate cancer,89130.0, Male
+21.0,1,"10285.csv,10177.csv,10294.csv",breast cancer,89714.33333333333, Male
+21.0,1,"10285.csv,10177.csv,10294.csv",heart disease,89714.33333333333, Male
+21.0,1,"10285.csv,10177.csv,10294.csv",kidney disease,89714.33333333333, Male
+21.0,1,"10703.csv,11967.csv,11297.csv",hypertension,89717.33333333333, Male
+21.0,1,"10703.csv,11967.csv,11297.csv",kidney disease,89717.33333333333, Male
+21.0,1,"10703.csv,11967.csv,11297.csv",prostate cancer,89717.33333333333, Male
+17.666666666666668,1,"10677.csv,11693.csv,11779.csv",heart disease,94105.0, Male
+17.666666666666668,2,"10677.csv,11693.csv,11779.csv",hypertension,94105.0, Male
+18.0,1,"10710.csv,10793.csv",hypertension,94110.0, Male
+18.0,1,"10710.csv,10793.csv",kidney disease,94110.0, Male
+20.0,1,"10518.csv,10139.csv",Alzheimer's disease,92060.0, Male
+20.0,1,"10518.csv,10139.csv",multiple sclerosis,92060.0, Male
+20.333333333333332,1,"11929.csv,10694.csv,10867.csv",breast cancer,94105.0, Male
+20.333333333333332,1,"11929.csv,10694.csv,10867.csv",kidney disease,94105.0, Male
+20.333333333333332,1,"11929.csv,10694.csv,10867.csv",prostate cancer,94105.0, Male
+20.0,1,"10810.csv,10566.csv",kidney disease,94110.0, Male
+20.0,1,"10810.csv,10566.csv",skin cancer,94110.0, Male
+20.5,1,"11032.csv,11851.csv",gastritis,94110.0, Male
+20.5,1,"11032.csv,11851.csv",prostate cancer,94110.0, Male
+22.666666666666668,2,"10147.csv,10074.csv,10459.csv",kidney disease,90012.66666666667, Male
+22.666666666666668,1,"10147.csv,10074.csv,10459.csv",prostate cancer,90012.66666666667, Male
+24.0,1,"10243.csv,10872.csv,10299.csv",endometriosis,89133.0, Male
+24.0,1,"10243.csv,10872.csv,10299.csv",multiple sclerosis,89133.0, Male
+24.0,1,"10243.csv,10872.csv,10299.csv",prostate cancer,89133.0, Male
+24.0,1,"11881.csv,11469.csv,10839.csv",hypertension,90008.0, Male
+24.0,1,"11881.csv,11469.csv,10839.csv",kidney disease,90008.0, Male
+24.0,1,"11881.csv,11469.csv,10839.csv",multiple sclerosis,90008.0, Male
+23.0,1,"10428.csv,10439.csv",Alzheimer's disease,94107.5, Male
+23.0,1,"10428.csv,10439.csv",endometriosis,94107.5, Male
+22.333333333333332,2,"11019.csv,11209.csv,11557.csv",hypertension,94108.33333333333, Male
+22.333333333333332,1,"11019.csv,11209.csv,11557.csv",kidney disease,94108.33333333333, Male
+23.0,1,"11853.csv,11841.csv",hypertension,94107.5, Male
+23.0,1,"11853.csv,11841.csv",kidney disease,94107.5, Male
+22.666666666666668,1,"11889.csv,11977.csv,11867.csv",breast cancer,94108.33333333333, Male
+22.666666666666668,1,"11889.csv,11977.csv,11867.csv",gastritis,94108.33333333333, Male
+22.666666666666668,1,"11889.csv,11977.csv,11867.csv",hypertension,94108.33333333333, Male
+24.0,1,"11153.csv,10652.csv",multiple sclerosis,94107.5, Male
+24.0,1,"11153.csv,10652.csv",prostate cancer,94107.5, Male
+24.0,1,"11709.csv,11180.csv",breast cancer,94110.0, Male
+24.0,1,"11709.csv,11180.csv",kidney disease,94110.0, Male
+25.5,1,"10265.csv,10426.csv",Alzheimer's disease,89572.0, Male
+25.5,1,"10265.csv,10426.csv",hypertension,89572.0, Male
+26.0,1,"10532.csv,10580.csv",Alzheimer's disease,90008.0, Male
+26.0,1,"10532.csv,10580.csv",breast cancer,90008.0, Male
+25.0,1,"11559.csv,11519.csv",kidney disease,90008.0, Male
+25.0,1,"11559.csv,11519.csv",prostate cancer,90008.0, Male
+26.0,1,"11737.csv,11859.csv,11893.csv",heart disease,90008.0, Male
+26.0,1,"11737.csv,11859.csv,11893.csv",kidney disease,90008.0, Male
+26.0,1,"11737.csv,11859.csv,11893.csv",prostate cancer,90008.0, Male
+27.666666666666668,1,"10235.csv,10596.csv,10405.csv",Alzheimer's disease,89130.0, Male
+27.666666666666668,1,"10235.csv,10596.csv,10405.csv",schizophrenia,89130.0, Male
+27.666666666666668,1,"10235.csv,10596.csv,10405.csv",skin cancer,89130.0, Male
+29.0,1,"10293.csv,10424.csv",kidney disease,89131.5, Male
+29.0,1,"10293.csv,10424.csv",prostate cancer,89131.5, Male
+29.0,1,"10050.csv,10065.csv",diabetes,90008.0, Male
+29.0,1,"10050.csv,10065.csv",prostate cancer,90008.0, Male
+28.333333333333332,1,"10544.csv,10608.csv,10681.csv",Alzheimer's disease,90008.0, Male
+28.333333333333332,1,"10544.csv,10608.csv,10681.csv",heart disease,90008.0, Male
+28.333333333333332,1,"10544.csv,10608.csv,10681.csv",skin cancer,90008.0, Male
+28.0,1,"11798.csv,11416.csv",Alzheimer's disease,89567.5, Male
+28.0,1,"11798.csv,11416.csv",skin cancer,89567.5, Male
+29.0,2,"11108.csv,11771.csv,11855.csv",hypertension,89133.0, Male
+29.0,1,"11108.csv,11771.csv,11855.csv",skin cancer,89133.0, Male
+29.0,1,"11301.csv,10723.csv",Alzheimer's disease,90008.0, Male
+29.0,1,"11301.csv,10723.csv",multiple sclerosis,90008.0, Male
+27.0,1,"10076.csv,10479.csv",Alzheimer's disease,94105.0, Male
+27.0,1,"10076.csv,10479.csv",prostate cancer,94105.0, Male
+25.0,1,"10922.csv,10599.csv",hypertension,94110.0, Male
+25.0,1,"10922.csv,10599.csv",kidney disease,94110.0, Male
+25.0,1,"11864.csv,11472.csv",breast cancer,94110.0, Male
+25.0,1,"11864.csv,11472.csv",kidney disease,94110.0, Male
+29.0,1,"10096.csv,10538.csv",gastritis,90015.0, Male
+29.0,1,"10096.csv,10538.csv",skin cancer,90015.0, Male
+29.0,1,"11986.csv,11088.csv,10542.csv",Alzheimer's disease,90015.0, Male
+29.0,1,"11986.csv,11088.csv,10542.csv",multiple sclerosis,90015.0, Male
+29.0,1,"11986.csv,11088.csv,10542.csv",prostate cancer,90015.0, Male
+28.5,1,"10172.csv,10587.csv",multiple sclerosis,94105.0, Male
+28.5,1,"10172.csv,10587.csv",skin cancer,94105.0, Male
+28.666666666666668,1,"11256.csv,10965.csv,11307.csv",endometriosis,94105.0, Male
+28.666666666666668,1,"11256.csv,10965.csv,11307.csv",hypertension,94105.0, Male
+28.666666666666668,1,"11256.csv,10965.csv,11307.csv",prostate cancer,94105.0, Male
+32.0,1,"10806.csv,10460.csv",gastritis,90015.0, Male
+32.0,1,"10806.csv,10460.csv",hypertension,90015.0, Male
+32.0,1,"11579.csv,11874.csv,11087.csv",Alzheimer's disease,90010.33333333333, Male
+32.0,1,"11579.csv,11874.csv,11087.csv",breast cancer,90010.33333333333, Male
+32.0,1,"11579.csv,11874.csv,11087.csv",heart disease,90010.33333333333, Male
+33.333333333333336,1,"10778.csv,10958.csv,10180.csv",hypertension,89133.0, Male
+33.333333333333336,1,"10778.csv,10958.csv,10180.csv",prostate cancer,89133.0, Male
+33.333333333333336,1,"10778.csv,10958.csv,10180.csv",skin cancer,89133.0, Male
+31.0,1,"10041.csv,10303.csv,11005.csv",Alzheimer's disease,94108.33333333333, Male
+31.0,1,"10041.csv,10303.csv,11005.csv",HIV/AIDS,94108.33333333333, Male
+31.0,1,"10041.csv,10303.csv,11005.csv",diabetes,94108.33333333333, Male
+30.666666666666668,1,"11486.csv,11136.csv,11086.csv",Alzheimer's disease,94108.33333333333, Male
+30.666666666666668,1,"11486.csv,11136.csv,11086.csv",endometriosis,94108.33333333333, Male
+30.666666666666668,1,"11486.csv,11136.csv,11086.csv",hypertension,94108.33333333333, Male
+35.0,1,"11317.csv,10697.csv,11111.csv",Alzheimer's disease,90008.0, Male
+35.0,1,"11317.csv,10697.csv,11111.csv",gastritis,90008.0, Male
+35.0,1,"11317.csv,10697.csv,11111.csv",heart disease,90008.0, Male
+36.0,1,"10343.csv,11050.csv",Alzheimer's disease,89131.5, Male
+36.0,1,"10343.csv,11050.csv",prostate cancer,89131.5, Male
+36.0,1,"11068.csv,11117.csv,11124.csv",Alzheimer's disease,89426.66666666667, Male
+36.0,1,"11068.csv,11117.csv,11124.csv",hypertension,89426.66666666667, Male
+36.0,1,"11068.csv,11117.csv,11124.csv",prostate cancer,89426.66666666667, Male
+37.0,1,"10760.csv,10524.csv",breast cancer,89131.5, Male
+37.0,1,"10760.csv,10524.csv",diabetes,89131.5, Male
+37.0,1,"11038.csv,10927.csv",kidney disease,89136.0, Male
+37.0,1,"11038.csv,10927.csv",skin cancer,89136.0, Male
+38.0,1,"10003.csv,10112.csv",hypertension,89127.0, Male
+38.0,1,"10003.csv,10112.csv",prostate cancer,89127.0, Male
+38.0,1,"10380.csv,10136.csv,10884.csv",Alzheimer's disease,89130.0, Male
+38.0,1,"10380.csv,10136.csv,10884.csv",gastritis,89130.0, Male
+38.0,1,"10380.csv,10136.csv,10884.csv",skin cancer,89130.0, Male
+38.0,1,"11220.csv,11208.csv,11267.csv",Alzheimer's disease,89133.0, Male
+38.0,1,"11220.csv,11208.csv,11267.csv",diabetes,89133.0, Male
+38.0,1,"11220.csv,11208.csv,11267.csv",hypertension,89133.0, Male
+38.0,1,"11781.csv,11577.csv,11922.csv",breast cancer,89127.0, Male
+38.0,1,"11781.csv,11577.csv,11922.csv",heart disease,89127.0, Male
+38.0,1,"11781.csv,11577.csv,11922.csv",multiple sclerosis,89127.0, Male
+38.0,1,"10458.csv,10468.csv",hypertension,90008.0, Male
+38.0,1,"10458.csv,10468.csv",kidney disease,90008.0, Male
+38.0,1,"11055.csv,11015.csv",diabetes,90008.0, Male
+38.0,1,"11055.csv,11015.csv",prostate cancer,90008.0, Male
+38.0,1,"10245.csv,10529.csv",Alzheimer's disease,90015.0, Male
+38.0,1,"10245.csv,10529.csv",prostate cancer,90015.0, Male
+38.0,1,"11444.csv,11937.csv,11720.csv",heart disease,90015.0, Male
+38.0,1,"11444.csv,11937.csv,11720.csv",prostate cancer,90015.0, Male
+38.0,1,"11444.csv,11937.csv,11720.csv",schizophrenia,90015.0, Male
+36.0,1,"11499.csv,11349.csv,11652.csv",endometriosis,94105.0, Male
+36.0,1,"11499.csv,11349.csv,11652.csv",gastritis,94105.0, Male
+36.0,1,"11499.csv,11349.csv,11652.csv",heart disease,94105.0, Male
+37.5,2,"10212.csv,10912.csv",Alzheimer's disease,94105.0, Male
+37.0,1,"11409.csv,11635.csv",heart disease,94105.0, Male
+37.0,1,"11409.csv,11635.csv",hypertension,94105.0, Male
+35.0,1,"11706.csv,10023.csv",HIV/AIDS,94110.0, Male
+35.0,1,"11706.csv,10023.csv",multiple sclerosis,94110.0, Male
+36.0,1,"11910.csv,10644.csv",Alzheimer's disease,94110.0, Male
+36.0,1,"11910.csv,10644.csv",diabetes,94110.0, Male
+37.0,1,"10185.csv,10266.csv",Alzheimer's disease,94110.0, Male
+37.0,1,"10185.csv,10266.csv",gastritis,94110.0, Male
+37.0,1,"10682.csv,11269.csv",Alzheimer's disease,94110.0, Male
+37.0,1,"10682.csv,11269.csv",kidney disease,94110.0, Male
+20.0,1,"11049.csv,10257.csv,11313.csv",diabetes,10026.0, Female
+20.0,1,"11049.csv,10257.csv,11313.csv",hypertension,10026.0, Female
+20.0,1,"11049.csv,10257.csv,11313.csv",multiple sclerosis,10026.0, Female
+20.333333333333332,1,"11524.csv,11748.csv,11725.csv",HIV/AIDS,10009.333333333334, Female
+20.333333333333332,1,"11524.csv,11748.csv,11725.csv",breast cancer,10009.333333333334, Female
+20.333333333333332,1,"11524.csv,11748.csv,11725.csv",hypertension,10009.333333333334, Female
+24.0,2,"11189.csv,10305.csv,10412.csv",Alzheimer's disease,10017.666666666666, Female
+24.0,1,"11189.csv,10305.csv,10412.csv",diabetes,10017.666666666666, Female
+26.0,1,"10201.csv,10371.csv",gastritis,10013.5, Female
+26.0,1,"10201.csv,10371.csv",multiple sclerosis,10013.5, Female
+25.666666666666668,1,"11908.csv,11890.csv,10854.csv",Alzheimer's disease,10009.333333333334, Female
+25.666666666666668,1,"11908.csv,11890.csv,10854.csv",endometriosis,10009.333333333334, Female
+25.666666666666668,1,"11908.csv,11890.csv,10854.csv",prostate cancer,10009.333333333334, Female
+31.0,1,"10539.csv,10558.csv",Alzheimer's disease,10026.0, Female
+31.0,1,"10539.csv,10558.csv",multiple sclerosis,10026.0, Female
+31.0,1,"10822.csv,10804.csv",Alzheimer's disease,10026.0, Female
+31.0,1,"10822.csv,10804.csv",endometriosis,10026.0, Female
+35.0,1,"10213.csv,10278.csv,11498.csv",hypertension,10009.333333333334, Female
+35.0,1,"10213.csv,10278.csv,11498.csv",kidney disease,10009.333333333334, Female
+35.0,1,"10213.csv,10278.csv,11498.csv",skin cancer,10009.333333333334, Female
+37.5,1,"11681.csv,10654.csv",gastritis,10026.0, Female
+37.5,1,"11681.csv,10654.csv",multiple sclerosis,10026.0, Female
+19.0,1,"10728.csv,10669.csv,11692.csv",kidney disease,43210.0, Female
+19.0,1,"10728.csv,10669.csv,11692.csv",prostate cancer,43210.0, Female
+19.0,1,"10728.csv,10669.csv,11692.csv",skin cancer,43210.0, Female
+22.0,1,"11168.csv,10676.csv,10898.csv",Alzheimer's disease,43210.0, Female
+22.0,1,"11168.csv,10676.csv,10898.csv",endometriosis,43210.0, Female
+22.0,1,"11168.csv,10676.csv,10898.csv",kidney disease,43210.0, Female
+24.0,1,"10465.csv,11274.csv,10983.csv",Alzheimer's disease,43210.0, Female
+24.0,1,"10465.csv,11274.csv,10983.csv",HIV/AIDS,43210.0, Female
+24.0,1,"10465.csv,11274.csv,10983.csv",heart disease,43210.0, Female
+26.0,1,"11618.csv,10852.csv,11959.csv",breast cancer,43210.0, Female
+26.0,1,"11618.csv,10852.csv,11959.csv",prostate cancer,43210.0, Female
+26.0,1,"11618.csv,10852.csv,11959.csv",skin cancer,43210.0, Female
+30.5,1,"10941.csv,10699.csv",prostate cancer,43210.0, Female
+30.5,1,"10941.csv,10699.csv",skin cancer,43210.0, Female
+31.0,1,"11213.csv,11419.csv",Alzheimer's disease,43210.0, Female
+31.0,1,"11213.csv,11419.csv",prostate cancer,43210.0, Female
+34.0,1,"10395.csv,10283.csv",heart disease,43210.0, Female
+34.0,1,"10395.csv,10283.csv",multiple sclerosis,43210.0, Female
+33.5,1,"11017.csv,10559.csv",Alzheimer's disease,43210.0, Female
+33.5,1,"11017.csv,10559.csv",schizophrenia,43210.0, Female
+34.0,1,"11040.csv,11106.csv",hypertension,43210.0, Female
+34.0,1,"11040.csv,11106.csv",prostate cancer,43210.0, Female
+33.5,1,"11218.csv,11849.csv",breast cancer,43210.0, Female
+33.5,1,"11218.csv,11849.csv",skin cancer,43210.0, Female
+36.0,1,"10777.csv,10761.csv,10314.csv",endometriosis,43210.0, Female
+36.0,1,"10777.csv,10761.csv,10314.csv",hypertension,43210.0, Female
+36.0,1,"10777.csv,10761.csv,10314.csv",skin cancer,43210.0, Female
+37.0,1,"11598.csv,11701.csv",breast cancer,43210.0, Female
+37.0,1,"11598.csv,11701.csv",skin cancer,43210.0, Female
+17.5,1,"11199.csv,10210.csv",Alzheimer's disease,44101.0, Female
+17.5,1,"11199.csv,10210.csv",prostate cancer,44101.0, Female
+19.5,1,"10313.csv,11509.csv",diabetes,44101.0, Female
+19.5,1,"10313.csv,11509.csv",skin cancer,44101.0, Female
+21.5,1,"10302.csv,10768.csv",Alzheimer's disease,44101.0, Female
+21.5,1,"10302.csv,10768.csv",hypertension,44101.0, Female
+22.0,1,"11827.csv,11814.csv",Alzheimer's disease,44101.0, Female
+22.0,1,"11827.csv,11814.csv",prostate cancer,44101.0, Female
+31.0,1,"11625.csv,10146.csv,11983.csv",Alzheimer's disease,60605.0, Female
+31.0,1,"11625.csv,10146.csv,11983.csv",endometriosis,60605.0, Female
+31.0,1,"11625.csv,10146.csv,11983.csv",multiple sclerosis,60605.0, Female
+33.0,1,"10153.csv,10758.csv,10413.csv",breast cancer,60605.0, Female
+33.0,1,"10153.csv,10758.csv,10413.csv",heart disease,60605.0, Female
+33.0,1,"10153.csv,10758.csv,10413.csv",hypertension,60605.0, Female
+36.0,1,"10115.csv,10737.csv",Alzheimer's disease,44101.0, Female
+36.0,1,"10115.csv,10737.csv",schizophrenia,44101.0, Female
+36.0,2,"11438.csv,11243.csv",Alzheimer's disease,44101.0, Female
+36.0,2,"10166.csv,10261.csv",kidney disease,60605.0, Female
+35.5,1,"11070.csv,11607.csv",Alzheimer's disease,60605.0, Female
+35.5,1,"11070.csv,11607.csv",HIV/AIDS,60605.0, Female
+19.0,1,"10451.csv,11082.csv",gastritis,89127.0, Female
+19.0,1,"10451.csv,11082.csv",hypertension,89127.0, Female
+19.0,1,"10390.csv,10741.csv",breast cancer,89572.0, Female
+19.0,1,"10390.csv,10741.csv",hypertension,89572.0, Female
+18.0,1,"10954.csv,10079.csv,10052.csv",Alzheimer's disease,92741.66666666667, Female
+18.0,1,"10954.csv,10079.csv,10052.csv",HIV/AIDS,92741.66666666667, Female
+18.0,1,"10954.csv,10079.csv,10052.csv",hypertension,92741.66666666667, Female
+19.0,1,"10880.csv,10038.csv",breast cancer,92060.0, Female
+19.0,1,"10880.csv,10038.csv",hypertension,92060.0, Female
+19.0,1,"11098.csv,11571.csv",Alzheimer's disease,92060.0, Female
+19.0,1,"11098.csv,11571.csv",gastritis,92060.0, Female
+18.666666666666668,1,"11858.csv,11760.csv,11829.csv",Alzheimer's disease,92743.33333333333, Female
+18.666666666666668,1,"11858.csv,11760.csv,11829.csv",kidney disease,92743.33333333333, Female
+18.666666666666668,1,"11858.csv,11760.csv,11829.csv",multiple sclerosis,92743.33333333333, Female
+21.0,1,"11924.csv,11848.csv,10977.csv",diabetes,89136.0, Female
+21.0,1,"11924.csv,11848.csv,10977.csv",hypertension,89136.0, Female
+21.0,1,"11924.csv,11848.csv,10977.csv",multiple sclerosis,89136.0, Female
+21.0,1,"10121.csv,10790.csv",hypertension,90008.0, Female
+21.0,1,"10121.csv,10790.csv",prostate cancer,90008.0, Female
+22.0,1,"10281.csv,10368.csv",Alzheimer's disease,89131.5, Female
+22.0,1,"10281.csv,10368.csv",prostate cancer,89131.5, Female
+22.0,2,"11603.csv,11539.csv",hypertension,90008.0, Female
+21.5,1,"10519.csv,10345.csv",endometriosis,92060.0, Female
+21.5,1,"10519.csv,10345.csv",heart disease,92060.0, Female
+21.666666666666668,1,"11589.csv,10586.csv,10719.csv",heart disease,94105.0, Female
+21.666666666666668,1,"11589.csv,10586.csv,10719.csv",multiple sclerosis,94105.0, Female
+21.666666666666668,1,"11589.csv,10586.csv,10719.csv",skin cancer,94105.0, Female
+24.0,1,"10132.csv,10280.csv",breast cancer,89567.5, Female
+24.0,1,"10132.csv,10280.csv",gastritis,89567.5, Female
+24.0,2,"11943.csv,10866.csv,11329.csv",Alzheimer's disease,89714.33333333333, Female
+24.0,1,"11943.csv,10866.csv,11329.csv",hypertension,89714.33333333333, Female
+25.0,1,"10162.csv,10486.csv",Alzheimer's disease,89131.5, Female
+25.0,1,"10162.csv,10486.csv",multiple sclerosis,89131.5, Female
+25.0,1,"11934.csv,10505.csv,11488.csv",hypertension,89130.0, Female
+25.0,1,"11934.csv,10505.csv,11488.csv",kidney disease,89130.0, Female
+25.0,1,"11934.csv,10505.csv,11488.csv",skin cancer,89130.0, Female
+30.0,1,"10348.csv,10275.csv",Alzheimer's disease,89127.0, Female
+30.0,1,"10348.csv,10275.csv",prostate cancer,89127.0, Female
+30.0,1,"10543.csv,10470.csv",Alzheimer's disease,89127.0, Female
+30.0,1,"10543.csv,10470.csv",prostate cancer,89127.0, Female
+29.5,1,"11099.csv,11131.csv",HIV/AIDS,89131.5, Female
+29.5,1,"11099.csv,11131.csv",heart disease,89131.5, Female
+29.666666666666668,1,"11330.csv,11147.csv,11990.csv",Alzheimer's disease,89133.0, Female
+29.666666666666668,1,"11330.csv,11147.csv,11990.csv",breast cancer,89133.0, Female
+29.666666666666668,1,"11330.csv,11147.csv,11990.csv",skin cancer,89133.0, Female
+31.5,1,"11031.csv,11921.csv",Alzheimer's disease,90011.5, Female
+31.5,1,"11031.csv,11921.csv",prostate cancer,90011.5, Female
+32.0,1,"11721.csv,10930.csv",breast cancer,94105.0, Female
+32.0,1,"11721.csv,10930.csv",skin cancer,94105.0, Female
+34.0,1,"11249.csv,11237.csv,10859.csv",breast cancer,89133.0, Female
+34.0,1,"11249.csv,11237.csv,10859.csv",heart disease,89133.0, Female
+34.0,1,"11249.csv,11237.csv,10859.csv",hypertension,89133.0, Female
+34.0,1,"10152.csv,11105.csv",Alzheimer's disease,90015.0, Female
+34.0,1,"10152.csv,11105.csv",hypertension,90015.0, Female
+34.5,1,"10494.csv,11346.csv",kidney disease,94107.5, Female
+34.5,1,"10494.csv,11346.csv",multiple sclerosis,94107.5, Female
+35.0,1,"11938.csv,11978.csv",kidney disease,94105.0, Female
+35.0,1,"11938.csv,11978.csv",prostate cancer,94105.0, Female
+42.0,1,"10282.csv,10527.csv,10110.csv",kidney disease,10017.666666666666, Male
+42.0,2,"10282.csv,10527.csv,10110.csv",skin cancer,10017.666666666666, Male
+42.0,1,"10591.csv,11396.csv,10668.csv",Alzheimer's disease,10009.333333333334, Male
+42.0,1,"10591.csv,11396.csv,10668.csv",kidney disease,10009.333333333334, Male
+42.0,1,"10591.csv,11396.csv,10668.csv",prostate cancer,10009.333333333334, Male
+43.666666666666664,1,"10541.csv,10633.csv,10181.csv",kidney disease,10017.666666666666, Male
+43.666666666666664,1,"10541.csv,10633.csv,10181.csv",multiple sclerosis,10017.666666666666, Male
+43.666666666666664,1,"10541.csv,10633.csv,10181.csv",prostate cancer,10017.666666666666, Male
+43.666666666666664,1,"11299.csv,11259.csv,11270.csv",Alzheimer's disease,10009.333333333334, Male
+43.666666666666664,1,"11299.csv,11259.csv,11270.csv",breast cancer,10009.333333333334, Male
+43.666666666666664,1,"11299.csv,11259.csv,11270.csv",kidney disease,10009.333333333334, Male
+46.0,1,"10333.csv,10374.csv",schizophrenia,10013.5, Male
+46.0,1,"10333.csv,10374.csv",skin cancer,10013.5, Male
+47.0,2,"10820.csv,10563.csv,10430.csv",kidney disease,10017.666666666666, Male
+47.0,1,"10820.csv,10563.csv,10430.csv",multiple sclerosis,10017.666666666666, Male
+45.666666666666664,1,"11517.csv,11231.csv,11427.csv",endometriosis,10009.333333333334, Male
+45.666666666666664,1,"11517.csv,11231.csv,11427.csv",hypertension,10009.333333333334, Male
+45.666666666666664,1,"11517.csv,11231.csv,11427.csv",schizophrenia,10009.333333333334, Male
+47.0,1,"11712.csv,11327.csv,11287.csv",Alzheimer's disease,10009.333333333334, Male
+47.0,1,"11712.csv,11327.csv,11287.csv",HIV/AIDS,10009.333333333334, Male
+47.0,1,"11712.csv,11327.csv,11287.csv",hypertension,10009.333333333334, Male
+48.0,1,"10863.csv,11192.csv",Alzheimer's disease,10026.0, Male
+48.0,1,"10863.csv,11192.csv",kidney disease,10026.0, Male
+48.0,2,"11222.csv,11979.csv",Alzheimer's disease,10001.0, Male
+40.0,1,"10714.csv,10077.csv",Alzheimer's disease,43221.0, Male
+40.0,1,"10714.csv,10077.csv",schizophrenia,43221.0, Male
+40.0,1,"11470.csv,11976.csv,10783.csv",diabetes,43213.666666666664, Male
+40.0,1,"11470.csv,11976.csv,10783.csv",hypertension,43213.666666666664, Male
+40.0,1,"11470.csv,11976.csv,10783.csv",skin cancer,43213.666666666664, Male
+42.0,2,"10010.csv,10064.csv,10454.csv",HIV/AIDS,43213.666666666664, Male
+42.0,1,"10010.csv,10064.csv,10454.csv",prostate cancer,43213.666666666664, Male
+41.666666666666664,1,"11878.csv,11110.csv,11508.csv",Alzheimer's disease,43217.333333333336, Male
+41.666666666666664,1,"11878.csv,11110.csv,11508.csv",endometriosis,43217.333333333336, Male
+41.666666666666664,1,"11878.csv,11110.csv,11508.csv",schizophrenia,43217.333333333336, Male
+43.5,1,"10661.csv,10779.csv",gastritis,43221.0, Male
+43.5,1,"10661.csv,10779.csv",hypertension,43221.0, Male
+43.666666666666664,1,"11726.csv,11481.csv,10957.csv",Alzheimer's disease,43210.0, Male
+43.666666666666664,1,"11726.csv,11481.csv,10957.csv",hypertension,43210.0, Male
+43.666666666666664,1,"11726.csv,11481.csv,10957.csv",skin cancer,43210.0, Male
+45.666666666666664,1,"10340.csv,10379.csv,10492.csv",diabetes,43213.666666666664, Male
+45.666666666666664,1,"10340.csv,10379.csv,10492.csv",hypertension,43213.666666666664, Male
+45.666666666666664,1,"10340.csv,10379.csv,10492.csv",prostate cancer,43213.666666666664, Male
+46.0,1,"11862.csv,11732.csv,11605.csv",Alzheimer's disease,43217.333333333336, Male
+46.0,1,"11862.csv,11732.csv,11605.csv",heart disease,43217.333333333336, Male
+46.0,1,"11862.csv,11732.csv,11605.csv",kidney disease,43217.333333333336, Male
+47.0,1,"10055.csv,11175.csv",breast cancer,43215.5, Male
+47.0,1,"10055.csv,11175.csv",kidney disease,43215.5, Male
+47.0,1,"11917.csv,11440.csv",diabetes,43215.5, Male
+47.0,1,"11917.csv,11440.csv",schizophrenia,43215.5, Male
+44.0,1,"10461.csv,10375.csv",Alzheimer's disease,44101.0, Male
+44.0,1,"10461.csv,10375.csv",hypertension,44101.0, Male
+44.0,1,"11556.csv,11044.csv",multiple sclerosis,44101.0, Male
+44.0,1,"11556.csv,11044.csv",prostate cancer,44101.0, Male
+47.666666666666664,1,"10156.csv,10036.csv,10194.csv",diabetes,44101.0, Male
+47.666666666666664,2,"10156.csv,10036.csv,10194.csv",hypertension,44101.0, Male
+45.0,1,"10219.csv,11102.csv,11028.csv",breast cancer,60605.0, Male
+45.0,1,"10219.csv,11102.csv,11028.csv",hypertension,60605.0, Male
+45.0,1,"10219.csv,11102.csv,11028.csv",kidney disease,60605.0, Male
+46.0,1,"11455.csv,11374.csv,10414.csv",Alzheimer's disease,60605.0, Male
+46.0,1,"11455.csv,11374.csv,10414.csv",breast cancer,60605.0, Male
+46.0,1,"11455.csv,11374.csv,10414.csv",skin cancer,60605.0, Male
+45.0,1,"11201.csv,11970.csv,10708.csv",Alzheimer's disease,60612.0, Male
+45.0,1,"11201.csv,11970.csv,10708.csv",breast cancer,60612.0, Male
+45.0,1,"11201.csv,11970.csv,10708.csv",prostate cancer,60612.0, Male
+50.0,1,"10260.csv,10807.csv,10522.csv",breast cancer,10009.333333333334, Male
+50.0,1,"10260.csv,10807.csv,10522.csv",hypertension,10009.333333333334, Male
+50.0,1,"10260.csv,10807.csv,10522.csv",skin cancer,10009.333333333334, Male
+51.0,1,"11162.csv,10933.csv,10874.csv",diabetes,10001.0, Male
+51.0,1,"11162.csv,10933.csv,10874.csv",hypertension,10001.0, Male
+51.0,1,"11162.csv,10933.csv,10874.csv",prostate cancer,10001.0, Male
+50.666666666666664,1,"11446.csv,11251.csv,11276.csv",Alzheimer's disease,10017.666666666666, Male
+50.666666666666664,2,"11446.csv,11251.csv,11276.csv",hypertension,10017.666666666666, Male
+54.0,1,"11214.csv,11397.csv,11640.csv",kidney disease,10001.0, Male
+54.0,1,"11214.csv,11397.csv,11640.csv",multiple sclerosis,10001.0, Male
+54.0,1,"11214.csv,11397.csv,11640.csv",skin cancer,10001.0, Male
+55.0,2,"10304.csv,10334.csv",skin cancer,10026.0, Male
+55.0,1,"10836.csv,10845.csv",Alzheimer's disease,10013.5, Male
+55.0,1,"10836.csv,10845.csv",skin cancer,10013.5, Male
+51.0,1,"11197.csv,10765.csv",gastritis,43215.5, Male
+51.0,1,"11197.csv,10765.csv",multiple sclerosis,43215.5, Male
+51.0,1,"12000.csv,11962.csv,11759.csv",breast cancer,43213.666666666664, Male
+51.0,1,"12000.csv,11962.csv,11759.csv",hypertension,43213.666666666664, Male
+51.0,1,"12000.csv,11962.csv,11759.csv",skin cancer,43213.666666666664, Male
+52.0,1,"11362.csv,10503.csv,10008.csv",Alzheimer's disease,43221.0, Male
+52.0,1,"11362.csv,10503.csv,10008.csv",breast cancer,43221.0, Male
+52.0,1,"11362.csv,10503.csv,10008.csv",skin cancer,43221.0, Male
+54.0,1,"10215.csv,11164.csv,11247.csv",Alzheimer's disease,43213.666666666664, Male
+54.0,2,"10215.csv,11164.csv,11247.csv",heart disease,43213.666666666664, Male
+55.0,1,"10875.csv,11324.csv",multiple sclerosis,43215.5, Male
+55.0,1,"10875.csv,11324.csv",skin cancer,43215.5, Male
+55.0,1,"11888.csv,11660.csv",Alzheimer's disease,43210.0, Male
+55.0,1,"11888.csv,11660.csv",diabetes,43210.0, Male
+60.0,1,"10795.csv,11616.csv",diabetes,43210.0, Male
+60.0,1,"10795.csv,11616.csv",hypertension,43210.0, Male
+57.0,1,"10826.csv,11604.csv",prostate cancer,43221.0, Male
+57.0,1,"10826.csv,11604.csv",skin cancer,43221.0, Male
+56.5,1,"11930.csv,11707.csv",Alzheimer's disease,43221.0, Male
+56.5,1,"11930.csv,11707.csv",hypertension,43221.0, Male
+59.5,1,"10488.csv,11505.csv",diabetes,43221.0, Male
+59.5,1,"10488.csv,11505.csv",skin cancer,43221.0, Male
+61.5,1,"11206.csv,11664.csv",Alzheimer's disease,43221.0, Male
+61.5,1,"11206.csv,11664.csv",gastritis,43221.0, Male
+69.0,1,"10973.csv,11466.csv,11838.csv",Alzheimer's disease,10017.666666666666, Male
+69.0,1,"10973.csv,11466.csv,11838.csv",gastritis,10017.666666666666, Male
+69.0,1,"10973.csv,11466.csv,11838.csv",prostate cancer,10017.666666666666, Male
+78.66666666666667,1,"10075.csv,10317.csv,10431.csv",Alzheimer's disease,10009.333333333334, Male
+78.66666666666667,1,"10075.csv,10317.csv,10431.csv",breast cancer,10009.333333333334, Male
+78.66666666666667,1,"10075.csv,10317.csv,10431.csv",diabetes,10009.333333333334, Male
+89.0,1,"11169.csv,10223.csv",Alzheimer's disease,10013.5, Male
+89.0,1,"11169.csv,10223.csv",breast cancer,10013.5, Male
+66.0,1,"11514.csv,11955.csv",HIV/AIDS,43215.5, Male
+66.0,1,"11514.csv,11955.csv",kidney disease,43215.5, Male
+67.0,1,"10078.csv,11278.csv",diabetes,43215.5, Male
+67.0,1,"10078.csv,11278.csv",skin cancer,43215.5, Male
+69.5,1,"11891.csv,11769.csv",multiple sclerosis,43221.0, Male
+69.5,1,"11891.csv,11769.csv",skin cancer,43221.0, Male
+54.666666666666664,1,"10742.csv,10889.csv,10775.csv",Alzheimer's disease,44101.0, Male
+54.666666666666664,1,"10742.csv,10889.csv,10775.csv",hypertension,44101.0, Male
+54.666666666666664,1,"10742.csv,10889.csv,10775.csv",multiple sclerosis,44101.0, Male
+51.333333333333336,1,"10467.csv,10290.csv,10589.csv",endometriosis,60605.0, Male
+51.333333333333336,1,"10467.csv,10290.csv,10589.csv",heart disease,60605.0, Male
+51.333333333333336,1,"10467.csv,10290.csv,10589.csv",skin cancer,60605.0, Male
+53.5,1,"10691.csv,10335.csv",breast cancer,60605.0, Male
+53.5,1,"10691.csv,10335.csv",prostate cancer,60605.0, Male
+54.0,2,"11755.csv,11614.csv,11969.csv",diabetes,60605.0, Male
+54.0,1,"11755.csv,11614.csv,11969.csv",skin cancer,60605.0, Male
+50.0,1,"10054.csv,11181.csv,11150.csv",Alzheimer's disease,60612.0, Male
+50.0,1,"10054.csv,11181.csv,11150.csv",hypertension,60612.0, Male
+50.0,1,"10054.csv,11181.csv,11150.csv",skin cancer,60612.0, Male
+52.0,2,"11913.csv,11529.csv,10565.csv",Alzheimer's disease,60612.0, Male
+52.0,1,"11913.csv,11529.csv,10565.csv",kidney disease,60612.0, Male
+53.0,1,"11052.csv,11845.csv",breast cancer,60612.0, Male
+53.0,1,"11052.csv,11845.csv",diabetes,60612.0, Male
+56.5,1,"10113.csv,10091.csv",hypertension,60608.5, Male
+56.5,1,"10113.csv,10091.csv",skin cancer,60608.5, Male
+56.666666666666664,2,"10582.csv,10367.csv,10590.csv",Alzheimer's disease,60609.666666666664, Male
+56.666666666666664,1,"10582.csv,10367.csv,10590.csv",diabetes,60609.666666666664, Male
+56.666666666666664,3,"11026.csv,11288.csv,11258.csv",Alzheimer's disease,55108.333333333336, Male
+56.666666666666664,1,"11811.csv,11835.csv,11740.csv",kidney disease,60609.666666666664, Male
+56.666666666666664,1,"11811.csv,11835.csv,11740.csv",multiple sclerosis,60609.666666666664, Male
+56.666666666666664,1,"11811.csv,11835.csv,11740.csv",schizophrenia,60609.666666666664, Male
+58.333333333333336,2,"10264.csv,10649.csv,11507.csv",prostate cancer,44101.0, Male
+58.333333333333336,1,"10264.csv,10649.csv,11507.csv",skin cancer,44101.0, Male
+59.0,1,"11452.csv,10753.csv,10858.csv",diabetes,60605.0, Male
+59.0,1,"11452.csv,10753.csv,10858.csv",hypertension,60605.0, Male
+59.0,1,"11452.csv,10753.csv,10858.csv",prostate cancer,60605.0, Male
+58.333333333333336,1,"10247.csv,10680.csv,10583.csv",multiple sclerosis,60612.0, Male
+58.333333333333336,2,"10247.csv,10680.csv,10583.csv",prostate cancer,60612.0, Male
+60.0,1,"10642.csv,10984.csv",Alzheimer's disease,60612.0, Male
+60.0,1,"10642.csv,10984.csv",hypertension,60612.0, Male
+64.0,1,"10819.csv,10149.csv,10925.csv",kidney disease,44101.0, Male
+64.0,1,"10819.csv,10149.csv,10925.csv",multiple sclerosis,44101.0, Male
+64.0,1,"10819.csv,10149.csv,10925.csv",prostate cancer,44101.0, Male
+63.0,1,"11379.csv,11852.csv,10787.csv",gastritis,60605.0, Male
+63.0,1,"11379.csv,11852.csv,10787.csv",prostate cancer,60605.0, Male
+63.0,1,"11379.csv,11852.csv,10787.csv",skin cancer,60605.0, Male
+61.0,1,"11347.csv,10271.csv",Alzheimer's disease,60612.0, Male
+61.0,1,"11347.csv,10271.csv",hypertension,60612.0, Male
+63.0,1,"11644.csv,11626.csv",hypertension,60612.0, Male
+63.0,1,"11644.csv,11626.csv",skin cancer,60612.0, Male
+67.66666666666667,2,"10145.csv,11037.csv,11606.csv",kidney disease,55103.666666666664, Male
+67.66666666666667,1,"10145.csv,11037.csv,11606.csv",multiple sclerosis,55103.666666666664, Male
+73.0,1,"10500.csv,10873.csv,10325.csv",Alzheimer's disease,55103.666666666664, Male
+73.0,1,"10500.csv,10873.csv,10325.csv",gastritis,55103.666666666664, Male
+73.0,1,"10500.csv,10873.csv,10325.csv",kidney disease,55103.666666666664, Male
+41.0,1,"11109.csv,10310.csv",Alzheimer's disease,90011.5, Male
+41.0,1,"11109.csv,10310.csv",heart disease,90011.5, Male
+41.0,1,"11915.csv,11129.csv,11298.csv",HIV/AIDS,90012.66666666667, Male
+41.0,1,"11915.csv,11129.csv,11298.csv",diabetes,90012.66666666667, Male
+41.0,1,"11915.csv,11129.csv,11298.csv",skin cancer,90012.66666666667, Male
+42.666666666666664,1,"10160.csv,10024.csv,10276.csv",gastritis,89130.0, Male
+42.666666666666664,2,"10160.csv,10024.csv,10276.csv",multiple sclerosis,89130.0, Male
+42.666666666666664,1,"10740.csv,10137.csv,10482.csv",Alzheimer's disease,90010.33333333333, Male
+42.666666666666664,2,"10740.csv,10137.csv,10482.csv",heart disease,90010.33333333333, Male
+42.666666666666664,2,"11135.csv,10829.csv,10949.csv",schizophrenia,90015.0, Male
+42.666666666666664,1,"11135.csv,10829.csv,10949.csv",skin cancer,90015.0, Male
+40.0,2,"10015.csv,10999.csv",heart disease,94107.5, Male
+40.0,1,"11392.csv,11950.csv",Alzheimer's disease,94105.0, Male
+40.0,1,"11392.csv,11950.csv",hypertension,94105.0, Male
+41.333333333333336,1,"10195.csv,10598.csv,10406.csv",breast cancer,94106.66666666667, Male
+41.333333333333336,1,"10195.csv,10598.csv,10406.csv",diabetes,94106.66666666667, Male
+41.333333333333336,1,"10195.csv,10598.csv,10406.csv",kidney disease,94106.66666666667, Male
+42.0,1,"10831.csv,10693.csv,10725.csv",Alzheimer's disease,94108.33333333333, Male
+42.0,1,"10831.csv,10693.csv,10725.csv",gastritis,94108.33333333333, Male
+42.0,1,"10831.csv,10693.csv,10725.csv",heart disease,94108.33333333333, Male
+42.0,2,"11014.csv,11089.csv,10960.csv",breast cancer,94106.66666666667, Male
+42.0,1,"11014.csv,11089.csv,10960.csv",hypertension,94106.66666666667, Male
+44.0,1,"10444.csv,11450.csv,11161.csv",heart disease,89133.0, Male
+44.0,1,"10444.csv,11450.csv,11161.csv",kidney disease,89133.0, Male
+44.0,1,"10444.csv,11450.csv,11161.csv",skin cancer,89133.0, Male
+44.0,1,"11690.csv,11996.csv,11624.csv",Alzheimer's disease,89133.0, Male
+44.0,1,"11690.csv,11996.csv,11624.csv",endometriosis,89133.0, Male
+44.0,1,"11690.csv,11996.csv,11624.csv",heart disease,89133.0, Male
+44.0,1,"11185.csv,10102.csv",hypertension,90008.0, Male
+44.0,1,"11185.csv,10102.csv",skin cancer,90008.0, Male
+44.0,1,"11877.csv,11377.csv",kidney disease,90008.0, Male
+44.0,1,"11877.csv,11377.csv",prostate cancer,90008.0, Male
+46.0,2,"11148.csv,11817.csv,10750.csv",Alzheimer's disease,89130.0, Male
+46.0,1,"11148.csv,11817.csv,10750.csv",hypertension,89130.0, Male
+46.0,1,"11670.csv,10620.csv",diabetes,90008.0, Male
+46.0,1,"11670.csv,10620.csv",kidney disease,90008.0, Male
+47.0,1,"11531.csv,10625.csv",kidney disease,89136.0, Male
+47.0,1,"11531.csv,10625.csv",multiple sclerosis,89136.0, Male
+47.0,1,"10570.csv,11521.csv",hypertension,90008.0, Male
+47.0,1,"10570.csv,11521.csv",kidney disease,90008.0, Male
+46.0,1,"11157.csv,11869.csv",breast cancer,90015.0, Male
+46.0,1,"11157.csv,11869.csv",hypertension,90015.0, Male
+44.0,1,"11211.csv,10525.csv,10277.csv",breast cancer,94110.0, Male
+44.0,1,"11211.csv,10525.csv,10277.csv",gastritis,94110.0, Male
+44.0,1,"11211.csv,10525.csv,10277.csv",skin cancer,94110.0, Male
+46.0,1,"11137.csv,10168.csv",hypertension,94110.0, Male
+46.0,1,"11137.csv,10168.csv",prostate cancer,94110.0, Male
+46.0,3,"11462.csv,11286.csv,11294.csv",Alzheimer's disease,94110.0, Male
+45.333333333333336,1,"11493.csv,11833.csv,11739.csv",Alzheimer's disease,94110.0, Male
+45.333333333333336,2,"11493.csv,11833.csv,11739.csv",kidney disease,94110.0, Male
+50.0,1,"10675.csv,11441.csv,11013.csv",Alzheimer's disease,90008.0, Male
+50.0,2,"10675.csv,11441.csv,11013.csv",breast cancer,90008.0, Male
+51.0,1,"10572.csv,10607.csv,10203.csv",Alzheimer's disease,89426.66666666667, Male
+51.0,1,"10572.csv,10607.csv,10203.csv",hypertension,89426.66666666667, Male
+51.0,1,"10572.csv,10607.csv,10203.csv",prostate cancer,89426.66666666667, Male
+52.0,1,"10485.csv,11281.csv",Alzheimer's disease,92060.0, Male
+52.0,1,"10485.csv,11281.csv",multiple sclerosis,92060.0, Male
+52.0,1,"11669.csv,11576.csv,11415.csv",Alzheimer's disease,94105.0, Male
+52.0,1,"11669.csv,11576.csv,11415.csv",breast cancer,94105.0, Male
+52.0,1,"11669.csv,11576.csv,11415.csv",gastritis,94105.0, Male
+50.666666666666664,1,"10273.csv,10902.csv,10928.csv",Alzheimer's disease,94110.0, Male
+50.666666666666664,1,"10273.csv,10902.csv,10928.csv",hypertension,94110.0, Male
+50.666666666666664,1,"10273.csv,10902.csv,10928.csv",kidney disease,94110.0, Male
+50.666666666666664,1,"11191.csv,11178.csv,11825.csv",HIV/AIDS,94110.0, Male
+50.666666666666664,1,"11191.csv,11178.csv,11825.csv",multiple sclerosis,94110.0, Male
+50.666666666666664,1,"11191.csv,11178.csv,11825.csv",prostate cancer,94110.0, Male
+54.0,1,"10757.csv,10562.csv,10462.csv",gastritis,89133.0, Male
+54.0,1,"10757.csv,10562.csv,10462.csv",prostate cancer,89133.0, Male
+54.0,1,"10757.csv,10562.csv,10462.csv",skin cancer,89133.0, Male
+53.0,1,"11262.csv,10910.csv",Alzheimer's disease,90015.0, Male
+53.0,1,"11262.csv,10910.csv",kidney disease,90015.0, Male
+53.5,1,"11425.csv,11378.csv",hypertension,90011.5, Male
+53.5,1,"11425.csv,11378.csv",multiple sclerosis,90011.5, Male
+54.0,1,"10028.csv,10224.csv",Alzheimer's disease,94107.5, Male
+54.0,1,"10028.csv,10224.csv",kidney disease,94107.5, Male
+53.666666666666664,1,"10780.csv,10764.csv,10381.csv",diabetes,94106.66666666667, Male
+53.666666666666664,1,"10780.csv,10764.csv,10381.csv",prostate cancer,94106.66666666667, Male
+53.666666666666664,1,"10780.csv,10764.csv,10381.csv",schizophrenia,94106.66666666667, Male
+53.0,1,"11494.csv,10913.csv,11223.csv",breast cancer,94106.66666666667, Male
+53.0,1,"11494.csv,10913.csv,11223.csv",endometriosis,94106.66666666667, Male
+53.0,1,"11494.csv,10913.csv,11223.csv",kidney disease,94106.66666666667, Male
+54.0,1,"11700.csv,11398.csv",heart disease,94110.0, Male
+54.0,1,"11700.csv,11398.csv",prostate cancer,94110.0, Male
+58.5,1,"10789.csv,11176.csv",HIV/AIDS,90011.5, Male
+58.5,1,"10789.csv,11176.csv",prostate cancer,90011.5, Male
+59.0,1,"10355.csv,11544.csv,11344.csv",heart disease,94108.33333333333, Male
+59.0,1,"10355.csv,11544.csv,11344.csv",hypertension,94108.33333333333, Male
+59.0,1,"10355.csv,11544.csv,11344.csv",multiple sclerosis,94108.33333333333, Male
+61.0,1,"11471.csv,11207.csv",Alzheimer's disease,89131.5, Male
+61.0,1,"11471.csv,11207.csv",breast cancer,89131.5, Male
+61.0,1,"11051.csv,11442.csv",kidney disease,90008.0, Male
+61.0,1,"11051.csv,11442.csv",prostate cancer,90008.0, Male
+61.0,1,"11062.csv,10797.csv",hypertension,94107.5, Male
+61.0,1,"11062.csv,10797.csv",multiple sclerosis,94107.5, Male
+61.0,1,"11372.csv,11356.csv,11149.csv",Alzheimer's disease,94108.33333333333, Male
+61.0,1,"11372.csv,11356.csv,11149.csv",breast cancer,94108.33333333333, Male
+61.0,1,"11372.csv,11356.csv,11149.csv",endometriosis,94108.33333333333, Male
+63.5,1,"11736.csv,10326.csv",hypertension,94105.0, Male
+63.5,1,"11736.csv,10326.csv",schizophrenia,94105.0, Male
+65.5,1,"10228.csv,11591.csv",Alzheimer's disease,94105.0, Male
+65.5,1,"10228.csv,11591.csv",kidney disease,94105.0, Male
+69.0,1,"11895.csv,10803.csv,10158.csv",Alzheimer's disease,89426.66666666667, Male
+69.0,1,"11895.csv,10803.csv,10158.csv",endometriosis,89426.66666666667, Male
+69.0,1,"11895.csv,10803.csv,10158.csv",kidney disease,89426.66666666667, Male
+68.5,1,"11474.csv,11101.csv",HIV/AIDS,94105.0, Male
+68.5,1,"11474.csv,11101.csv",breast cancer,94105.0, Male
+67.0,1,"10918.csv,10347.csv",diabetes,94110.0, Male
+67.0,1,"10918.csv,10347.csv",kidney disease,94110.0, Male
+69.5,1,"10648.csv,11957.csv",prostate cancer,94110.0, Male
+69.5,1,"10648.csv,11957.csv",skin cancer,94110.0, Male
+73.66666666666667,1,"11809.csv,11230.csv,10834.csv",gastritis,89717.33333333333, Male
+73.66666666666667,1,"11809.csv,11230.csv,10834.csv",heart disease,89717.33333333333, Male
+73.66666666666667,1,"11809.csv,11230.csv,10834.csv",hypertension,89717.33333333333, Male
+76.0,1,"10101.csv,11035.csv",Alzheimer's disease,91618.5, Male
+76.0,1,"10101.csv,11035.csv",diabetes,91618.5, Male
+41.0,1,"10232.csv,10484.csv",prostate cancer,10001.0, Female
+41.0,1,"10232.csv,10484.csv",skin cancer,10001.0, Female
+40.5,1,"10534.csv,10491.csv",multiple sclerosis,10001.0, Female
+40.5,1,"10534.csv,10491.csv",prostate cancer,10001.0, Female
+39.5,1,"11182.csv,11428.csv",schizophrenia,10026.0, Female
+39.5,1,"11182.csv,11428.csv",skin cancer,10026.0, Female
+41.0,1,"10838.csv,10987.csv",Alzheimer's disease,10026.0, Female
+41.0,1,"10838.csv,10987.csv",skin cancer,10026.0, Female
+44.0,1,"10447.csv,10531.csv",diabetes,10001.0, Female
+44.0,1,"10447.csv,10531.csv",hypertension,10001.0, Female
+45.0,1,"11907.csv,10622.csv",hypertension,10026.0, Female
+45.0,1,"11907.csv,10622.csv",kidney disease,10026.0, Female
+40.0,1,"10847.csv,11152.csv",prostate cancer,43221.0, Female
+40.0,1,"10847.csv,11152.csv",schizophrenia,43221.0, Female
+41.0,2,"10817.csv,11439.csv",skin cancer,43215.5, Female
+49.0,2,"11729.csv,10981.csv,11310.csv",Alzheimer's disease,10017.666666666666, Female
+49.0,1,"11729.csv,10981.csv,11310.csv",kidney disease,10017.666666666666, Female
+50.0,1,"11932.csv,11535.csv",HIV/AIDS,10013.5, Female
+50.0,1,"11932.csv,11535.csv",skin cancer,10013.5, Female
+40.0,1,"11789.csv,10947.csv",HIV/AIDS,44101.0, Female
+40.0,1,"11789.csv,10947.csv",diabetes,44101.0, Female
+40.0,1,"10411.csv,11666.csv",HIV/AIDS,60605.0, Female
+40.0,1,"10411.csv,11666.csv",endometriosis,60605.0, Female
+42.0,1,"11023.csv,11746.csv",Alzheimer's disease,44101.0, Female
+42.0,1,"11023.csv,11746.csv",diabetes,44101.0, Female
+42.0,1,"10252.csv,11405.csv",Alzheimer's disease,60612.0, Female
+42.0,1,"10252.csv,11405.csv",kidney disease,60612.0, Female
+44.0,1,"11883.csv,10706.csv",gastritis,60608.5, Female
+44.0,1,"11883.csv,10706.csv",skin cancer,60608.5, Female
+45.0,1,"10688.csv,11830.csv",breast cancer,60608.5, Female
+45.0,1,"10688.csv,11830.csv",skin cancer,60608.5, Female
+55.0,1,"10732.csv,11224.csv",breast cancer,60605.0, Female
+55.0,1,"10732.csv,11224.csv",prostate cancer,60605.0, Female
+57.0,1,"10537.csv,11602.csv",Alzheimer's disease,52353.0, Female
+57.0,1,"10537.csv,11602.csv",heart disease,52353.0, Female
+58.5,1,"10504.csv,10762.csv",Alzheimer's disease,52353.0, Female
+58.5,1,"10504.csv,10762.csv",hypertension,52353.0, Female
+59.0,1,"11432.csv,11650.csv",Alzheimer's disease,60605.0, Female
+59.0,1,"11432.csv,11650.csv",kidney disease,60605.0, Female
+44.5,1,"10397.csv,10048.csv",Alzheimer's disease,90008.0, Female
+44.5,1,"10397.csv,10048.csv",skin cancer,90008.0, Female
+45.0,1,"10442.csv,10568.csv",Alzheimer's disease,89572.0, Female
+45.0,1,"10442.csv,10568.csv",hypertension,89572.0, Female
+45.0,1,"10735.csv,11122.csv",Alzheimer's disease,89136.0, Female
+45.0,1,"10735.csv,11122.csv",hypertension,89136.0, Female
+44.5,1,"10951.csv,11750.csv",Alzheimer's disease,90008.0, Female
+44.5,1,"10951.csv,11750.csv",kidney disease,90008.0, Female
+18.0,3,"10602.csv,10336.csv,10169.csv",hypertension,10009.333333333334, Male
+19.0,1,"11429.csv,11599.csv,11574.csv",gastritis,10009.333333333334, Male
+19.0,1,"11429.csv,11599.csv,11574.csv",hypertension,10009.333333333334, Male
+19.0,1,"11429.csv,11599.csv,11574.csv",prostate cancer,10009.333333333334, Male
+20.0,1,"10401.csv,10651.csv",HIV/AIDS,10001.0, Male
+20.0,1,"10401.csv,10651.csv",prostate cancer,10001.0, Male
+20.0,1,"11685.csv,11526.csv",Alzheimer's disease,10026.0, Male
+20.0,1,"11685.csv,11526.csv",HIV/AIDS,10026.0, Male
+21.0,1,"10637.csv,10549.csv",diabetes,10013.5, Male
+21.0,1,"10637.csv,10549.csv",endometriosis,10013.5, Male
+21.0,1,"11954.csv,10920.csv,11875.csv",HIV/AIDS,10017.666666666666, Male
+21.0,1,"11954.csv,10920.csv,11875.csv",hypertension,10017.666666666666, Male
+21.0,1,"11954.csv,10920.csv,11875.csv",kidney disease,10017.666666666666, Male
+26.0,1,"10641.csv,11010.csv",hypertension,10013.5, Male
+26.0,1,"10641.csv,11010.csv",schizophrenia,10013.5, Male
+26.0,1,"11525.csv,11484.csv",Alzheimer's disease,10026.0, Male
+26.0,1,"11525.csv,11484.csv",diabetes,10026.0, Male
+28.0,1,"10515.csv,10550.csv,10561.csv",Alzheimer's disease,10009.333333333334, Male
+28.0,1,"10515.csv,10550.csv,10561.csv",multiple sclerosis,10009.333333333334, Male
+28.0,1,"10515.csv,10550.csv,10561.csv",skin cancer,10009.333333333334, Male
+27.666666666666668,1,"10900.csv,10756.csv,10711.csv",HIV/AIDS,10017.666666666666, Male
+27.666666666666668,1,"10900.csv,10756.csv,10711.csv",hypertension,10017.666666666666, Male
+27.666666666666668,1,"10900.csv,10756.csv,10711.csv",schizophrenia,10017.666666666666, Male
+27.666666666666668,1,"11190.csv,11341.csv,11255.csv",breast cancer,10017.666666666666, Male
+27.666666666666668,1,"11190.csv,11341.csv,11255.csv",diabetes,10017.666666666666, Male
+27.666666666666668,1,"11190.csv,11341.csv,11255.csv",hypertension,10017.666666666666, Male
+29.0,1,"11728.csv,10624.csv",Alzheimer's disease,10001.0, Male
+29.0,1,"11728.csv,10624.csv",hypertension,10001.0, Male
+29.0,1,"11783.csv,11949.csv",heart disease,10013.5, Male
+29.0,1,"11783.csv,11949.csv",kidney disease,10013.5, Male
+31.0,2,"10350.csv,10415.csv",Alzheimer's disease,10026.0, Male
+31.0,1,"10645.csv,11085.csv",hypertension,10013.5, Male
+31.0,1,"10645.csv,11085.csv",prostate cancer,10013.5, Male
+31.0,1,"11404.csv,11093.csv",hypertension,10013.5, Male
+31.0,1,"11404.csv,11093.csv",skin cancer,10013.5, Male
+31.0,1,"11873.csv,11582.csv",hypertension,10013.5, Male
+31.0,1,"11873.csv,11582.csv",skin cancer,10013.5, Male
+32.0,1,"10018.csv,10062.csv",diabetes,10013.5, Male
+32.0,1,"10018.csv,10062.csv",kidney disease,10013.5, Male
+32.0,1,"11315.csv,11352.csv",kidney disease,10001.0, Male
+32.0,1,"11315.csv,11352.csv",skin cancer,10001.0, Male
+32.0,1,"11433.csv,11747.csv",hypertension,10013.5, Male
+32.0,1,"11433.csv,11747.csv",kidney disease,10013.5, Male
+32.0,1,"11961.csv,11797.csv",Alzheimer's disease,10013.5, Male
+32.0,1,"11961.csv,11797.csv",diabetes,10013.5, Male
+33.0,1,"10939.csv,11163.csv",gastritis,10001.0, Male
+33.0,1,"10939.csv,11163.csv",hypertension,10001.0, Male
+33.0,1,"11205.csv,11480.csv",hypertension,10026.0, Male
+33.0,1,"11205.csv,11480.csv",prostate cancer,10026.0, Male
+35.0,1,"10058.csv,10309.csv,10416.csv",Alzheimer's disease,10001.0, Male
+35.0,1,"10058.csv,10309.csv,10416.csv",kidney disease,10001.0, Male
+35.0,1,"10058.csv,10309.csv,10416.csv",skin cancer,10001.0, Male
+37.0,1,"10216.csv,10907.csv",Alzheimer's disease,10026.0, Male
+37.0,1,"10216.csv,10907.csv",diabetes,10026.0, Male
+37.0,1,"10974.csv,11113.csv",endometriosis,10013.5, Male
+37.0,1,"10974.csv,11113.csv",multiple sclerosis,10013.5, Male
+37.0,1,"11306.csv,11385.csv",endometriosis,10013.5, Male
+37.0,1,"11306.csv,11385.csv",hypertension,10013.5, Male
+37.0,1,"11490.csv,11688.csv,11387.csv",gastritis,10001.0, Male
+37.0,1,"11490.csv,11688.csv,11387.csv",hypertension,10001.0, Male
+37.0,1,"11490.csv,11688.csv,11387.csv",multiple sclerosis,10001.0, Male
+17.0,1,"10745.csv,10841.csv,10272.csv",gastritis,43217.333333333336, Male
+17.0,1,"10745.csv,10841.csv,10272.csv",hypertension,43217.333333333336, Male
+17.0,1,"10745.csv,10841.csv,10272.csv",schizophrenia,43217.333333333336, Male
+17.333333333333332,1,"11075.csv,11561.csv,11390.csv",gastritis,43213.666666666664, Male
+17.333333333333332,2,"11075.csv,11561.csv,11390.csv",skin cancer,43213.666666666664, Male
+19.0,1,"11020.csv,10507.csv,11076.csv",HIV/AIDS,43213.666666666664, Male
+19.0,1,"11020.csv,10507.csv,11076.csv",endometriosis,43213.666666666664, Male
+19.0,1,"11020.csv,10507.csv,11076.csv",skin cancer,43213.666666666664, Male
+19.0,1,"11651.csv,11824.csv,11823.csv",HIV/AIDS,43217.333333333336, Male
+19.0,1,"11651.csv,11824.csv,11823.csv",diabetes,43217.333333333336, Male
+19.0,1,"11651.csv,11824.csv,11823.csv",multiple sclerosis,43217.333333333336, Male
+23.333333333333332,1,"11360.csv,11406.csv,10915.csv",Alzheimer's disease,43217.333333333336, Male
+23.333333333333332,1,"11360.csv,11406.csv,10915.csv",endometriosis,43217.333333333336, Male
+23.333333333333332,1,"11360.csv,11406.csv,10915.csv",skin cancer,43217.333333333336, Male
+25.0,1,"10017.csv,10220.csv,10045.csv",Alzheimer's disease,43221.0, Male
+25.0,1,"10017.csv,10220.csv,10045.csv",diabetes,43221.0, Male
+25.0,1,"10017.csv,10220.csv,10045.csv",hypertension,43221.0, Male
+24.666666666666668,1,"11821.csv,11844.csv,11457.csv",hypertension,43213.666666666664, Male
+24.666666666666668,1,"11821.csv,11844.csv,11457.csv",multiple sclerosis,43213.666666666664, Male
+24.666666666666668,1,"11821.csv,11844.csv,11457.csv",skin cancer,43213.666666666664, Male
+24.333333333333332,1,"11919.csv,11935.csv,11861.csv",Alzheimer's disease,43217.333333333336, Male
+24.333333333333332,1,"11919.csv,11935.csv,11861.csv",hypertension,43217.333333333336, Male
+24.333333333333332,1,"11919.csv,11935.csv,11861.csv",kidney disease,43217.333333333336, Male
+29.0,1,"10105.csv,10124.csv",breast cancer,43210.0, Male
+29.0,1,"10105.csv,10124.csv",skin cancer,43210.0, Male
+29.0,2,"10441.csv,10749.csv",Alzheimer's disease,43221.0, Male
+29.0,1,"11121.csv,10751.csv",endometriosis,43215.5, Male
+29.0,1,"11121.csv,10751.csv",gastritis,43215.5, Male
+29.0,1,"11901.csv,11583.csv",Alzheimer's disease,43215.5, Male
+29.0,1,"11901.csv,11583.csv",kidney disease,43215.5, Male
+34.0,1,"10095.csv,10186.csv,10514.csv",kidney disease,43213.666666666664, Male
+34.0,1,"10095.csv,10186.csv,10514.csv",multiple sclerosis,43213.666666666664, Male
+34.0,1,"10095.csv,10186.csv,10514.csv",prostate cancer,43213.666666666664, Male
+34.0,1,"10763.csv,11989.csv,10720.csv",Alzheimer's disease,43221.0, Male
+34.0,1,"10763.csv,11989.csv,10720.csv",multiple sclerosis,43221.0, Male
+34.0,1,"10763.csv,11989.csv,10720.csv",skin cancer,43221.0, Male
+35.0,1,"10557.csv,10473.csv",prostate cancer,43215.5, Male
+35.0,1,"10557.csv,10473.csv",skin cancer,43215.5, Male
+35.0,2,"11318.csv,12001.csv,11971.csv",Alzheimer's disease,43217.333333333336, Male
+35.0,1,"11318.csv,12001.csv,11971.csv",hypertension,43217.333333333336, Male
+19.5,2,"10032.csv,10339.csv",kidney disease,44101.0, Male
+19.333333333333332,2,"11659.csv,10446.csv,11593.csv",endometriosis,44101.0, Male
+19.333333333333332,1,"11659.csv,10446.csv,11593.csv",heart disease,44101.0, Male
+28.5,1,"11764.csv,10870.csv",Alzheimer's disease,44101.0, Male
+28.5,1,"11764.csv,10870.csv",breast cancer,44101.0, Male
+30.0,1,"11253.csv,11463.csv",hypertension,44101.0, Male
+30.0,1,"11253.csv,11463.csv",schizophrenia,44101.0, Male
+30.0,1,"11974.csv,11741.csv,11601.csv",endometriosis,44101.0, Male
+30.0,1,"11974.csv,11741.csv,11601.csv",heart disease,44101.0, Male
+30.0,1,"11974.csv,11741.csv,11601.csv",skin cancer,44101.0, Male
+20.333333333333332,1,"10643.csv,10179.csv,10315.csv",Alzheimer's disease,60605.0, Male
+20.333333333333332,1,"10643.csv,10179.csv,10315.csv",hypertension,60605.0, Male
+20.333333333333332,1,"10643.csv,10179.csv,10315.csv",prostate cancer,60605.0, Male
+23.0,1,"11777.csv,11879.csv,10031.csv",HIV/AIDS,60605.0, Male
+23.0,1,"11777.csv,11879.csv,10031.csv",breast cancer,60605.0, Male
+23.0,1,"11777.csv,11879.csv,10031.csv",kidney disease,60605.0, Male
+32.0,1,"11417.csv,10106.csv",Alzheimer's disease,60605.0, Male
+32.0,1,"11417.csv,10106.csv",kidney disease,60605.0, Male
+36.0,1,"10066.csv,10701.csv",HIV/AIDS,44101.0, Male
+36.0,1,"10066.csv,10701.csv",skin cancer,44101.0, Male
+36.0,1,"11443.csv,10713.csv",hypertension,44101.0, Male
+36.0,1,"11443.csv,10713.csv",multiple sclerosis,44101.0, Male
+17.0,1,"11326.csv,10477.csv",kidney disease,89127.0, Male
+17.0,1,"11326.csv,10477.csv",skin cancer,89127.0, Male
+18.5,1,"11500.csv,10788.csv",gastritis,89131.5, Male
+18.5,1,"11500.csv,10788.csv",heart disease,89131.5, Male
+20.0,1,"11370.csv,11215.csv",HIV/AIDS,90008.0, Male
+20.0,1,"11370.csv,11215.csv",prostate cancer,90008.0, Male
+20.0,1,"11503.csv,11674.csv",Alzheimer's disease,90008.0, Male
+20.0,1,"11503.csv,11674.csv",kidney disease,90008.0, Male
+17.0,1,"10263.csv,10372.csv",diabetes,94110.0, Male
+17.0,1,"10263.csv,10372.csv",skin cancer,94110.0, Male
+17.0,1,"10432.csv,10815.csv",Alzheimer's disease,94110.0, Male
+17.0,1,"10432.csv,10815.csv",diabetes,94110.0, Male
+22.666666666666668,1,"10754.csv,11048.csv,10796.csv",breast cancer,89130.0, Male
+22.666666666666668,1,"10754.csv,11048.csv,10796.csv",gastritis,89130.0, Male
+22.666666666666668,1,"10754.csv,11048.csv,10796.csv",multiple sclerosis,89130.0, Male
+22.666666666666668,1,"10684.csv,11816.csv,11382.csv",HIV/AIDS,90008.0, Male
+22.666666666666668,2,"10684.csv,11816.csv,11382.csv",hypertension,90008.0, Male
+22.5,2,"10776.csv,10752.csv",HIV/AIDS,90015.0, Male
+22.666666666666668,1,"10921.csv,11900.csv,11300.csv",Alzheimer's disease,90015.0, Male
+22.666666666666668,1,"10921.csv,11900.csv,11300.csv",diabetes,90015.0, Male
+22.666666666666668,1,"10921.csv,11900.csv,11300.csv",hypertension,90015.0, Male
+25.0,1,"10399.csv,10070.csv",hypertension,89127.0, Male
+25.0,1,"10399.csv,10070.csv",prostate cancer,89127.0, Male
+25.0,1,"10837.csv,10696.csv",breast cancer,89127.0, Male
+25.0,1,"10837.csv,10696.csv",skin cancer,89127.0, Male
+26.0,1,"10307.csv,10360.csv",diabetes,89127.0, Male
+26.0,1,"10307.csv,10360.csv",prostate cancer,89127.0, Male
+26.0,1,"10690.csv,10744.csv",HIV/AIDS,89127.0, Male
+26.0,1,"10690.csv,10744.csv",skin cancer,89127.0, Male
+25.0,1,"11173.csv,11451.csv",heart disease,89136.0, Male
+25.0,1,"11173.csv,11451.csv",skin cancer,89136.0, Male
+26.0,1,"11345.csv,11615.csv",hypertension,89127.0, Male
+26.0,1,"11345.csv,11615.csv",skin cancer,89127.0, Male
+25.5,1,"11899.csv,11898.csv",endometriosis,89127.0, Male
+25.5,1,"11899.csv,11898.csv",heart disease,89127.0, Male
+26.0,1,"11992.csv,11909.csv",prostate cancer,89131.5, Male
+26.0,1,"11992.csv,11909.csv",skin cancer,89131.5, Male
+27.0,2,"11885.csv,11139.csv",Alzheimer's disease,89131.5, Male
+27.0,1,"10883.csv,11272.csv",gastritis,90008.0, Male
+27.0,1,"10883.csv,11272.csv",kidney disease,90008.0, Male
+25.5,1,"10733.csv,11151.csv",endometriosis,90015.0, Male
+25.5,1,"10733.csv,11151.csv",gastritis,90015.0, Male
+25.666666666666668,1,"11682.csv,11511.csv,11159.csv",Alzheimer's disease,90015.0, Male
+25.666666666666668,1,"11682.csv,11511.csv,11159.csv",breast cancer,90015.0, Male
+25.666666666666668,1,"11682.csv,11511.csv,11159.csv",hypertension,90015.0, Male
+27.0,1,"10584.csv,10667.csv",HIV/AIDS,90015.0, Male
+27.0,1,"10584.csv,10667.csv",endometriosis,90015.0, Male
+27.0,1,"11033.csv,11634.csv",HIV/AIDS,90015.0, Male
+27.0,1,"11033.csv,11634.csv",schizophrenia,90015.0, Male
+25.0,1,"10383.csv,10233.csv",breast cancer,94105.0, Male
+25.0,1,"10383.csv,10233.csv",endometriosis,94105.0, Male
+26.0,1,"11770.csv,10614.csv",Alzheimer's disease,94105.0, Male
+26.0,1,"11770.csv,10614.csv",diabetes,94105.0, Male
+30.0,1,"10034.csv,10061.csv",breast cancer,90015.0, Male
+30.0,1,"10034.csv,10061.csv",diabetes,90015.0, Male
+30.0,2,"11202.csv,11027.csv",skin cancer,90015.0, Male
+31.0,1,"10767.csv,10128.csv,10940.csv",gastritis,89133.0, Male
+31.0,2,"10767.csv,10128.csv,10940.csv",hypertension,89133.0, Male
+31.0,1,"11822.csv,11730.csv,11418.csv",gastritis,89133.0, Male
+31.0,1,"11822.csv,11730.csv,11418.csv",hypertension,89133.0, Male
+31.0,1,"11822.csv,11730.csv,11418.csv",skin cancer,89133.0, Male
+31.0,1,"10594.csv,10585.csv,10039.csv",breast cancer,90012.66666666667, Male
+31.0,1,"10594.csv,10585.csv,10039.csv",endometriosis,90012.66666666667, Male
+31.0,1,"10594.csv,10585.csv,10039.csv",prostate cancer,90012.66666666667, Male
+31.0,1,"10698.csv,11872.csv,11107.csv",diabetes,90008.0, Male
+31.0,1,"10698.csv,11872.csv,11107.csv",gastritis,90008.0, Male
+31.0,1,"10698.csv,11872.csv,11107.csv",skin cancer,90008.0, Male
+32.0,1,"10100.csv,10601.csv",breast cancer,89136.0, Male
+32.0,1,"10100.csv,10601.csv",skin cancer,89136.0, Male
+32.0,1,"11056.csv,10926.csv",multiple sclerosis,89131.5, Male
+32.0,1,"11056.csv,10926.csv",skin cancer,89131.5, Male
+32.0,1,"11506.csv,11491.csv",Alzheimer's disease,89136.0, Male
+32.0,1,"11506.csv,11491.csv",hypertension,89136.0, Male
+32.0,1,"11870.csv,11619.csv",hypertension,89127.0, Male
+32.0,1,"11870.csv,11619.csv",skin cancer,89127.0, Male
+34.0,1,"10980.csv,10971.csv",Alzheimer's disease,89127.0, Male
+34.0,1,"10980.csv,10971.csv",kidney disease,89127.0, Male
+33.5,1,"11410.csv,11024.csv",Alzheimer's disease,89131.5, Male
+33.5,1,"11410.csv,11024.csv",breast cancer,89131.5, Male
+30.0,1,"10108.csv,10474.csv",kidney disease,94107.5, Male
+30.0,1,"10108.csv,10474.csv",prostate cancer,94107.5, Male
+30.0,2,"11053.csv,10617.csv",diabetes,94107.5, Male
+30.5,1,"11715.csv,11487.csv",Alzheimer's disease,94105.0, Male
+30.5,1,"11715.csv,11487.csv",gastritis,94105.0, Male
+31.0,1,"11972.csv,11903.csv",breast cancer,94105.0, Male
+31.0,1,"11972.csv,11903.csv",kidney disease,94105.0, Male
+35.0,1,"10231.csv,10605.csv,10129.csv",Alzheimer's disease,89133.0, Male
+35.0,1,"10231.csv,10605.csv,10129.csv",prostate cancer,89133.0, Male
+35.0,1,"10231.csv,10605.csv,10129.csv",skin cancer,89133.0, Male
+35.0,1,"10653.csv,11127.csv,10548.csv",Alzheimer's disease,90015.0, Male
+35.0,2,"10653.csv,11127.csv,10548.csv",skin cancer,90015.0, Male
+36.0,1,"10427.csv,11210.csv",breast cancer,90015.0, Male
+36.0,1,"10427.csv,11210.csv",heart disease,90015.0, Male
+37.0,1,"10574.csv,10098.csv",heart disease,90015.0, Male
+37.0,1,"10574.csv,10098.csv",skin cancer,90015.0, Male
+37.0,2,"11999.csv,11073.csv",prostate cancer,90015.0, Male
+35.0,1,"10323.csv,10208.csv",Alzheimer's disease,94105.0, Male
+35.0,1,"10323.csv,10208.csv",diabetes,94105.0, Male
+35.0,1,"10662.csv,10995.csv,11467.csv",breast cancer,94105.0, Male
+35.0,1,"10662.csv,10995.csv,11467.csv",prostate cancer,94105.0, Male
+35.0,1,"10662.csv,10995.csv,11467.csv",schizophrenia,94105.0, Male
+17.0,1,"10450.csv,10610.csv",gastritis,10001.0, Female
+17.0,1,"10450.csv,10610.csv",skin cancer,10001.0, Female
+18.5,1,"10685.csv,10389.csv",multiple sclerosis,10001.0, Female
+18.5,1,"10685.csv,10389.csv",skin cancer,10001.0, Female
+19.0,1,"10700.csv,10932.csv",Alzheimer's disease,10026.0, Female
+19.0,1,"10700.csv,10932.csv",hypertension,10026.0, Female
+18.333333333333332,1,"11394.csv,11991.csv,11479.csv",breast cancer,10009.333333333334, Female
+18.333333333333332,1,"11394.csv,11991.csv,11479.csv",hypertension,10009.333333333334, Female
+18.333333333333332,1,"11394.csv,11991.csv,11479.csv",multiple sclerosis,10009.333333333334, Female
+23.0,1,"10695.csv,11042.csv",gastritis,10013.5, Female
+23.0,1,"10695.csv,11042.csv",heart disease,10013.5, Female
+28.0,1,"11933.csv,10526.csv,11638.csv",Alzheimer's disease,10009.333333333334, Female
+28.0,1,"11933.csv,10526.csv,11638.csv",hypertension,10009.333333333334, Female
+28.0,1,"11933.csv,10526.csv,11638.csv",schizophrenia,10009.333333333334, Female
+30.0,1,"10634.csv,10811.csv",endometriosis,10026.0, Female
+30.0,1,"10634.csv,10811.csv",skin cancer,10026.0, Female
+30.0,1,"11880.csv,11536.csv",hypertension,10001.0, Female
+30.0,1,"11880.csv,11536.csv",kidney disease,10001.0, Female
+34.0,1,"10857.csv,11039.csv",heart disease,10013.5, Female
+34.0,1,"10857.csv,11039.csv",kidney disease,10013.5, Female
+32.666666666666664,1,"11380.csv,11132.csv,11708.csv",breast cancer,10017.666666666666, Female
+32.666666666666664,1,"11380.csv,11132.csv,11708.csv",hypertension,10017.666666666666, Female
+32.666666666666664,1,"11380.csv,11132.csv,11708.csv",prostate cancer,10017.666666666666, Female
+36.0,2,"10552.csv,10361.csv",Alzheimer's disease,10013.5, Female
+36.0,2,"10964.csv,11868.csv",Alzheimer's disease,10001.0, Female
+29.666666666666668,1,"11995.csv,11226.csv,10434.csv",Alzheimer's disease,44101.0, Female
+29.666666666666668,1,"11995.csv,11226.csv,10434.csv",HIV/AIDS,44101.0, Female
+29.666666666666668,1,"11995.csv,11226.csv,10434.csv",kidney disease,44101.0, Female
+31.0,1,"10072.csv,10292.csv",Alzheimer's disease,44101.0, Female
+31.0,1,"10072.csv,10292.csv",hypertension,44101.0, Female
+32.5,1,"10258.csv,10234.csv",breast cancer,44101.0, Female
+32.5,1,"10258.csv,10234.csv",kidney disease,44101.0, Female
+33.0,1,"11336.csv,11112.csv",breast cancer,44101.0, Female
+33.0,1,"11336.csv,11112.csv",kidney disease,44101.0, Female
+17.0,1,"11348.csv,10107.csv",Alzheimer's disease,89136.0, Female
+17.0,1,"11348.csv,10107.csv",HIV/AIDS,89136.0, Female
+17.0,1,"10672.csv,11774.csv",hypertension,90008.0, Female
+17.0,1,"10672.csv,11774.csv",kidney disease,90008.0, Female
+18.0,2,"10861.csv,10944.csv",skin cancer,89131.5, Female
+18.0,1,"11945.csv,11434.csv",HIV/AIDS,89572.0, Female
+18.0,1,"11945.csv,11434.csv",hypertension,89572.0, Female
+40.0,1,"10358.csv,10373.csv,10241.csv",breast cancer,10009.333333333334, Male
+40.0,1,"10358.csv,10373.csv,10241.csv",diabetes,10009.333333333334, Male
+40.0,1,"10358.csv,10373.csv,10241.csv",skin cancer,10009.333333333334, Male
+41.0,1,"10876.csv,10784.csv,10238.csv",Alzheimer's disease,10017.666666666666, Male
+41.0,1,"10876.csv,10784.csv,10238.csv",hypertension,10017.666666666666, Male
+41.0,1,"10876.csv,10784.csv,10238.csv",multiple sclerosis,10017.666666666666, Male
+43.5,1,"10659.csv,10660.csv",gastritis,10013.5, Male
+43.5,1,"10659.csv,10660.csv",multiple sclerosis,10013.5, Male
+44.0,2,"11092.csv,10950.csv",breast cancer,10013.5, Male
+43.0,1,"11569.csv,11309.csv",heart disease,10013.5, Male
+43.0,1,"11569.csv,11309.csv",kidney disease,10013.5, Male
+44.0,1,"11923.csv,11695.csv",Alzheimer's disease,10026.0, Male
+44.0,1,"11923.csv,11695.csv",hypertension,10026.0, Male
+39.0,1,"10167.csv,10536.csv",multiple sclerosis,43215.5, Male
+39.0,1,"10167.csv,10536.csv",prostate cancer,43215.5, Male
+39.0,1,"10755.csv,10616.csv",breast cancer,43210.0, Male
+39.0,1,"10755.csv,10616.csv",skin cancer,43210.0, Male
+39.0,1,"11325.csv,11103.csv",gastritis,43215.5, Male
+39.0,1,"11325.csv,11103.csv",heart disease,43215.5, Male
+39.0,1,"11413.csv,11631.csv,11980.csv",Alzheimer's disease,43217.333333333336, Male
+39.0,1,"11413.csv,11631.csv,11980.csv",hypertension,43217.333333333336, Male
+39.0,1,"11413.csv,11631.csv,11980.csv",skin cancer,43217.333333333336, Male
+46.0,1,"10799.csv,10551.csv",Alzheimer's disease,43215.5, Male
+46.0,1,"10799.csv,10551.csv",kidney disease,43215.5, Male
+45.5,1,"10991.csv,10985.csv",Alzheimer's disease,43221.0, Male
+45.5,1,"10991.csv,10985.csv",skin cancer,43221.0, Male
+45.0,1,"11447.csv,11386.csv",Alzheimer's disease,43215.5, Male
+45.0,1,"11447.csv,11386.csv",prostate cancer,43215.5, Male
+45.0,1,"11562.csv,11928.csv",prostate cancer,43215.5, Male
+45.0,1,"11562.csv,11928.csv",skin cancer,43215.5, Male
+39.333333333333336,1,"10456.csv,10869.csv,11000.csv",breast cancer,44101.0, Male
+39.333333333333336,1,"10456.csv,10869.csv,11000.csv",prostate cancer,44101.0, Male
+39.333333333333336,1,"10456.csv,10869.csv,11000.csv",schizophrenia,44101.0, Male
+41.0,1,"11140.csv,10193.csv,10792.csv",Alzheimer's disease,44101.0, Male
+41.0,1,"11140.csv,10193.csv,10792.csv",breast cancer,44101.0, Male
+41.0,1,"11140.csv,10193.csv,10792.csv",schizophrenia,44101.0, Male
+43.0,1,"10738.csv,10508.csv,10346.csv",diabetes,44101.0, Male
+43.0,1,"10738.csv,10508.csv,10346.csv",kidney disease,44101.0, Male
+43.0,1,"10738.csv,10508.csv,10346.csv",prostate cancer,44101.0, Male
+42.666666666666664,1,"11234.csv,10800.csv,10931.csv",diabetes,44101.0, Male
+42.666666666666664,2,"11234.csv,10800.csv,10931.csv",gastritis,44101.0, Male
+45.0,2,"10033.csv,10165.csv",breast cancer,44101.0, Male
+45.0,1,"11840.csv,11897.csv,11613.csv",Alzheimer's disease,44101.0, Male
+45.0,1,"11840.csv,11897.csv,11613.csv",hypertension,44101.0, Male
+45.0,1,"11840.csv,11897.csv,11613.csv",kidney disease,44101.0, Male
+46.0,1,"10354.csv,10393.csv",gastritis,44101.0, Male
+46.0,1,"10354.csv,10393.csv",multiple sclerosis,44101.0, Male
+46.0,1,"11426.csv,11277.csv",hypertension,44101.0, Male
+46.0,1,"11426.csv,11277.csv",kidney disease,44101.0, Male
+47.0,1,"11608.csv,11279.csv",schizophrenia,44101.0, Male
+47.0,1,"11608.csv,11279.csv",skin cancer,44101.0, Male
+48.0,1,"11030.csv,11320.csv",breast cancer,44101.0, Male
+48.0,1,"11030.csv,11320.csv",kidney disease,44101.0, Male
+42.5,1,"10604.csv,10056.csv",breast cancer,60605.0, Male
+42.5,1,"10604.csv,10056.csv",gastritis,60605.0, Male
+43.0,1,"11676.csv,11412.csv,11061.csv",hypertension,60605.0, Male
+43.0,1,"11676.csv,11412.csv,11061.csv",prostate cancer,60605.0, Male
+43.0,1,"11676.csv,11412.csv,11061.csv",skin cancer,60605.0, Male
+44.0,1,"10530.csv,10396.csv",gastritis,60605.0, Male
+44.0,1,"10530.csv,10396.csv",skin cancer,60605.0, Male
+44.0,1,"10871.csv,10975.csv",HIV/AIDS,60605.0, Male
+44.0,1,"10871.csv,10975.csv",diabetes,60605.0, Male
+44.0,1,"11204.csv,11448.csv",Alzheimer's disease,60605.0, Male
+44.0,1,"11204.csv,11448.csv",skin cancer,60605.0, Male
+44.0,1,"11656.csv,11951.csv",gastritis,60605.0, Male
+44.0,1,"11656.csv,11951.csv",kidney disease,60605.0, Male
+40.0,1,"10249.csv,10707.csv",diabetes,60612.0, Male
+40.0,1,"10249.csv,10707.csv",skin cancer,60612.0, Male
+40.0,1,"11144.csv,10896.csv",Alzheimer's disease,60612.0, Male
+40.0,1,"11144.csv,10896.csv",multiple sclerosis,60612.0, Male
+39.0,1,"11788.csv,11905.csv",Alzheimer's disease,60612.0, Male
+39.0,1,"11788.csv,11905.csv",skin cancer,60612.0, Male
+40.0,1,"11465.csv,11532.csv",breast cancer,60612.0, Male
+40.0,1,"11465.csv,11532.csv",hypertension,60612.0, Male
+44.0,1,"10211.csv,11516.csv",diabetes,60612.0, Male
+44.0,1,"10211.csv,11516.csv",multiple sclerosis,60612.0, Male
+44.0,1,"11622.csv,11662.csv",Alzheimer's disease,60612.0, Male
+44.0,1,"11622.csv,11662.csv",gastritis,60612.0, Male
+50.5,1,"11667.csv,11449.csv",hypertension,10001.0, Male
+50.5,1,"11667.csv,11449.csv",skin cancer,10001.0, Male
+51.0,1,"11673.csv,11773.csv",kidney disease,10013.5, Male
+51.0,1,"11673.csv,11773.csv",skin cancer,10013.5, Male
+53.0,1,"10047.csv,11414.csv",endometriosis,10013.5, Male
+53.0,1,"10047.csv,11414.csv",multiple sclerosis,10013.5, Male
+49.5,1,"10403.csv,10338.csv",hypertension,43215.5, Male
+49.5,1,"10403.csv,10338.csv",schizophrenia,43215.5, Male
+50.0,1,"10646.csv,11002.csv,10993.csv",endometriosis,43217.333333333336, Male
+50.0,1,"10646.csv,11002.csv,10993.csv",hypertension,43217.333333333336, Male
+50.0,1,"10646.csv,11002.csv,10993.csv",skin cancer,43217.333333333336, Male
+49.5,2,"11248.csv,11290.csv",hypertension,43210.0, Male
+49.666666666666664,1,"11806.csv,11939.csv,11982.csv",Alzheimer's disease,43210.0, Male
+49.666666666666664,1,"11806.csv,11939.csv,11982.csv",HIV/AIDS,43210.0, Male
+49.666666666666664,1,"11806.csv,11939.csv,11982.csv",diabetes,43210.0, Male
+56.333333333333336,1,"11445.csv,11334.csv,10818.csv",hypertension,10009.333333333334, Male
+56.333333333333336,1,"11445.csv,11334.csv,10818.csv",multiple sclerosis,10009.333333333334, Male
+56.333333333333336,1,"11445.csv,11334.csv,10818.csv",prostate cancer,10009.333333333334, Male
+58.333333333333336,1,"10329.csv,11837.csv,11778.csv",Alzheimer's disease,10009.333333333334, Male
+58.333333333333336,1,"10329.csv,11837.csv,11778.csv",diabetes,10009.333333333334, Male
+58.333333333333336,1,"10329.csv,11837.csv,11778.csv",skin cancer,10009.333333333334, Male
+60.5,1,"10214.csv,10141.csv",Alzheimer's disease,10013.5, Male
+60.5,1,"10214.csv,10141.csv",endometriosis,10013.5, Male
+61.0,1,"11985.csv,11863.csv,11555.csv",breast cancer,10001.0, Male
+61.0,1,"11985.csv,11863.csv,11555.csv",gastritis,10001.0, Male
+61.0,1,"11985.csv,11863.csv,11555.csv",schizophrenia,10001.0, Male
+57.333333333333336,1,"10996.csv,10255.csv,10190.csv",Alzheimer's disease,43210.0, Male
+57.333333333333336,2,"10996.csv,10255.csv,10190.csv",multiple sclerosis,43210.0, Male
+57.666666666666664,2,"11006.csv,11430.csv,11355.csv",hypertension,43210.0, Male
+57.666666666666664,1,"11006.csv,11430.csv,11355.csv",skin cancer,43210.0, Male
+63.666666666666664,1,"11677.csv,10222.csv,11128.csv",Alzheimer's disease,10009.333333333334, Male
+63.666666666666664,1,"11677.csv,10222.csv,11128.csv",breast cancer,10009.333333333334, Male
+63.666666666666664,1,"11677.csv,10222.csv,11128.csv",heart disease,10009.333333333334, Male
+65.0,1,"11283.csv,10296.csv",breast cancer,10001.0, Male
+65.0,1,"11283.csv,10296.csv",kidney disease,10001.0, Male
+64.0,1,"10730.csv,10840.csv",breast cancer,43221.0, Male
+64.0,1,"10730.csv,10840.csv",hypertension,43221.0, Male
+65.0,1,"11188.csv,11167.csv,11244.csv",Alzheimer's disease,43217.333333333336, Male
+65.0,1,"11188.csv,11167.csv,11244.csv",hypertension,43217.333333333336, Male
+65.0,1,"11188.csv,11167.csv,11244.csv",kidney disease,43217.333333333336, Male
+49.0,1,"10030.csv,10087.csv",endometriosis,44101.0, Male
+49.0,1,"10030.csv,10087.csv",gastritis,44101.0, Male
+49.333333333333336,1,"11534.csv,11575.csv,11200.csv",HIV/AIDS,44101.0, Male
+49.333333333333336,1,"11534.csv,11575.csv,11200.csv",kidney disease,44101.0, Male
+49.333333333333336,1,"11534.csv,11575.csv,11200.csv",prostate cancer,44101.0, Male
+51.0,1,"11186.csv,10448.csv",breast cancer,44101.0, Male
+51.0,1,"11186.csv,10448.csv",skin cancer,44101.0, Male
+51.0,1,"11696.csv,11335.csv,11627.csv",Alzheimer's disease,44101.0, Male
+51.0,2,"11696.csv,11335.csv,11627.csv",HIV/AIDS,44101.0, Male
+53.0,1,"10004.csv,10042.csv",gastritis,44101.0, Male
+53.0,1,"10004.csv,10042.csv",multiple sclerosis,44101.0, Male
+52.5,1,"10155.csv,10116.csv",Alzheimer's disease,44101.0, Male
+52.5,1,"10155.csv,10116.csv",prostate cancer,44101.0, Male
+49.0,1,"11454.csv,11079.csv",hypertension,60605.0, Male
+49.0,1,"11454.csv,11079.csv",prostate cancer,60605.0, Male
+49.0,1,"11502.csv,11815.csv",endometriosis,60605.0, Male
+49.0,1,"11502.csv,11815.csv",schizophrenia,60605.0, Male
+49.5,1,"11799.csv,11713.csv",endometriosis,60612.0, Male
+49.5,1,"11799.csv,11713.csv",hypertension,60612.0, Male
+49.0,1,"11964.csv,11997.csv",Alzheimer's disease,60612.0, Male
+49.0,1,"11964.csv,11997.csv",gastritis,60612.0, Male
+39.0,2,"10001.csv,10849.csv",hypertension,89131.5, Male
+40.0,1,"10184.csv,10021.csv",prostate cancer,89131.5, Male
+40.0,1,"10184.csv,10021.csv",schizophrenia,89131.5, Male
+40.0,1,"11338.csv,11170.csv",Alzheimer's disease,89127.0, Male
+40.0,1,"11338.csv,11170.csv",endometriosis,89127.0, Male
+39.666666666666664,1,"11914.csv,11956.csv,11357.csv",breast cancer,89133.0, Male
+39.666666666666664,1,"11914.csv,11956.csv,11357.csv",hypertension,89133.0, Male
+39.666666666666664,1,"11914.csv,11956.csv,11357.csv",kidney disease,89133.0, Male
+39.0,1,"10879.csv,10321.csv",diabetes,90011.5, Male
+39.0,1,"10879.csv,10321.csv",prostate cancer,90011.5, Male
+39.0,1,"11337.csv,11584.csv",HIV/AIDS,90008.0, Male
+39.0,1,"11337.csv,11584.csv",hypertension,90008.0, Male
+40.0,2,"10978.csv,11388.csv",hypertension,90008.0, Male
+40.0,2,"11633.csv,11422.csv",Alzheimer's disease,90015.0, Male
+41.0,1,"10049.csv,10331.csv",Alzheimer's disease,89127.0, Male
+41.0,1,"10049.csv,10331.csv",hypertension,89127.0, Male
+41.0,1,"10938.csv,10722.csv",Alzheimer's disease,89127.0, Male
+41.0,1,"10938.csv,10722.csv",skin cancer,89127.0, Male
+41.0,1,"11021.csv,10956.csv",breast cancer,89131.5, Male
+41.0,1,"11021.csv,10956.csv",heart disease,89131.5, Male
+41.0,1,"11118.csv,11104.csv,11424.csv",Alzheimer's disease,89133.0, Male
+41.0,1,"11118.csv,11104.csv,11424.csv",heart disease,89133.0, Male
+41.0,1,"11118.csv,11104.csv,11424.csv",hypertension,89133.0, Male
+43.0,1,"10567.csv,10664.csv",Alzheimer's disease,89136.0, Male
+43.0,1,"10567.csv,10664.csv",kidney disease,89136.0, Male
+43.0,2,"10952.csv,10813.csv",hypertension,89131.5, Male
+42.0,1,"11916.csv,11896.csv,11280.csv",endometriosis,89130.0, Male
+42.0,1,"11916.csv,11896.csv,11280.csv",hypertension,89130.0, Male
+42.0,1,"11916.csv,11896.csv,11280.csv",skin cancer,89130.0, Male
+43.0,1,"11485.csv,11155.csv,11395.csv",HIV/AIDS,89130.0, Male
+43.0,1,"11485.csv,11155.csv,11395.csv",hypertension,89130.0, Male
+43.0,1,"11485.csv,11155.csv,11395.csv",skin cancer,89130.0, Male
+43.0,1,"11663.csv,11683.csv",Alzheimer's disease,90008.0, Male
+43.0,1,"11663.csv,11683.csv",kidney disease,90008.0, Male
+43.0,1,"11710.csv,11820.csv",prostate cancer,90008.0, Male
+43.0,1,"11710.csv,11820.csv",skin cancer,90008.0, Male
+39.0,1,"10130.csv,10029.csv",endometriosis,94107.5, Male
+39.0,1,"10130.csv,10029.csv",hypertension,94107.5, Male
+39.0,1,"11008.csv,10916.csv",Alzheimer's disease,94107.5, Male
+39.0,1,"11008.csv,10916.csv",skin cancer,94107.5, Male
+39.0,1,"11193.csv,11293.csv",gastritis,94107.5, Male
+39.0,1,"11193.csv,11293.csv",skin cancer,94107.5, Male
+39.0,2,"11941.csv,11464.csv,11784.csv",Alzheimer's disease,94110.0, Male
+39.0,1,"11941.csv,11464.csv,11784.csv",hypertension,94110.0, Male
+41.0,1,"11091.csv,11549.csv",hypertension,94105.0, Male
+41.0,1,"11091.csv,11549.csv",skin cancer,94105.0, Male
+42.0,1,"11642.csv,11882.csv",multiple sclerosis,94105.0, Male
+42.0,1,"11642.csv,11882.csv",skin cancer,94105.0, Male
+44.0,1,"11665.csv,11572.csv,10989.csv",diabetes,90015.0, Male
+44.0,1,"11665.csv,11572.csv,10989.csv",hypertension,90015.0, Male
+44.0,1,"11665.csv,11572.csv,10989.csv",skin cancer,90015.0, Male
+44.0,1,"11699.csv,11671.csv,11906.csv",breast cancer,90015.0, Male
+44.0,1,"11699.csv,11671.csv,11906.csv",endometriosis,90015.0, Male
+44.0,1,"11699.csv,11671.csv,11906.csv",skin cancer,90015.0, Male
+49.0,1,"10118.csv,10469.csv",Alzheimer's disease,89136.0, Male
+49.0,1,"10118.csv,10469.csv",kidney disease,89136.0, Male
+50.0,1,"10288.csv,10464.csv",endometriosis,89131.5, Male
+50.0,1,"10288.csv,10464.csv",prostate cancer,89131.5, Male
+50.0,1,"11268.csv,10618.csv",Alzheimer's disease,89131.5, Male
+50.0,1,"11268.csv,10618.csv",breast cancer,89131.5, Male
+50.0,1,"11610.csv,11400.csv",Alzheimer's disease,89131.5, Male
+50.0,1,"11610.csv,11400.csv",hypertension,89131.5, Male
+49.0,1,"10511.csv,10140.csv",breast cancer,90008.0, Male
+49.0,1,"10511.csv,10140.csv",gastritis,90008.0, Male
+49.0,1,"10630.csv,11661.csv,11059.csv",gastritis,90008.0, Male
+49.0,1,"10630.csv,11661.csv,11059.csv",prostate cancer,90008.0, Male
+49.0,1,"10630.csv,11661.csv,11059.csv",skin cancer,90008.0, Male
+51.0,1,"11399.csv,11154.csv",Alzheimer's disease,90008.0, Male
+51.0,1,"11399.csv,11154.csv",gastritis,90008.0, Male
+51.0,1,"11722.csv,11813.csv",Alzheimer's disease,89567.5, Male
+51.0,1,"11722.csv,11813.csv",kidney disease,89567.5, Male
+49.666666666666664,1,"10002.csv,10069.csv,10724.csv",Alzheimer's disease,92741.66666666667, Male
+49.666666666666664,1,"10002.csv,10069.csv,10724.csv",diabetes,92741.66666666667, Male
+49.666666666666664,1,"10002.csv,10069.csv,10724.csv",endometriosis,92741.66666666667, Male
+51.0,1,"10173.csv,11826.csv",Alzheimer's disease,90015.0, Male
+51.0,1,"10173.csv,11826.csv",kidney disease,90015.0, Male
+51.0,2,"10955.csv,11564.csv",hypertension,94105.0, Male
+53.0,1,"11120.csv,11483.csv",breast cancer,89131.5, Male
+53.0,1,"11120.csv,11483.csv",multiple sclerosis,89131.5, Male
+54.0,1,"11987.csv,11009.csv",Alzheimer's disease,89131.5, Male
+54.0,1,"11987.csv,11009.csv",hypertension,89131.5, Male
+57.0,1,"10046.csv,11636.csv",Alzheimer's disease,94105.0, Male
+57.0,1,"10046.csv,11636.csv",gastritis,94105.0, Male
+58.0,1,"11482.csv,11083.csv",gastritis,94107.5, Male
+58.0,1,"11482.csv,11083.csv",prostate cancer,94107.5, Male
+63.0,1,"11876.csv,10901.csv",endometriosis,89131.5, Male
+63.0,1,"11876.csv,10901.csv",hypertension,89131.5, Male
+63.0,1,"10886.csv,10487.csv",Alzheimer's disease,90008.0, Male
+63.0,1,"10886.csv,10487.csv",breast cancer,90008.0, Male
+64.5,1,"10581.csv,10268.csv",Alzheimer's disease,89572.0, Male
+64.5,1,"10581.csv,10268.csv",kidney disease,89572.0, Male
+65.5,1,"11762.csv,10687.csv",Alzheimer's disease,89131.5, Male
+65.5,1,"11762.csv,10687.csv",kidney disease,89131.5, Male
+51.0,1,"10217.csv,11628.csv",kidney disease,44101.0, Female
+51.0,1,"10217.csv,11628.csv",skin cancer,44101.0, Female
+52.0,1,"11641.csv,11832.csv,11803.csv",hypertension,44101.0, Female
+52.0,2,"11641.csv,11832.csv,11803.csv",prostate cancer,44101.0, Female
+50.0,1,"11172.csv,11229.csv",diabetes,60605.0, Female
+50.0,1,"11172.csv,11229.csv",hypertension,60605.0, Female
+51.0,1,"11403.csv,11232.csv",hypertension,60605.0, Female
+51.0,1,"11403.csv,11232.csv",multiple sclerosis,60605.0, Female
+23.5,1,"10157.csv,10316.csv",breast cancer,10001.0, Male
+23.5,1,"10157.csv,10316.csv",multiple sclerosis,10001.0, Male
+24.0,1,"10443.csv,10523.csv",hypertension,10026.0, Male
+24.0,1,"10443.csv,10523.csv",kidney disease,10026.0, Male
+23.5,1,"10887.csv,10830.csv",diabetes,10001.0, Male
+23.5,1,"10887.csv,10830.csv",hypertension,10001.0, Male
+24.0,1,"11731.csv,11578.csv",hypertension,10013.5, Male
+24.0,1,"11731.csv,11578.csv",skin cancer,10013.5, Male
+27.5,1,"11437.csv,11546.csv",Alzheimer's disease,10013.5, Male
+27.5,1,"11437.csv,11546.csv",kidney disease,10013.5, Male
+28.0,1,"11854.csv,11801.csv",hypertension,10013.5, Male
+28.0,1,"11854.csv,11801.csv",prostate cancer,10013.5, Male
+35.0,1,"11241.csv,10905.csv",schizophrenia,10013.5, Male
+35.0,1,"11241.csv,10905.csv",skin cancer,10013.5, Male
+35.0,1,"11812.csv,11649.csv",breast cancer,10026.0, Male
+35.0,1,"11812.csv,11649.csv",skin cancer,10026.0, Male
+26.0,1,"10833.csv,11371.csv",endometriosis,44101.0, Male
+26.0,1,"10833.csv,11371.csv",heart disease,44101.0, Male
+27.0,1,"10911.csv,10174.csv",heart disease,44101.0, Male
+27.0,1,"10911.csv,10174.csv",skin cancer,44101.0, Male
+32.0,1,"10513.csv,10825.csv",hypertension,44101.0, Male
+32.0,1,"10513.csv,10825.csv",skin cancer,44101.0, Male
+32.0,1,"11960.csv,11768.csv",multiple sclerosis,44101.0, Male
+32.0,1,"11960.csv,11768.csv",skin cancer,44101.0, Male
+17.5,2,"10573.csv,10577.csv",skin cancer,90015.0, Male
+17.0,1,"10673.csv,11552.csv",kidney disease,90015.0, Male
+17.0,1,"10673.csv,11552.csv",skin cancer,90015.0, Male
+19.0,1,"10143.csv,10071.csv",Alzheimer's disease,90015.0, Male
+19.0,1,"10143.csv,10071.csv",gastritis,90015.0, Male
+19.0,1,"10267.csv,10254.csv",Alzheimer's disease,90015.0, Male
+19.0,1,"10267.csv,10254.csv",gastritis,90015.0, Male
+22.0,1,"10365.csv,10035.csv",heart disease,89131.5, Male
+22.0,1,"10365.csv,10035.csv",hypertension,89131.5, Male
+23.0,1,"10240.csv,10196.csv",Alzheimer's disease,89127.0, Male
+23.0,1,"10240.csv,10196.csv",heart disease,89127.0, Male
+22.5,1,"10378.csv,10478.csv",Alzheimer's disease,89136.0, Male
+22.5,1,"10378.csv,10478.csv",breast cancer,89136.0, Male
+23.0,1,"10498.csv,10501.csv",gastritis,89131.5, Male
+23.0,1,"10498.csv,10501.csv",prostate cancer,89131.5, Male
+30.0,1,"10899.csv,10123.csv",gastritis,89131.5, Male
+30.0,1,"10899.csv,10123.csv",hypertension,89131.5, Male
+30.0,1,"11407.csv,11926.csv,11648.csv",diabetes,89133.0, Male
+30.0,2,"11407.csv,11926.csv,11648.csv",kidney disease,89133.0, Male
+30.0,1,"11057.csv,10626.csv",Alzheimer's disease,90008.0, Male
+30.0,1,"11057.csv,10626.csv",endometriosis,90008.0, Male
+30.0,1,"11069.csv,11839.csv",breast cancer,90008.0, Male
+30.0,1,"11069.csv,11839.csv",diabetes,90008.0, Male
+35.0,2,"11067.csv,10967.csv",kidney disease,89127.0, Male
+35.0,1,"11435.csv,11668.csv",Alzheimer's disease,89131.5, Male
+35.0,1,"11435.csv,11668.csv",heart disease,89131.5, Male
+22.0,1,"10929.csv,10318.csv",endometriosis,10001.0, Female
+22.0,1,"10929.csv,10318.csv",hypertension,10001.0, Female
+22.0,1,"11886.csv,11071.csv",breast cancer,10013.5, Female
+22.0,1,"11886.csv,11071.csv",skin cancer,10013.5, Female
+27.0,1,"10176.csv,10575.csv",kidney disease,10013.5, Female
+27.0,1,"10176.csv,10575.csv",prostate cancer,10013.5, Female
+27.0,1,"11925.csv,10615.csv",Alzheimer's disease,10013.5, Female
+27.0,1,"11925.csv,10615.csv",skin cancer,10013.5, Female
+39.0,1,"11609.csv,11543.csv",Alzheimer's disease,10001.0, Male
+39.0,1,"11609.csv,11543.csv",hypertension,10001.0, Male
+40.0,1,"11586.csv,11724.csv",breast cancer,10013.5, Male
+40.0,1,"11586.csv,11724.csv",prostate cancer,10013.5, Male
+41.0,1,"11460.csv,11084.csv",kidney disease,10013.5, Male
+41.0,1,"11460.csv,11084.csv",skin cancer,10013.5, Male
+41.0,1,"11805.csv,11558.csv",Alzheimer's disease,10013.5, Male
+41.0,1,"11805.csv,11558.csv",HIV/AIDS,10013.5, Male
+39.5,1,"11354.csv,10122.csv",hypertension,60605.0, Male
+39.5,1,"11354.csv,10122.csv",skin cancer,60605.0, Male
+39.666666666666664,1,"11758.csv,11871.csv,11912.csv",diabetes,60605.0, Male
+39.666666666666664,1,"11758.csv,11871.csv,11912.csv",schizophrenia,60605.0, Male
+39.666666666666664,1,"11758.csv,11871.csv,11912.csv",skin cancer,60605.0, Male
+41.0,1,"10689.csv,10059.csv",Alzheimer's disease,60605.0, Male
+41.0,1,"10689.csv,10059.csv",hypertension,60605.0, Male
+41.0,1,"11319.csv,11655.csv",Alzheimer's disease,60605.0, Male
+41.0,1,"11319.csv,11655.csv",breast cancer,60605.0, Male
+52.0,1,"10082.csv,11054.csv",diabetes,10013.5, Male
+52.0,1,"10082.csv,11054.csv",multiple sclerosis,10013.5, Male
+52.0,1,"11819.csv,11810.csv",Alzheimer's disease,10013.5, Male
+52.0,1,"11819.csv,11810.csv",prostate cancer,10013.5, Male
+49.5,1,"11772.csv,11065.csv",diabetes,92060.0, Male
+49.5,1,"11772.csv,11065.csv",gastritis,92060.0, Male
+50.0,2,"11963.csv,11994.csv",kidney disease,94105.0, Male
+57.5,1,"10635.csv,10286.csv",prostate cancer,89131.5, Male
+57.5,1,"10635.csv,10286.csv",schizophrenia,89131.5, Male
+59.0,1,"10236.csv,10084.csv",diabetes,89136.0, Male
+59.0,1,"10236.csv,10084.csv",kidney disease,89136.0, Male
+58.5,1,"11291.csv,11198.csv",Alzheimer's disease,89127.0, Male
+58.5,1,"11291.csv,11198.csv",hypertension,89127.0, Male
+59.0,1,"11515.csv,11807.csv",HIV/AIDS,89131.5, Male
+59.0,1,"11515.csv,11807.csv",kidney disease,89131.5, Male
